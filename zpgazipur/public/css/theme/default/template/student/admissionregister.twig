@@ -1,0 +1,237 @@
+{{ header }}
+<div id="account-register" class="container">
+  <div class="row">
+	<div class="col-sm-12">
+		{{ content_top }}
+	</div>
+  </div>
+  {% if error_warning %}
+  <div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}</div>
+  {% endif %}
+  
+  <div class="row">{{ column_left }}
+    {% if column_left and column_right %}
+    {% set class = 'col-sm-6' %}
+    {% elseif column_left or column_right %}
+    {% set class = 'col-sm-9' %}
+    {% else %}
+    {% set class = 'col-sm-12' %}
+    {% endif %}
+    <div class="col-sm-9 col-md-9">
+      <h1 class="text-center">{{ heading_title }}</h1><hr/>
+      <form action="{{ action }}" method="post" enctype="multipart/form-data" class="form-horizontal">
+        <fieldset id="account">
+          <div class="form-group">
+            <label class="col-sm-4 control-label" for="input-coursenameid">{{ entry_coursenameid }}</label>
+            <div class="col-sm-6">
+              <select name="coursenameid" id="input-coursenameid" class="form-control">
+					<option value="-1">{{ entry_coursenameid }}</option>
+					{% for course in courses %}
+						<option value="{{ course.id }}">{{ course.coursename }}</option>
+					{% endfor %}
+			  </select>
+			  {% if error_coursenameid %}
+              <div class="text-danger">{{ error_coursenameid }}</div>
+              {% endif %} </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-4 control-label" for="input-studentname">{{ entry_studentname }}</label>
+            <div class="col-sm-6">
+              <input type="text" name="studentname" value="{{ studentname }}" placeholder="{{ entry_studentname }}" id="input-studentname" class="form-control" />
+              {% if error_studentname %}
+              <div class="text-danger">{{ error_studentname }}</div>
+              {% endif %} </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-4 control-label" for="input-fathername">{{ entry_fathername }}</label>
+            <div class="col-sm-6">
+              <input type="text" name="fathername" value="{{ fathername }}" placeholder="{{ entry_fathername }}" id="input-fathername" class="form-control" />
+              {% if error_fathername %}
+              <div class="text-danger">{{ error_fathername }}</div>
+              {% endif %} </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-4 control-label" for="input-mothername">{{ entry_mothername }}</label>
+            <div class="col-sm-6">
+              <input type="text" name="mothername" value="{{ mothername }}" placeholder="{{ entry_mothername }}" id="input-mothername" class="form-control" />
+              {% if error_mothername %}
+              <div class="text-danger">{{ error_mothername }}</div>
+              {% endif %} </div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <div class="form-group">
+            <label class="col-sm-4 control-label" for="input-gurdianoccupation">{{ entry_gurdianoccupation }}</label>
+            <div class="col-sm-6">
+              <input type="text" name="gurdianoccupation" value="{{ gurdianoccupation }}" placeholder="{{ entry_gurdianoccupation }}" id="input-gurdianoccupation" class="form-control" />
+              {% if error_gurdianoccupation %}
+              <div class="text-danger">{{ error_gurdianoccupation }}</div>
+              {% endif %} </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-4 control-label" for="input-studentpermanentaddress">{{ entry_studentpermanentaddress }}</label>
+            <div class="col-sm-6">
+              <input type="text" name="studentpermanentaddress" value="{{ studentpermanentaddress }}" placeholder="{{ entry_studentpermanentaddress }}" id="input-studentpermanentaddress" class="form-control" />
+              {% if error_studentpermanentaddress %}
+              <div class="text-danger">{{ error_studentpermanentaddress }}</div>
+              {% endif %} </div>
+          </div>
+		  <div class="form-group">
+            <label class="col-sm-4 control-label" for="input-studentpresentaddress">{{ entry_studentpresentaddress }}</label>
+            <div class="col-sm-6">
+              <input type="text" name="studentpresentaddress" value="{{ studentpresentaddress }}" placeholder="{{ entry_studentpresentaddress }}" id="input-studentpresentaddress" class="form-control" />
+              {% if error_studentpresentaddress %}
+              <div class="text-danger">{{ error_studentpresentaddress }}</div>
+              {% endif %} </div>
+          </div>
+		  
+		  <div class="form-group">
+            <label class="col-sm-4 control-label" for="input-telephone">{{ entry_telephone }}</label>
+            <div class="col-sm-6">
+              <input type="text" name="telephone" value="{{ telephone }}" placeholder="{{ entry_telephone }}" id="input-telephone" class="form-control" />
+              {% if error_telephone %}
+              <div class="text-danger">{{ error_telephone }}</div>
+              {% endif %} </div>
+          </div>
+		  
+		  <div class="form-group">
+            <label class="col-sm-4 control-label" for="input-educationqualification">{{ entry_educationqualification }}</label>
+            <div class="col-sm-6">
+              <input type="text" name="educationqualification" value="{{ educationqualification }}" placeholder="{{ entry_educationqualification }}" id="input-educationqualification" class="form-control" />
+              {% if error_educationqualification %}
+              <div class="text-danger">{{ error_educationqualification }}</div>
+              {% endif %} </div>
+          </div>
+		  
+		  <div class="form-group">
+            <label class="col-sm-4 control-label" for="input-nidnumber">{{ entry_nidnumber }}</label>
+            <div class="col-sm-6">
+              <input type="text" name="nidnumber" value="{{ nidnumber }}" placeholder="{{ entry_nidnumber }}" id="input-nidnumber" class="form-control" />
+              {% if error_nidnumber %}
+              <div class="text-danger">{{ error_nidnumber }}</div>
+              {% endif %} </div>
+          </div>
+		  
+		  <div class="form-group">
+            <label class="col-sm-4 control-label" for="input-dateofbirth">{{ entry_dateofbirth }}</label>
+            <div class="col-sm-6">
+              <input type="text" name="dateofbirth" value="{{ dateofbirth }}" placeholder="{{ entry_dateofbirth }}" id="input-dateofbirth" class="form-control" />
+              {% if error_dateofbirth %}
+              <div class="text-danger">{{ error_dateofbirth }}</div>
+              {% endif %} </div>
+          </div>
+		  
+		  <div class="form-group">
+            <label class="col-sm-4 control-label" for="input-previouscourse">{{ entry_previouscourse }}</label>
+            <div class="col-sm-6">
+              <select name="previouscourse" id="input-previouscourse" class="form-control">
+					<option value="-1">{{ entry_previouscourse }}</option>
+					{% for course in courses %}
+						<option value="{{ course.id }}">{{ course.coursename }}</option>
+					{% endfor %}
+			  </select>
+			  {% if error_previouscourse %}
+              <div class="text-danger">{{ error_previouscourse }}</div>
+              {% endif %} </div>
+          </div>
+		  
+		  <div class="form-group">
+            <label class="col-sm-4 control-label" for="input-anotherappliedcourse">{{ entry_anotherappliedcourse }}</label>
+            <div class="col-sm-6">
+              <select name="anotherappliedcourse" id="input-anotherappliedcourse" class="form-control">
+					<option value="-1">{{ entry_anotherappliedcourse }}</option>
+					{% for course in courses %}
+						<option value="{{ course.id }}">{{ course.coursename }}</option>
+					{% endfor %}
+			  </select>
+			  {% if error_anotherappliedcourse %}
+              <div class="text-danger">{{ error_anotherappliedcourse }}</div>
+              {% endif %} </div>
+          </div>
+        </fieldset>
+        
+        <div class="buttons">
+          <div class="col-sm-4"></div>
+		  <div class="col-sm-6 pull-left">
+            <input type="submit" value="{{ button_continue }}" class="btn btn-primary" />
+          </div>
+        </div>
+        
+      </form>
+      {{ content_bottom }}</div>
+	  {{ column_right }}
+    </div>
+	
+</div>
+
+<script type="text/javascript"><!--
+$('button[id^=\'button-custom-field\']').on('click', function() {
+	var element = this;
+
+	$('#form-upload').remove();
+
+	$('body').prepend('<form enctype="multipart/form-data" id="form-upload" style="display: none;"><input type="file" name="file" /></form>');
+
+	$('#form-upload input[name=\'file\']').trigger('click');
+
+	if (typeof timer != 'undefined') {
+    	clearInterval(timer);
+	}
+
+	timer = setInterval(function() {
+		if ($('#form-upload input[name=\'file\']').val() != '') {
+			clearInterval(timer);
+
+			$.ajax({
+				url: 'index.php?route=tool/upload',
+				type: 'post',
+				dataType: 'json',
+				data: new FormData($('#form-upload')[0]),
+				cache: false,
+				contentType: false,
+				processData: false,
+				beforeSend: function() {
+					$(element).button('loading');
+				},
+				complete: function() {
+					$(element).button('reset');
+				},
+				success: function(json) {
+					$(element).parent().find('.text-danger').remove();
+
+					if (json['error']) {
+						$(node).parent().find('input').after('<div class="text-danger">' + json['error'] + '</div>');
+					}
+
+					if (json['success']) {
+						alert(json['success']);
+
+						$(element).parent().find('input').val(json['code']);
+					}
+				},
+				error: function(xhr, ajaxOptions, thrownError) {
+					alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+				}
+			});
+		}
+	}, 500);
+});
+//--></script> 
+<script type="text/javascript"><!--
+$('.date').datetimepicker({
+	language: '{{ datepicker }}',
+	pickTime: false
+});
+
+$('.time').datetimepicker({
+	language: '{{ datepicker }}',
+	pickDate: false
+});
+
+$('.datetime').datetimepicker({
+	language: '{{ datepicker }}',
+	pickDate: true,
+	pickTime: true
+});
+//--></script> 
+{{ footer }} 
