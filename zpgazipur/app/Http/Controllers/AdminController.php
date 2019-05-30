@@ -44,7 +44,7 @@ class AdminController extends Controller
     }
     public function downFile(Request $request,$name)
     {
-    	return response()->download(public_path('files'.$name));
+    	return response()->download(public_path('files/'.$name));
     }
     public function editNotice(Request $request,$id)
     {

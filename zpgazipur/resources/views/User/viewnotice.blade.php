@@ -12,7 +12,8 @@
 					<p>{{$notice->title}}</p>
 					<p>{{$notice->description}}</p>
 					@if($notice->attachment)
-					<embed src="{{asset('files')}}/{{$notice->attachment}}" width="100%" height="500px;"></embed>
+					<embed src="{{asset('files')}}/{{$notice->attachment}}" width="600px" height="830px;"></embed><br><br>
+					<a href="{{route('admin.downFile',$notice->attachment)}}" class="btn btn-primary">Download File</a>
 					@endif	
 				@empty
 				@endforelse
