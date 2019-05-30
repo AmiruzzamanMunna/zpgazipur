@@ -25,15 +25,21 @@ class AdminController extends Controller
     }
     public function addNotice(Request $request)
     {
+    	$request->validate([
+    		'noticetitle'=>'required',
+    		'noticedescription'=>'required',
+    		'startdate'=>'required',
+    		'expiredate'=>'required',
+    	]);
     	$notice= new Notice();
     	$notice->title=$request->noticetitle;
     	$notice->description=$request->noticedescription;
-    	$notice->noticedate=$request->startsate;
+    	$notice->noticedate=$request->startdate;
     	$notice->expiredate=$request->expiredate;
     	$date1=$request->expiredate;
     	if ($request->hasFile('attachment')) {
         $file = $request->file('attachment');
-        $filename = time() . 'pdf-1.' . $file->getClientOriginalExtension();
+        $filename = time() . 'File-1.' . $file->getClientOriginalExtension();
         $location = public_path('files');
         $file->move($location, $filename);
         $notice->attachment = $filename;
@@ -54,10 +60,16 @@ class AdminController extends Controller
     }
     public function updateNotice(Request $request,$id)
     {
+    	$request->validate([
+    		'noticetitle'=>'required',
+    		'noticedescription'=>'required',
+    		'startdate'=>'required',
+    		'expiredate'=>'required',
+    	]);
     	$notice= Notice::find($request->id);
     	$notice->title=$request->noticetitle;
     	$notice->description=$request->noticedescription;
-    	$notice->noticedate=$request->startsate;
+    	$notice->noticedate=$request->startdate;
     	$notice->expiredate=$request->expiredate;
     	$date1=$request->expiredate;
     	if ($request->hasFile('attachment')) {

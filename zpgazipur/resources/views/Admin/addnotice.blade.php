@@ -40,7 +40,7 @@
           <div class="form-group required has-error">
             <label class="col-sm-2 control-label" for="input-username">Notice Date</label>
             <div class="col-sm-10">
-              <input type="date" name="startsate" placeholder="Notice Date" id="input-username" class="form-control">
+              <input type="date" name="startdate" placeholder="Notice Date" id="input-username" class="form-control">
             	<div class="text-danger"></div>
           	</div>
           </div>
