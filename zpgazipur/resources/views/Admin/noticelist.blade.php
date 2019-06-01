@@ -19,7 +19,7 @@
 		        <button type="submit" data-toggle="tooltip" title="" class="btn btn-danger"><a href="{{route('admin.noticeDelete')}}"><i class="fa fa-trash-o"></i></a>
 		        </button>
 		      </div>
-		      <h1>School Information</h1>
+		      <h1>Notice Information</h1>
 		      <ul class="breadcrumb">
 		      </ul>
 		    </div>

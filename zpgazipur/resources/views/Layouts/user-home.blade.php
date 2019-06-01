@@ -73,13 +73,13 @@
 						<!-- The slideshow -->
 				  	<div class="carousel-inner">
 					    <div class="carousel-item active">
-					      <img src="http://localhost:8080/zpgazipur/catalog/view/theme/default/image/moopa_web_bn.jpg" alt="Los Angeles" class="caruimage img-responsive">
+					      <img src="{{asset('images')}}/catalog/slideshow/01.jpg" alt="Los Angeles" class="caruimage img-responsive">
 					    </div>
 					    <div class="carousel-item">
-					      <img src="http://localhost:8080/zpgazipur/catalog/view/theme/default/image/moopa_web_bn.jpg" alt="Chicago" class="caruimage img-responsive">
+					      <img src="{{asset('images')}}/catalog/slideshow/01.jpg" alt="Chicago" class="caruimage img-responsive">
 					    </div>
 					    <div class="carousel-item">
-					      <img src="http://localhost:8080/zpgazipur/catalog/view/theme/default/image/moopa_web_bn.jpg" alt="New York" class="caruimage img-responsive">
+					      <img src="{{asset('images')}}/catalog/slideshow/01.jpg" alt="New York" class="caruimage img-responsive">
 					    </div>
 				  	</div>
 
@@ -121,21 +121,18 @@
 							<li>
 								<a href=""><i class="fa fa-home" style="font-size: 18px;"></i>&nbsp;&nbsp;প্রথম পাতা</a>
 							</li>
-					        <li class="dropdown open"><a href="" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"> আমাদের সম্পর্কে&nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+							@foreach($menus as $menu)
+					        <li class="dropdown open"><a href="" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">{{$menu->menu_title}}&nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></a>
 								<div class="dropdown-menu" style="">
 									<div class="dropdown-inner">
 										<ul class="list-unstyled">
-											<li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=3">সাংগঠনিক কাঠামো</a></li>
-											<li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=4">জেলা পরিচিতি</a></li>
-											<li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=5">জনবল</a></li>
-											<li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=6">জেলা পরিষদ ইতিহাস</a></li>
-											<li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=7">নাগরিক সেবা</a></li>
-											<li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=11">জেলা পরিষদ আইন</a></li>
-										</ul>
+											
+											<li><a href="">{{$menu->submenu_name}}</a></li>		
 									</div>
-					            </div>
+					            </div>    
 					        </li>
-							<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">নির্বাচিত পরিষদ&nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+					        @endforeach
+							<!-- <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">নির্বাচিত পরিষদ&nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></a>
 								<div class="dropdown-menu" style="">
 									<div class="dropdown-inner">
 										<ul class="list-unstyled">
@@ -184,7 +181,8 @@
 							</li>
 							<li>
 								<a href="http://localhost:8080/zpgazipur/admin" class="" target="_blank">অফিসিয়াল</a>
-							</li>
+							</li> -->
+							
 				      	</ul>
 				    </div>
 			  	</nav>
@@ -221,7 +219,7 @@
 						<div class="add_links">
 							<h5 class="message-title">চেয়ারম্যান</h5>
 							<a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=9" alt="চেয়ারম্যান" title="">
-									<img class="img-fluid picture" src="http://localhost:8080/zpgazipur/catalog/view/theme/default/image//gazipur-chairman.jpg" alt="" width="100%" height="45px;">
+									<img class="img-fluid picture" src="{{asset('images')}}/catalog/Users/gazipur-chairman.jpg" alt="" width="100%" height="45px;">
 							</a>
 							<div class="footer">
 								<p class="message-name">জনাব আখতারুজ্জামান</p>
@@ -231,7 +229,7 @@
 						<div class="add_links">
 							<h5 class="message-title">প্রধান নির্বাহী কর্মকর্তা</h5>
 							<a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=10" alt="প্রধান নির্বাহী কর্মকর্তা" title="">
-								<img class="img-fluid picture" src="http://localhost:8080/zpgazipur/catalog/view/theme/default/image//ddlg_jamil-ahmed.jpg" alt="" width="100%" height="45px;">
+								<img class="img-fluid picture" src="{{asset('images')}}/catalog/Users/ddlg_jamil-ahmed.jpg" alt="" width="100%" height="45px;">
 							</a>
 							<div class="footer">
 								<p class="message-name">জনাব জামিল আহমেদ</p>

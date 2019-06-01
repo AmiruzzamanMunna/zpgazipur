@@ -16,6 +16,8 @@
 // });
 Route::get('/','UserController@index')->name('user.index');
 Route::get('/notice/{id}','UserController@viewNotice')->name('user.viewNotice');
+Route::get('/menu','UserController@menu');
+// Route::get('/layouts','UserController@layouts');
 
 
 
