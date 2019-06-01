@@ -126,8 +126,10 @@
 								<div class="dropdown-menu" style="">
 									<div class="dropdown-inner">
 										<ul class="list-unstyled">
-											
-											<li><a href="">{{$menu->submenu_name}}</a></li>		
+											@forelse($menu->submenus as $sb)
+											<li><a href="">{{$sb->submenu_name}}</a></li>	
+											@empty
+											@endforelse	
 									</div>
 					            </div>    
 					        </li>

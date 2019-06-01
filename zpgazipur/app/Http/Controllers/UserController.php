@@ -15,8 +15,7 @@ class UserController extends Controller
     }
     public function index(Request $request)
     {
-        $menus=Menu::all();
-        $submenus=Submenu::all();
+        $menus=Menu::with('submenus')->get();
         $menueItems=0;
         $submenuItems=0;
         foreach ($menus as $menue) {
@@ -38,9 +37,27 @@ class UserController extends Controller
     }
     public function viewNotice(Request $request,$id)
     {
+        $menus=Menu::all();
+        $submenus=Submenu::all();
+        $menueItems=0;
+        $submenuItems=0;
+        foreach ($menus as $menue) {
+            $menueItems=$menue->menu_title;
+            
+            $submenus=Submenu::where('menu_id',$menue->id)->get();
+            
+            foreach ($submenus as $submenue) {
+                $submenuItems=$submenue->submenu_name;
+               
+            }
+        }
     	$notices=Notice::where('id',$id)->get();
     	return view('User.viewnotice')
-    			->with('notices',$notices);
+    			->with('notices',$notices)
+                ->with('menus',$menus)
+                ->with('submenus',$submenus)
+                ->with(compact('menueItems'))
+                ->with(compact('submenuItems'));
     }
     public function menu(Request $request)
     {
