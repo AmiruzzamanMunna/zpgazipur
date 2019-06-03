@@ -16,6 +16,7 @@
 // });
 Route::get('/','UserController@index')->name('user.index');
 Route::get('/notice/{id}','UserController@viewNotice')->name('user.viewNotice');
+Route::get('/allview/{menuid}/{subid}','UserController@allView')->name('user.allView');
 Route::get('/menu','UserController@menu');
 // Route::get('/layouts','UserController@layouts');
 
@@ -34,3 +35,6 @@ Route::get('/admin/editnoticeform/{id}','AdminController@editNotice')->name('adm
 Route::post('/admin/editnoticeform/{id}','AdminController@updateNotice')->name('admin.updateNotice');
 
 Route::get('/admin/deleteNotice','AdminController@noticeDelete')->name('admin.noticeDelete');
+
+Route::get('/admin/allpost','AdminController@allPost')->name('admin.allPost');
+Route::post('/admin/allpost','AdminController@postSave')->name('admin.postSave');

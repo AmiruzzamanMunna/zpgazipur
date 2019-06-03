@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Notice;
+use App\Menu;
+use App\Submenu;
+use App\Post;
 
 class AdminController extends Controller
 {
@@ -96,5 +99,29 @@ class AdminController extends Controller
     		$request->session()->flash('message','Sorry No checkbox Selected');
       		return redirect()->route('admin.noticeList');
     	}
+    }
+    public function allPost(Request $request)
+    {
+        $menus=Menu::all();
+        $submenus=Submenu::all();
+        return view('Admin.create')
+                ->with('menus',$menus)
+                ->with('submenus',$submenus);
+    }
+    public function postSave(Request $request)
+    {
+        $request->validate([
+            'menu'=>'required',
+            'submenu'=>'required',
+            'description'=>'required',
+        ]);
+        $post= new Post();
+        $post->menu_id=$request->menu;
+        $post->submenu_id=$request->submenu;
+        $post->description=$request->description;
+        $post->save();
+        $request->session()->flash('message','Data Inserted');
+        return back();
+
     }
 }

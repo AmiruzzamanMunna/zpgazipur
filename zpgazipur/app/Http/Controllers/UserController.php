@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Notice;
 use App\Menu;
 use App\Submenu;
+use App\Post;
 
 class UserController extends Controller
 {
@@ -75,5 +76,15 @@ class UserController extends Controller
             }
         }
         
+    }
+    public function allView(Request $request,$menuid,$subid)
+    {
+        $menus=Menu::all();
+        $submenus=Submenu::all();
+        $posts=Post::where('menu_id',$menuid)->where('submenu_id',$subid)->get();
+        return view('User.allview')
+                ->with('menus',$menus)
+                ->with('submenus',$submenus)
+                ->with('posts',$posts);
     }
 }

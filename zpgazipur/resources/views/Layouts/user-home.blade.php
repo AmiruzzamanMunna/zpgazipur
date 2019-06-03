@@ -127,7 +127,7 @@
 									<div class="dropdown-inner">
 										<ul class="list-unstyled">
 											@forelse($menu->submenus as $sb)
-											<li><a href="">{{$sb->submenu_name}}</a></li>	
+											<li><a href="{{route('user.allView',[$menu->id,$sb->id])}}">{{$sb->submenu_name}}</a></li>	
 											@empty
 											@endforelse	
 									</div>
@@ -213,7 +213,6 @@
 		<div class="row">
 			<div class="col-sm-9 col-md-9">
 				@yield('container')
-				
 			</div>
 			<div id="column-right" class="col-sm-3 col-md-3 hidden-xs">
 			    <div id="right_bar" class="row">
