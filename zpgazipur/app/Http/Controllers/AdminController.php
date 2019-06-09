@@ -81,7 +81,7 @@ class AdminController extends Controller
         $location = public_path('files/');
         $file->move($location, $filename);
         $notice->attachment = $filename;
-      }
+        }
       $notice->save();
       $request->session()->flash('message','Data Updated Updated');
       return redirect()->route('admin.noticeList');
@@ -113,12 +113,20 @@ class AdminController extends Controller
         $request->validate([
             'menu'=>'required',
             'submenu'=>'required',
-            'description'=>'required',
         ]);
         $post= new Post();
         $post->menu_id=$request->menu;
         $post->submenu_id=$request->submenu;
         $post->description=$request->description;
+        if ($request->hasFile('image')) {
+            $image1 = $request->file('image');
+            $filename1 = time() . 'image-1.' . $image1->getClientOriginalExtension();
+            $location1 = public_path('images');
+            // Image::make($image1->getRealPath())->resize(280, 280)->save(public_path('images/product'.$filename1));
+            $image1->move($location1, $filename1);
+            
+            $post->image = $filename1;
+      }
         $post->save();
         $request->session()->flash('message','Data Inserted');
         return back();

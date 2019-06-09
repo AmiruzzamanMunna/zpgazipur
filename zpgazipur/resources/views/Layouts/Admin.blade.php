@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 <head>
@@ -6,15 +5,15 @@
 <title>@yield('title')</title>
 <base href="http://localhost:8080/edumaster/" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-@yield('script')
-
 @yield('css')
 <!-- bootstrap -->
 <script type="text/javascript" src="{{asset('js')}}/javascript/jquery/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="{{asset('js')}}/javascript/bootstrap/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!-- <script src="https://cdn.ckeditor.com/ckeditor5/12.2.0/classic/ckeditor.js"></script> -->
 <!-- end -->
 <link href="{{asset('css')}}/bootstrap.css" type="text/css" rel="stylesheet" />
 <link href="{{asset('js')}}/javascript/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet" />
@@ -24,6 +23,7 @@
 <link href="{{asset('js')}}/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.css" type="text/css" rel="stylesheet" media="screen" />
 <link type="text/css" href="{{asset('css')}}/stylesheet.css" rel="stylesheet" media="screen" />
 <script src="{{asset('js')}}/javascript/common.js" type="text/javascript"></script>
+@yield('script')
 </head>
 <body>
 <div id="container">
@@ -85,10 +85,10 @@
         </ul>
       </li> -->
       <li id="menu-system">
-        <a href="#collapse2" data-toggle="collapse" class="parent collapsed"><i class="fa fa-cog fw"></i> System</a> 
+        <a href="#collapse2" data-toggle="collapse" class="parent collapsed"><i class="fa fa-cog fw"></i>Pages</a> 
         <ul id="collapse2" class="collapse">
           <li> 
-            <a href="http://localhost:8080/edumaster/index.php?route=setting/store&amp;user_token=pfcUl2bkbhkNG1D1DDoBnl9KGeBKN159">Settings</a>
+            <a href="{{route('admin.allPost')}}">Add Pages</a>
           </li>
           <li>
             <a href="#collapse2-1" data-toggle="collapse" class="parent collapsed">Users</a>

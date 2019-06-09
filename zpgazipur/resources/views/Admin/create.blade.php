@@ -3,12 +3,13 @@
 	All Creating Form
 @endsection
 @section('script')
-<script src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=le1th8igqff1fxm9skgd9q6zqnvi147w5qdqw7rv04q7zy7o"></script>
-<script>
-  tinymce.init({
-    selector: '#mytextarea'
-  });
-  </script>
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>  
+  <script>
+    $(document).ready(function() {
+        $('.summernote').summernote();
+    });
+</script>
 @endsection
 @section('container')
 <div id="content">
@@ -17,7 +18,7 @@
       <div class="pull-right">
         <button type="submit" href=""  form="form-user" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Save"><i class="fa fa-save"></i></button>
         <a href="" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="Cancel"><i class="fa fa-reply"></i></a></div>
-      <h1>Notice Form</h1>
+      <h1>All Post Form</h1>
       <ul class="breadcrumb">
       </ul>
     </div>
@@ -57,9 +58,14 @@
             </div>
           </div>
           <div class="form-group required has-error">
-            <label class="col-sm-2 control-label" for="input-username">Description</label>
-              <textarea id="mytextarea" rows="30" cols="100" name="description"></textarea>
+            <label class="col-sm-2 control-label" for="input-username" id="description">Description</label><br><br><br>
+              <textarea class="summernote" rows="50" cols="50" name="description"></textarea>
             	<div class="text-danger"></div>
+          </div>
+          <div class="form-group required has-error">
+            <label class="col-sm-2 control-label" for="input-username">Image</label>
+              <input type="file" name="image">
+              <div class="text-danger"></div>
           </div>
       	</form>
         @if($errors->any())

@@ -119,7 +119,7 @@
 				    <div class="collapse navbar-collapse" id="collapsibleNavbar">
 				      	<ul class="nav navbar-nav">
 							<li>
-								<a href=""><i class="fa fa-home" style="font-size: 18px;"></i>&nbsp;&nbsp;প্রথম পাতা</a>
+								<a href="{{route('user.index')}}"><i class="fa fa-home" style="font-size: 18px;"></i>&nbsp;&nbsp;প্রথম পাতা</a>
 							</li>
 							@foreach($menus as $menu)
 					        <li class="dropdown open"><a href="" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">{{$menu->menu_title}}&nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></a>

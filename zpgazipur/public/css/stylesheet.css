@@ -890,5 +890,9 @@ input[type="checkbox"]:checked::after, .checkbox input[type="checkbox"]:checked:
 	margin-left: 550px;
 }
 /*dash board*/
+/*All views*/
+.image{
 
-
+	width: 10px;
+	height: 200px;
+}

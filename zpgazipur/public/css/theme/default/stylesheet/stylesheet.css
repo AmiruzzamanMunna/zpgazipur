@@ -768,3 +768,11 @@ h2.price {
     background-image: none;
     background-color: #df5c39;
 }
+.image{
+	width: 800px;
+	height: 950px;
+}
+.summernote{
+	width: 10px;
+	height: 100px;
+}
