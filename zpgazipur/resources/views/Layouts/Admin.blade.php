@@ -90,11 +90,17 @@
           <li> 
             <a href="{{route('admin.allPost')}}">Add Pages</a>
           </li>
+          <li> 
+            <a href="{{route('admin.imageForm')}}">Image Slider</a>
+          </li>
+          <li> 
+            <a href=""></a>
+          </li>
           <li>
-            <a href="#collapse2-1" data-toggle="collapse" class="parent collapsed">Users</a>
+            <a href="#collapse2-1" data-toggle="collapse" class="parent collapsed">Designation</a>
             <ul id="collapse2-1" class="collapse">
               <li>
-                <a href="">Users</a>
+                <a href="{{route('admin.viewDesignation')}}">View Designation</a>
               </li>
               <li>
                 <a href="">User Groups</a>

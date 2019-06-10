@@ -7,6 +7,8 @@ use App\Notice;
 use App\Menu;
 use App\Submenu;
 use App\Post;
+use App\ImageSlider;
+use App\Designation;
 
 class AdminController extends Controller
 {
@@ -126,10 +128,88 @@ class AdminController extends Controller
             $image1->move($location1, $filename1);
             
             $post->image = $filename1;
-      }
+        }
         $post->save();
         $request->session()->flash('message','Data Inserted');
         return back();
 
+    }
+    public function imageForm(Request $request)
+    {
+        return view('Admin.imageslider');
+    }
+    public function imageStore(Request $request)
+    {
+        if ($request->hasFile('image')) {
+            $i=0;
+            foreach($request->image as $file){
+                $i++;
+                $attachment= new ImageSlider();
+                $filename = time()+$i . 'slider.'. $file->getClientOriginalExtension();
+                $location = public_path('images/slider');
+                // Image::make($image1->getRealPath())->resize(280, 280)->save(public_path('images/product'.$filename1));
+                $file->move($location, $filename);
+                $attachment->image = $filename;
+                $attachment->save();
+            }
+        }
+        $request->session()->flash('message','Data Inserted Successfully');
+        return back();
+    }
+    public function addDesignation(Request $request)
+    {
+        return view('Admin.designation');
+    }
+    public function storeDesignation(Request $request)
+    {
+        $request->validate([
+            'heading'=>'required',
+            'description'=>'required',
+        ]);
+        $desig = new Designation();
+        $desig->heading=$request->heading;
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time() . 'image-1.' . $image->getClientOriginalExtension();
+            $location = public_path('images/catalog/Users');
+            // Image::make($image1->getRealPath())->resize(280, 280)->save(public_path('images/product'.$filename1));
+            $image->move($location, $filename);
+            
+            $desig->image = $filename;
+        }
+        $desig->description=$request->description;
+        $desig->save();
+        $request->session()->flash('message','Data Inserted Successfully');
+        return back();
+    }
+    public function viewDesignation(Request $request)
+    {
+        $desgs=Designation::all();
+        return view('Admin.viewdesignation')
+                ->with('desgs',$desgs);
+    }
+    public function editDesignation(Request $request,$id)
+    {
+        $desgs=Designation::where('id',$id)->get();
+        return view('Admin.updatedesignation')
+                ->with('desgs',$desgs);
+    }
+    public function updateDesignation(Request $request,$id)
+    {
+        $desgs=Designation::find($request->id);
+        $desgs->heading=$request->heading;
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time() . 'image-1.' . $image->getClientOriginalExtension();
+            $location = public_path('images/catalog/Users');
+            // Image::make($image1->getRealPath())->resize(280, 280)->save(public_path('images/product'.$filename1));
+            $image->move($location, $filename);
+            
+            $desgs->image = $filename;
+        }
+        $desgs->description=$request->description;
+        $desgs->save();
+        $request->session()->flash('message','Data Updated Successfully');
+        return redirect()->route('admin.viewDesignation');
     }
 }

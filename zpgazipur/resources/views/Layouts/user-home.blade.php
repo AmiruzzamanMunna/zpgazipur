@@ -65,24 +65,20 @@
 
 						<!-- Indicators -->
 				  	<ul class="carousel-indicators">
-					    <li data-target="#demo" data-slide-to="0" class="active"></li>
-					    <li data-target="#demo" data-slide-to="1"></li>
-					    <li data-target="#demo" data-slide-to="2"></li>
+				  		@foreach($images as $file)
+					    <li data-target="#demo" data-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }}"></li>
+					    @endforeach
 				  	</ul>
 
 						<!-- The slideshow -->
+					
 				  	<div class="carousel-inner">
-					    <div class="carousel-item active">
-					      <img src="{{asset('images')}}/catalog/slideshow/01.jpg" alt="Los Angeles" class="caruimage img-responsive">
+				  		@foreach($images as $image)
+					    <div class="carousel-item {{ $loop->first ? ' active' : '' }}">
+					      <img src="{{asset('images/slider')}}/{{$image->image}}" alt="Los Angeles" class="caruimage img-responsive">
 					    </div>
-					    <div class="carousel-item">
-					      <img src="{{asset('images')}}/catalog/slideshow/01.jpg" alt="Chicago" class="caruimage img-responsive">
-					    </div>
-					    <div class="carousel-item">
-					      <img src="{{asset('images')}}/catalog/slideshow/01.jpg" alt="New York" class="caruimage img-responsive">
-					    </div>
+					    @endforeach
 				  	</div>
-
 					<!-- Left and right controls -->
 				  	<a class="carousel-control-prev" href="#demo" data-slide="prev">
 					    <span class="carousel-control-prev-icon"></span>
@@ -217,17 +213,20 @@
 			<div id="column-right" class="col-sm-3 col-md-3 hidden-xs">
 			    <div id="right_bar" class="row">
 					<div class="col-md-12">
+						@forelse($desigs as $desig)
 						<div class="add_links">
-							<h5 class="message-title">চেয়ারম্যান</h5>
-							<a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=9" alt="চেয়ারম্যান" title="">
-									<img class="img-fluid picture" src="{{asset('images')}}/catalog/Users/gazipur-chairman.jpg" alt="" width="100%" height="45px;">
+							<h5 class="message-title">{{$desig->heading}}</h5>
+							<a href="{{route('user.designationView',[$desig->id])}}">
+								<img class="img-fluid picture" src="{{asset('images/catalog/Users')}}/{{$desig->image}}" alt="" width="100%" height="45px;">
 							</a>
 							<div class="footer">
-								<p class="message-name">জনাব আখতারুজ্জামান</p>
-								<p class="message-name"><a class="message-link" href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=9">বিস্তারিত</a></p>
+								<p class="message-name">{{$desig->name}}</p>
+								<p class="message-name"><a class="message-link" href="{{route('user.designationView',[$desig->id])}}">বিস্তারিত</a></p>
 							</div>
 						</div>
-						<div class="add_links">
+						@empty
+						@endforelse
+						<!-- <div class="add_links">
 							<h5 class="message-title">প্রধান নির্বাহী কর্মকর্তা</h5>
 							<a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=10" alt="প্রধান নির্বাহী কর্মকর্তা" title="">
 								<img class="img-fluid picture" src="{{asset('images')}}/catalog/Users/ddlg_jamil-ahmed.jpg" alt="" width="100%" height="45px;">
@@ -251,7 +250,7 @@
 							<a href="http://online.forms.gov.bd" alt="ই-সেবার আবেদন" title=""> 
 								<img src="http://bangladesh.gov.bd/sites/default/files/files/bangladesh.gov.bd/graphical_result_button/6b8058ef_c17d_4a2d_9b26_b4779731503b/Tamplate_eservice_bn%20(1).png" alt="" width="100%" height="45px;">
 							</a>
-						</div>
+						</div> -->
 						<div class="add_links">
 							<table style="width:100%;table-layout:fixed;">
 								<tbody>

@@ -17,6 +17,7 @@
 Route::get('/','UserController@index')->name('user.index');
 Route::get('/notice/{id}','UserController@viewNotice')->name('user.viewNotice');
 Route::get('/allview/{menuid}/{subid}','UserController@allView')->name('user.allView');
+Route::get('/designation/{id}','UserController@designationView')->name('user.designationView');
 Route::get('/menu','UserController@menu');
 // Route::get('/layouts','UserController@layouts');
 
@@ -38,3 +39,13 @@ Route::get('/admin/deleteNotice','AdminController@noticeDelete')->name('admin.no
 
 Route::get('/admin/allpost','AdminController@allPost')->name('admin.allPost');
 Route::post('/admin/allpost','AdminController@postSave')->name('admin.postSave');
+
+Route::get('/admin/imageslider','AdminController@imageForm')->name('admin.imageForm');
+Route::post('/admin/imageslider','AdminController@imageStore')->name('admin.imageStore');
+
+Route::get('/admin/add-designation','AdminController@addDesignation')->name('admin.addDesignation');
+Route::post('/admin/add-designation','AdminController@storeDesignation')->name('admin.storeDesignation');
+Route::get('/admin/viewdesignation','AdminController@viewDesignation')->name('admin.viewDesignation');
+
+Route::get('/admin/editdesignation/{id}','AdminController@editDesignation')->name('admin.editDesignation');
+Route::post('/admin/editdesignation/{id}','AdminController@updateDesignation')->name('admin.updateDesignation');

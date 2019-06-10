@@ -896,3 +896,13 @@ input[type="checkbox"]:checked::after, .checkbox input[type="checkbox"]:checked:
 	width: 10px;
 	height: 200px;
 }
+.imageadd{
+	margin-left: 153px;
+}
+.remove{
+	margin-left: 153px;
+}
+#desgimg{
+	height: 100px;
+	width: 100px;
+}
