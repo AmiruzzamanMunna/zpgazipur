@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Notice;
 use App\Menu;
 use App\Submenu;
 use App\Post;
 use App\ImageSlider;
 use App\Designation;
+use App\Pagecategory;
+use App\Otherpages;
 
 class AdminController extends Controller
 {
@@ -211,5 +214,59 @@ class AdminController extends Controller
         $desgs->save();
         $request->session()->flash('message','Data Updated Successfully');
         return redirect()->route('admin.viewDesignation');
+    }
+    public function addCategory(Request $request)
+    {
+        return view('Admin.addpagecategory');
+    }
+    public function storeCategory(Request $request)
+    {
+        $request->validate([
+            'image'=>'required',
+            'name'=>'required',
+        ]);
+        $cat=new Pagecategory();
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time() . 'image-1.' . $image->getClientOriginalExtension();
+            $location = public_path('images/uploads');
+            // Image::make($image1->getRealPath())->resize(280, 280)->save(public_path('images/product'.$filename1));
+            $image->move($location, $filename);
+            
+            $cat->image = $filename;
+        }
+        $cat->name=$request->name;
+        $cat->save();
+        $request->session()->flash('message','Data Inserted');
+        return back();
+    }
+    public function otherPageCategory(Request $request)
+    {
+        $menus=Pagecategory::all();
+        return view('Admin.otherpages')
+                ->with('menus',$menus);
+    }
+    public function storeOtherPageCategory(Request $request)
+    {
+        $request->validate([
+            'page_category_id'=>'required',
+            'title'=>'required',
+        ]);
+        $other=new Otherpages();
+        $other->page_category_id=$request->page_category_id;
+        $other->title=$request->title;
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time() . 'image-1.' . $image->getClientOriginalExtension();
+            $location = public_path('images');
+            // Image::make($image1->getRealPath())->resize(280, 280)->save(public_path('images/product'.$filename1));
+            $image->move($location, $filename);
+            
+            $other->image = $filename;
+        }
+        $other->description=$request->description;
+        $other->save();
+        $request->session()->flash('message','Data Inserted');
+        return back();
     }
 }

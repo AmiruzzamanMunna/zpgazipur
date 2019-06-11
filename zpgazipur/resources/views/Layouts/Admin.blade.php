@@ -94,7 +94,10 @@
             <a href="{{route('admin.imageForm')}}">Image Slider</a>
           </li>
           <li> 
-            <a href=""></a>
+            <a href="{{route('admin.addCategory')}}">Page Category</a>
+          </li>
+          <li> 
+            <a href="{{route('admin.otherPageCategory')}}">Other Pages</a>
           </li>
           <li>
             <a href="#collapse2-1" data-toggle="collapse" class="parent collapsed">Designation</a>

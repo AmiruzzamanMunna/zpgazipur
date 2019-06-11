@@ -30,7 +30,7 @@
 	 	<div class="container">
 			<div id="zp-top" class="pull-left">
 				<div class="zp-info-search">
-					<a href="#" class="pull-left zp-link-national">বাংলাদেশ জাতীয় তথ্য বাতায়ন</a>
+					<a href="{{route('user.index')}}" class="pull-left zp-link-national">বাংলাদেশ জাতীয় তথ্য বাতায়ন</a>
 					<div class="pull-right">
 						<div id="search" class="input-group">
 		  					<input type="text" name="search" value="" placeholder="Search" class="form-control input-lg col-md-12">
@@ -183,7 +183,10 @@
 							
 				      	</ul>
 				    </div>
-			  	</nav>
+			  	</nav><br>
+			  	<marquee style="color:#FF0000;font:Arial;" scrollamount="5" scrolldelay="10" direction="left" onmouseover="this.stop()" onmouseout="this.start()">
+			  		<a href="http://www.zpgazipur.org/welcome-to-the-naogaon-zp/">স্বাগতম জেলা পরিষদ, গাজীপুর। ফোন: ০২-৪৯২৬১৪৬৭ / ০২-৪৯২৬১৯২৮ । ফ্যাক্স: ৮৮০-০২-৪৯২৬০০৮৩ । ইমেইল: gazipurzp@gmail.com</a>
+			  	</marquee><br><br>
 				<script type="text/javascript">
 					$('#slideshow0').swiper({
 						mode: 'horizontal',

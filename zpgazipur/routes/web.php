@@ -15,8 +15,10 @@
 //     return view('welcome');
 // });
 Route::get('/','UserController@index')->name('user.index');
+Route::get('/viewallnotice','UserController@viewAllNotice')->name('user.viewAllNotice');
 Route::get('/notice/{id}','UserController@viewNotice')->name('user.viewNotice');
 Route::get('/allview/{menuid}/{subid}','UserController@allView')->name('user.allView');
+Route::get('/allcategoryview/{id}','UserController@allCategoryView')->name('user.allCategoryView');
 Route::get('/designation/{id}','UserController@designationView')->name('user.designationView');
 Route::get('/menu','UserController@menu');
 // Route::get('/layouts','UserController@layouts');
@@ -49,3 +51,9 @@ Route::get('/admin/viewdesignation','AdminController@viewDesignation')->name('ad
 
 Route::get('/admin/editdesignation/{id}','AdminController@editDesignation')->name('admin.editDesignation');
 Route::post('/admin/editdesignation/{id}','AdminController@updateDesignation')->name('admin.updateDesignation');
+
+Route::get('/admin/addcategory','AdminController@addCategory')->name('admin.addCategory');
+Route::post('/admin/addcategory','AdminController@storeCategory')->name('admin.storeCategory');
+
+Route::get('/admin/otherpages','AdminController@otherPageCategory')->name('admin.otherPageCategory');
+Route::post('/admin/otherpages','AdminController@storeOtherPageCategory')->name('admin.storeOtherPageCategory');

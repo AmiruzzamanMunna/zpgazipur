@@ -9,6 +9,8 @@ use App\Submenu;
 use App\Post;
 use App\ImageSlider;
 use App\Designation;
+use App\Pagecategory;
+use App\Otherpages;
 
 class UserController extends Controller
 {
@@ -20,6 +22,7 @@ class UserController extends Controller
     {
         $menus=Menu::with('submenus')->get();
         $desigs=Designation::all();
+        $cats=Pagecategory::with('othercat')->get();
         $menueItems=0;
         $submenuItems=0;
         foreach ($menus as $menue) {
@@ -33,9 +36,10 @@ class UserController extends Controller
             }
         }
         $images=ImageSlider::all();
-    	$notices=Notice::all();
+    	$notices=Notice::orderBy('id','DESC')->paginate(5);
     	return view('User.index')
-			->with('desigs',$desigs)
+            ->with('cats',$cats)
+            ->with('desigs',$desigs)
             ->with('images',$images)
             ->with('notices',$notices)
             ->with('menus',$menus)
@@ -70,6 +74,32 @@ class UserController extends Controller
                 ->with(compact('menueItems'))
                 ->with(compact('submenuItems'));
     }
+    public function viewAllNotice(Request $request)
+    {
+        $menus=Menu::with('submenus')->get();
+        $desigs=Designation::all();
+        $menueItems=0;
+        $submenuItems=0;
+        foreach ($menus as $menue) {
+            $menueItems=$menue->menu_title;
+            
+            $submenus=Submenu::where('menu_id',$menue->id)->get();
+            
+            foreach ($submenus as $submenue) {
+                $submenuItems=$submenue->submenu_name;
+               
+            }
+        }
+        $images=ImageSlider::all();
+        $notices=Notice::orderBy('id','desc')->get();
+        return view('User.index')
+            ->with('desigs',$desigs)
+            ->with('images',$images)
+            ->with('notices',$notices)
+            ->with('menus',$menus)
+            ->with(compact('menueItems'))
+            ->with(compact('submenuItems'));
+    }
     public function menu(Request $request)
     {
         $desigs=Designation::all();
@@ -103,6 +133,20 @@ class UserController extends Controller
                 ->with('submenus',$submenus)
                 ->with('posts',$posts);
     }
+    public function allCategoryView(Request $request,$id)
+    {
+        $desigs=Designation::all();
+        $images=ImageSlider::all();
+        $menus=Menu::all();
+        $submenus=Submenu::all();
+        $posts=Otherpages::where('id',$id)->get();
+        return view('User.allview')
+            ->with('desigs',$desigs)
+            ->with('images',$images)
+            ->with('menus',$menus)
+            ->with('submenus',$submenus)
+            ->with('posts',$posts);
+}
     public function designationView(Request $request,$id)
     {
         $desigs=Designation::where('id',$id)->get();
