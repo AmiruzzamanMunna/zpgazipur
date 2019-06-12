@@ -1,0 +1,78 @@
+<?php $__env->startSection('title'); ?>
+	View Designation
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('container'); ?>
+<div id="content">
+	<div class="row">
+      	<?php if(session('message')): ?>
+          <div class="alert alert-success col-3">
+            <?php echo e(session('message')); ?>
+
+          </div>
+        <?php endif; ?>
+    </div>
+	<form action="<?php echo e(route('admin.noticeDelete')); ?>" enctype="multipart/form-data" id="form-user">
+    	<?php echo e(csrf_field()); ?>
+
+	  	<div class="page-header">
+		    <div class="container-fluid">
+		      <div class="pull-right"><a href="<?php echo e(route('admin.noticeForm')); ?>" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title=""><i class="fa fa-plus"></i></a>
+		        <button type="submit" data-toggle="tooltip" title="" class="btn btn-danger"><a href="<?php echo e(route('admin.noticeDelete')); ?>"><i class="fa fa-trash-o"></i></a>
+		        </button>
+		      </div>
+		      <h1>Designation Information</h1>
+		      <ul class="breadcrumb">
+		      </ul>
+		    </div>
+		  	<div class="container-fluid">
+			    <div class="panel panel-default">
+			      <div class="panel-heading">
+			        <h3 class="panel-title"><i class="fa fa-list"></i>Designation List</h3>
+			      </div>
+			      <div class="panel-body">
+			          <div class="table-responsive">
+			            <table class="table table-bordered table-hover">
+			              <thead>
+			                <tr>
+			                  <td style="width: 1px;" class="text-center">
+			                  	<input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', this.checked);" />
+			                  </td>
+			                  <td class="text-left">
+			                  	<a href="">Heading</a>
+			                  </td>
+			                  <td class="text-left">
+			                  	<a href="">Name</a>
+			                  </td>
+			                  <td class="text-left">
+			                  	<a href="">Image</a>
+			                  </td>
+			                  <td class="text-left">
+			                  	<a href="">Action</a>
+			                  </td>
+			                </tr>
+			              </thead>
+			              <tbody>
+			              	<?php $__empty_1 = true; $__currentLoopData = $desgs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $desg): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+			            	<tr>
+			                  <td class="text-center">
+			                  	<input type="checkbox" name="selected[]" value="<?php echo e($desg->id); ?>">
+			                  </td>
+			                  <td class="text-left"><?php echo e($desg->heading); ?></td>
+			                  <td class="text-left"><?php echo e($desg->name); ?></td>
+			                  <td class="text-left"><img src="<?php echo e(asset('images/catalog/Users')); ?>/<?php echo e($desg->image); ?>" id="desgimg"></td>
+			                  <td class="text-right"><a href="<?php echo e(route('admin.editDesignation',[$desg->id])); ?>" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Edit"><i class="fa fa-pencil"></i></a></td>
+			                </tr>
+			                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+			                <?php endif; ?>
+			              </tbody>
+			            </table>
+			          </div>
+			      </div>
+			 	</div>
+      		</div>
+      	</div>
+    </form>
+    
+</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('Layouts.Admin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\wamp64\www\Laravelzpgazipur\zpgazipur\resources\views/Admin/viewdesignation.blade.php ENDPATH**/ ?>

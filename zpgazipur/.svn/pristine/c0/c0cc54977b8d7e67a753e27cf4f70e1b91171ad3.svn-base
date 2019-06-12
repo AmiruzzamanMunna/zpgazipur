@@ -1,0 +1,462 @@
+<html dir="ltr" lang="en"><!--<![endif]--><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>জেলা পরিষদ, গাজীপুর</title>
+<base href="http://localhost:8080/zpgazipur/">
+<script src="<?php echo e(asset('js')); ?>/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
+<link href="<?php echo e(asset('js')); ?>/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+<script src="<?php echo e(asset('js')); ?>/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<link href="<?php echo e(asset('js')); ?>/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css">
+<link href="<?php echo e(asset('css')); ?>/theme/default/stylesheet/zpgazipurstyle.css" rel="stylesheet">
+<link href="<?php echo e(asset('css')); ?>/theme/default/stylesheet/stylesheet.css" rel="stylesheet">
+
+<link href="<?php echo e(asset('js')); ?>/javascript/jquery/swiper/css/swiper.min.css" type="text/css" rel="stylesheet" media="screen">
+<link href="<?php echo e(asset('js')); ?>/javascript/jquery/swiper/css/opencart.css" type="text/css" rel="stylesheet" media="screen">
+<script src="<?php echo e(asset('js')); ?>/javascript/jquery/swiper/js/swiper.jquery.js" type="text/javascript"></script>
+<script src="<?php echo e(asset('js')); ?>/javascript/common.js" type="text/javascript"></script>
+<link href="<?php echo e(asset('images')); ?>/catalog/cart.png" rel="icon">
+</head>
+<body>
+<nav id="top">
+  <div class="container"><!--<div class="pull-left">
+  <form action="http://localhost:8080/zpgazipur/index.php?route=common/currency/currency" method="post" enctype="multipart/form-data" id="form-currency">
+    <div class="btn-group">
+      <button class="btn btn-link dropdown-toggle" data-toggle="dropdown">                               <strong>$</strong>        <span class="hidden-xs hidden-sm hidden-md">Currency</span>&nbsp;<i class="fa fa-caret-down"></i></button>
+      <ul class="dropdown-menu">
+                        <li>
+          <button class="currency-select btn btn-link btn-block" type="button" name="EUR">€ Euro</button>
+        </li>
+                                <li>
+          <button class="currency-select btn btn-link btn-block" type="button" name="GBP">£ Pound Sterling</button>
+        </li>
+                                <li>
+          <button class="currency-select btn btn-link btn-block" type="button" name="USD">$ US Dollar</button>
+        </li>
+                      </ul>
+    </div>
+    <input type="hidden" name="code" value="" />
+    <input type="hidden" name="redirect" value="http://localhost:8080/zpgazipur/index.php?route=common/home" />
+  </form>
+</div>
+ -->
+    
+	<div id="zp-top" class="pull-left">
+		<div class="zp-info-search">
+			<a href="#" class="pull-left zp-link-national">বাংলাদেশ জাতীয় তথ্য বাতায়ন</a>
+			<div class="pull-right"><div id="search" class="input-group">
+  <input type="text" name="search" value="" placeholder="Search" class="form-control input-lg">
+  <span class="input-group-btn">
+    <button type="button" class="btn btn-default btn-lg"><i class="fa fa-search"></i></button>
+  </span>
+</div></div>
+		</div>
+	</div>
+    <div id="top-links" class="nav pull-right">
+      <ul class="list-inline">
+        <li><a href="http://localhost:8080/zpgazipur/index.php?route=information/contact"><i class="fa fa-phone"></i></a> <span class="hidden-xs hidden-sm hidden-md">02-49261467</span></li>
+        <li class="dropdown"><a href="http://localhost:8080/zpgazipur/index.php?route=account/account" title="Account" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <span class="hidden-xs hidden-sm hidden-md">Account</span> <span class="caret"></span></a>
+          <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="http://localhost:8080/zpgazipur/index.php?route=account/register" class="dropdown-item">Register</a></li>
+            <li><a href="http://localhost:8080/zpgazipur/index.php?route=account/login" class="dropdown-item">Login</a></li>
+                      </ul>
+        </li>
+        <!--<li><a href="http://localhost:8080/zpgazipur/index.php?route=account/wishlist" id="wishlist-total" title="Wish List (0)"><i class="fa fa-heart"></i> <span class="hidden-xs hidden-sm hidden-md">Wish List (0)</span></a></li>
+        <li><a href="http://localhost:8080/zpgazipur/index.php?route=checkout/cart" title="Shopping Cart"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">Shopping Cart</span></a></li>
+        <li><a href="http://localhost:8080/zpgazipur/index.php?route=checkout/checkout" title="Checkout"><i class="fa fa-share"></i> <span class="hidden-xs hidden-sm hidden-md">Checkout</span></a></li>-->
+      </ul>
+    </div>
+  </div>
+</nav>
+<!--<header>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9">
+        <div id="logo">          <h1><a href="http://localhost:8080/zpgazipur/index.php?route=common/home">জেলা পরিষদ, গাজীপুর</a></h1>
+          </div>
+      </div>
+      <div class="col-sm-3"><div id="search" class="input-group">
+  <input type="text" name="search" value="" placeholder="Search" class="form-control input-lg" />
+  <span class="input-group-btn">
+    <button type="button" class="btn btn-default btn-lg"><i class="fa fa-search"></i></button>
+  </span>
+</div></div>
+      <div class="col-sm-3"><div id="cart" class="btn-group btn-block">
+  <button type="button" data-toggle="dropdown" data-loading-text="Loading..." class="btn btn-inverse btn-block btn-lg dropdown-toggle"><i class="fa fa-shopping-cart"></i> <span id="cart-total">0 item(s) - $0.00</span></button>
+  <ul class="dropdown-menu pull-right">
+        <li>
+      <p class="text-center">Your shopping cart is empty!</p>
+    </li>
+      </ul>
+</div>
+</div>
+    </div>
+  </div>
+</header>-->
+
+<div id="common-home" class="container">
+	<div class="row">
+		<div class="col-sm-12 col-md-12">
+			<div class="swiper-viewport">
+  <div id="slideshow0" class="swiper-container swiper-container-horizontal swiper-container-fade">
+    <div class="swiper-wrapper" style="transition-duration: 3000ms;"><div class="swiper-slide text-center swiper-slide-duplicate swiper-slide-next swiper-slide-duplicate-prev" data-swiper-slide-index="2" style="width: 1132px; transform: translate3d(0px, 0px, 0px); opacity: 1; transition-duration: 3000ms;"><a href="#"><img src="http://localhost:8080/zpgazipur/image/cache/catalog/slideshow/slider_tungipara-1140x320.jpg" alt="Tungipara" class="img-responsive"></a></div>       <div class="swiper-slide text-center swiper-slide-duplicate-active" data-swiper-slide-index="0" style="width: 1132px; transform: translate3d(-1132px, 0px, 0px); opacity: 1; transition-duration: 3000ms;"><a href="#"><img src="http://localhost:8080/zpgazipur/image/cache/catalog/slideshow/scholarship_1_2018-1140x320.jpg" alt="Scholarship 1_2018" class="img-responsive"></a></div>
+            <div class="swiper-slide text-center" data-swiper-slide-index="1" style="width: 1132px; transform: translate3d(-2264px, 0px, 0px); opacity: 1; transition-duration: 3000ms;"><a href="#"><img src="http://localhost:8080/zpgazipur/image/cache/catalog/slideshow/scholarship_2_2018-1140x320.jpg" alt="Scholarship 1_2018" class="img-responsive"></a></div>
+            <div class="swiper-slide text-center swiper-slide-prev swiper-slide-duplicate-next" data-swiper-slide-index="2" style="width: 1132px; transform: translate3d(-3396px, 0px, 0px); opacity: 1; transition-duration: 3000ms;"><a href="#"><img src="http://localhost:8080/zpgazipur/image/cache/catalog/slideshow/slider_tungipara-1140x320.jpg" alt="Tungipara" class="img-responsive"></a></div>
+       <div class="swiper-slide text-center swiper-slide-duplicate swiper-slide-active" data-swiper-slide-index="0" style="width: 1132px; transform: translate3d(-4528px, 0px, 0px); opacity: 1; transition-duration: 3000ms;"><a href="#"><img src="http://localhost:8080/zpgazipur/image/cache/catalog/slideshow/scholarship_1_2018-1140x320.jpg" alt="Scholarship 1_2018" class="img-responsive"></a></div></div>
+  </div>
+  <!--<div class="swiper-pagination slideshow0"></div>-->
+  <div class="swiper-pager">
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+</div>
+<!---->
+<!--<div class="container">-->
+  <nav id="menu" class="navbar">
+    <div class="navbar-header"><span id="category" class="visible-xs"></span>
+      <button type="button" class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"><i class="fa fa-bars"></i></button>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+		<li><a href=""><i class="fa fa-home" style="font-size: 18px;"></i>&nbsp;&nbsp;প্রথম পাতা</a></li>
+        <!--                <li><a href="http://localhost:8080/zpgazipur/index.php?route=product/category&amp;path=59">for menu</a></li>
+                -->
+		
+        
+        <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown"> আমাদের সম্পর্কে&nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+			<div class="dropdown-menu" style="">
+				<div class="dropdown-inner">
+					<ul class="list-unstyled">
+											<li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=3">সাংগঠনিক কাঠামো</a></li>
+											<li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=4">জেলা পরিচিতি</a></li>
+											<li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=5">জনবল</a></li>
+											<li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=6">জেলা পরিষদ ইতিহাস</a></li>
+											<li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=7">নাগরিক সেবা</a></li>
+											<li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=11">জেলা পরিষদ আইন</a></li>
+										</ul>
+				</div>
+            </div>
+        </li>
+		<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">নির্বাচিত পরিষদ&nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+			<div class="dropdown-menu" style="">
+				<div class="dropdown-inner">
+					<ul class="list-unstyled">
+											<li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=9">চেয়ারম্যান</a></li>
+											<li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=12">প্যানেল চেয়ারম্যান</a></li>
+											<li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=13">সদস্যগণ</a></li>
+										</ul>
+				</div>
+            </div>
+        </li>
+		<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown"> কমিটি&nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+			<div class="dropdown-menu" style="">
+				<div class="dropdown-inner">
+					<ul class="list-unstyled">
+											<li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=14">সিদ্ধান্ত গ্রহণকারী কমিটি</a></li>
+											<li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=15">টেন্ডার উন্মুক্ত কমিটি</a></li>
+											<li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=16">দরপত্র মূল্যায়ন কমিটি</a></li>
+											<li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=17">গাছ মূল্যায়ন কমিটি</a></li>
+											<li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=18">এডিপি বাস্তবায়ন</a></li>
+										</ul>
+				</div>
+            </div>
+        </li>
+		<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">সম্পদ&nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+			<div class="dropdown-menu" style="">
+				<div class="dropdown-inner">
+					<ul class="list-unstyled">
+											<li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=19">জমি</a></li>
+											<li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=20">খেয়াঘাট</a></li>
+											<li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=21">পুকুর</a></li>
+											<li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=22">মার্কেট</a></li>
+											<li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=23">ডাকবাংলো</a></li>
+										</ul>
+				</div>
+            </div>
+        </li>
+		<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">আবেদন ফরম&nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+			<div class="dropdown-menu" style="">
+				<div class="dropdown-inner">
+					<ul class="list-unstyled">
+						<li><a href="http://localhost:8080/zpgazipur/index.php?route=student/admissionregister">প্রশিক্ষণ কোর্সে ভর্তির আবেদন ফরম</a></li>
+						<li><a href="http://localhost:8080/zpgazipur/index.php?route=student/admissionregister">শিক্ষাবৃত্তির আবেদন ফরম</a></li>
+					</ul>
+				</div>
+            </div>
+		</li>
+		<li><a href="http://localhost:8080/zpgazipur/admin" class="" target="_blank">অফিসিয়াল</a></li>
+      </ul>
+    </div>
+  </nav>
+<!--</div>-->
+<!-- -->
+<script type="text/javascript"><!--
+$('#slideshow0').swiper({
+	mode: 'horizontal',
+	slidesPerView: 1,
+	pagination: '.slideshow0',
+	paginationClickable: true,
+	nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev',
+    spaceBetween: 30,
+	autoplay: 2500,
+    autoplayDisableOnInteraction: true,
+	loop: true,
+	effect: 'fade',
+	speed: 3000,
+	fadeEffect: {
+		crossFade: true
+	  }
+});
+--></script>
+
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-9 col-md-9">
+			<div id="homewindow" class="row">
+	<div class="col-md-12">
+		<div class="notice-board">
+			<div class="notice-board-bg">
+				<h2>নোটিশ বোর্ড</h2>
+				<div id="notice-board-ticker">
+					<ul>
+						<li><a href="#" rel="bookmark" title="২০১৮-১৯ অর্থ বছরের গরিব ও মেধাবী ছাত্র-ছাত্রীদের শিক্ষাবৃত্তি ফরম">২০১৮-১৯ অর্থ বছরের গরিব ও মেধাবী ছাত্র-ছাত্রীদের শিক্ষাবৃত্তি ফরম</a></li>
+						<li><a href="#" rel="bookmark" title="২০১৮-১৯ অর্থ বছরের গরিব ও মেধাবী ছাত্র-ছাত্রীদের শিক্ষাবৃত্তি সংক্রান্ত বিজ্ঞপ্তি">২০১৮-১৯ অর্থ বছরের গরিব ও মেধাবী ছাত্র-ছাত্রীদের শিক্ষাবৃত্তি সংক্রান্ত বিজ্ঞপ্তি</a></li>
+						<li><a href="#" rel="bookmark" title="গাজীপুর জেলা পরিষদের ২০ তম সভার নোটিশ">গাজীপুর জেলা পরিষদের ২০ তম সভার নোটিশ</a></li>
+						<li><a href="#" rel="bookmark" title="Md Mahbub Alam (NOC)">Md Mahbub Alam (NOC)</a></li>
+						<li><a href="#" rel="bookmark" title="Mr. Md Ashraf Hossain ( NOC )">Mr. Md Ashraf Hossain ( NOC )</a></li>
+                    </ul>
+					<a class="btn btn-primary pull-right" style="margin-right: 15px;" href="/site/view/notices" title="সকল নোটিশ">সকল</a>
+				</div>
+			</div>
+		</div>
+		
+		
+		<div style=" background-color: #EFEFEF;border: 1px solid #CCCCCC;margin: 20px 0;padding: 10px;" class="row" id="news">
+			<h5 style="float:left;margin:-3px 5px 0 0; font-weight:bold;">খবর:</h5>
+			<div id="news-ticker" style="overflow: hidden; position: relative; height: 144px;">
+				<ul style="position: absolute; margin: 0px; padding: 0px; width: 95%; top: 0px;">
+					<li style="margin: 0px; padding: 0px; height: 144px;"><a href="#" title="প্রেস বিজ্ঞপ্তি: ১১ ফেব্রুয়ারি, ২০১৯ খ্রিস্টাব্দ। ৫৪তম বিশ্ব ইজতেমা আগামী ১৫-১৮ ফেব্রুয়ারি, ২০১৯ অনুষ্ঠিত হবে।">প্রেস বিজ্ঞপ্তি: ১১ ফেব্রুয়ারি, ২০১৯ খ্রিস্টাব্দ। ৫৪তম বিশ্ব ইজতেমা আগামী ১৫-১৮ ফেব্রুয়ারি, ২০১৯ অনুষ্ঠিত হবে।</a>
+						<i>(২০১৯-০২-১১)</i>
+					</li>
+					<li style="margin: 0px; padding: 0px; height: 144px;"><a href="#" title="প্রেস বিজ্ঞপ্তি: ১০ ফেব্রুয়ারি, ২০১৯ খ্রিস্টাব্দ। জেলা ম্যাজিস্ট্রেট ড. দেওয়ান মুহাম্মদ হুমায়ূন কবীর মহোদয়ের সদয় নির্দেশনা অনুযায়ী আজ ১০.০২.২০১৯ তারিখ গাজীপুর সদর এর ডগরী ও পাইনশাইল এলাকায় ইট প্রস্তুত ও ভাটা স্থাপন (নিয়ন্ত্রণ) আইন, ২০১৩ এর ৪ ও ৫ ধারায় মোবাইল কোর্ট পরিচালনা করেন নির্বাহী ম্যাজিস্ট্রেট জনাব তানিয়া ভূঁইয়া।">প্রেস বিজ্ঞপ্তি: ১০ ফেব্রুয়ারি, ২০১৯ খ্রিস্টাব্দ। জেলা ম্যাজিস্ট্রেট ড. দেওয়ান মুহাম্মদ হুমায়ূন কবীর মহোদয়ের সদয় নির্দেশনা অনুযায়ী আজ ১০.০২.২০১৯ তারিখ গাজীপুর সদর এর ডগরী ও পাইনশাইল এলাকায় ইট প্রস্তুত ও ভাটা স্থাপন (নিয়ন্ত্রণ) আইন, ২০১৩ এর ৪ ও ৫ ধারায় মোবাইল কোর্ট পরিচালনা করেন নির্বাহী ম্যাজিস্ট্রেট জনাব তানিয়া ভূঁইয়া।</a>
+						<i>(২০১৯-০২-১০)</i>
+					</li>
+					<li style="margin: 0px; padding: 0px; height: 144px;"><a href="#" title="প্রেস বিজ্ঞপ্তি: ০৯ ফেব্রুয়ারি, ২০১৯ খ্রিস্টাব্দ। আজ (০৯.০২.২০১৯) দিনের শুরুতেই মান্যবর জেলা প্রশাসক ড. দেওয়ান মুহাম্মদ হুমায়ূন কবীর মহোদয়, ব্রাক সিডিএম এ অনুষ্ঠিত কর্মসূচিতে উপস্থিত মাননীয় প্রধান বিচারপতি সৈয়দ মাহমুদ হোসেন এবং সুপ্রিম কোর্টের আপিল বিভাগ ও হাইকোর্ট বিভাগের মাননীয় বিচারপতি ও তাদের পরিবারবর্গকে স্বাগত জানান। পরে তিনি বঙ্গবন্ধু সাফারি পার্কে মাননীয় ধর্ম প্রতিমন্ত্রী এডভোকেট শেখ মোঃ আব্দুল্লাহ, গাজীপুর সিটি কর্পোরেশনের মাননীয় মেয়র জনাব এডভোকেট জাহাঙ্গীর আলম ও গাজীপুর মেট্রোপলিটন পুলিশ কমিশনার জনাব ওয়াই এম বেলালুর রহমান এর সাথে ইজতেমার প্রস্তুতি বিষয়ক বৈঠকে যোগদান করেন এবং পুষ্পদাম রিসোর্ট এ মাননীয় যুব ও ক্রীড়া প্রতিমন্ত্রী জনাব জাহিদ আহসান রাসেল মহোদয় কে ফুলেল শুভেচ্ছা জানান।">প্রেস বিজ্ঞপ্তি: ০৯ ফেব্রুয়ারি, ২০১৯ খ্রিস্টাব্দ। আজ (০৯.০২.২০১৯) দিনের শুরুতেই মান্যবর জেলা প্রশাসক ড. দেওয়ান মুহাম্মদ হুমায়ূন কবীর মহোদয়, ব্রাক সিডিএম এ অনুষ্ঠিত কর্মসূচিতে উপস্থিত মাননীয় প্রধান বিচারপতি সৈয়দ মাহমুদ হোসেন এবং সুপ্রিম কোর্টের আপিল বিভাগ ও হাইকোর্ট বিভাগের মাননীয় বিচারপতি ও তাদের পরিবারবর্গকে স্বাগত জানান। পরে তিনি বঙ্গবন্ধু সাফারি পার্কে মাননীয় ধর্ম প্রতিমন্ত্রী এডভোকেট শেখ মোঃ আব্দুল্লাহ, গাজীপুর সিটি কর্পোরেশনের মাননীয় মেয়র জনাব এডভোকেট জাহাঙ্গীর আলম ও গাজীপুর মেট্রোপলিটন পুলিশ কমিশনার জনাব ওয়াই এম বেলালুর রহমান এর সাথে ইজতেমার প্রস্তুতি বিষয়ক বৈঠকে যোগদান করেন এবং পুষ্পদাম রিসোর্ট এ মাননীয় যুব ও ক্রীড়া প্রতিমন্ত্রী জনাব জাহিদ আহসান রাসেল মহোদয় কে ফুলেল শুভেচ্ছা জানান।</a>
+						<i>(২০১৯-০২-১০)</i>
+					</li>
+				</ul>
+			</div>
+			<div class="pull-right">
+				<a class="btn btn-primary" href="/site/view/news" title="সকল">সকল</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+		</div>
+		
+		<div id="column-right" class="col-sm-3 col-md-3 hidden-xs">
+    <div id="right_bar" class="row">
+	<div class="col-md-12">
+		<div class="add_links">
+			<h5 class="message-title">চেয়ারম্যান</h5>
+			<a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=9" alt="চেয়ারম্যান" title="">
+				<img class="img-fluid picture" src="http://localhost:8080/zpgazipur/catalog/view/theme/default/image//gazipur-chairman.jpg" alt="" width="100%" height="45px;">
+			</a>
+			<div class="footer">
+				<p class="message-name">জনাব আখতারুজ্জামান</p>
+				<p class="message-name"><a class="message-link" href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=9">বিস্তারিত</a></p>
+			</div>
+		</div>
+		<div class="add_links">
+			<h5 class="message-title">প্রধান নির্বাহী কর্মকর্তা</h5>
+			<a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=10" alt="প্রধান নির্বাহী কর্মকর্তা" title="">
+				<img class="img-fluid picture" src="http://localhost:8080/zpgazipur/catalog/view/theme/default/image//ddlg_jamil-ahmed.jpg" alt="" width="100%" height="45px;">
+			</a>
+			<div class="footer">
+				<p class="message-name">জনাব জামিল আহমেদ</p>
+				<p class="message-name"><a class="message-link" href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=10">বিস্তারিত</a></p>
+			</div>
+		</div>
+		<div class="add_links">
+			<a href="/site/view/district_branding_home" alt="জেলা ব্র্যান্ডিং" title="">
+				<img class="img-fluid" src="http://bangladesh.gov.bd/sites/default/files/files/bangladesh.gov.bd/graphical_result_button/d2712647_cde4_4e80_afdc_a1ab27bcd2bd/Tamplate_DistrictBranding_b (3).png" alt="" width="100%" height="45px;">
+			</a>
+		</div>
+		<div class="add_links">
+			<a href="/site/view/sps_data" alt="সেবা সহজিকরন" title=""> 
+				<img src="http://bangladesh.gov.bd/sites/default/files/files/bangladesh.gov.bd/graphical_result_button/17dd9bb7_0856_4824_897e_6136ac6ca9b2/Tamplate_sps_bn.png" alt="" width="100%" height="45px;">
+			</a>
+		</div>
+		<div class="add_links">
+			<a href="http://online.forms.gov.bd" alt="ই-সেবার আবেদন" title=""> 
+				<img src="http://bangladesh.gov.bd/sites/default/files/files/bangladesh.gov.bd/graphical_result_button/6b8058ef_c17d_4a2d_9b26_b4779731503b/Tamplate_eservice_bn%20(1).png" alt="" width="100%" height="45px;">
+			</a>
+		</div>
+		<div class="add_links">
+			<table style="width:100%;table-layout:fixed;">
+				<tbody>
+					<tr>
+						<td class="apply-online">
+							<a href="/site/view/jobcorner" style="" title="চাকুরি (০)">
+								<span>চাকুরি <sup>(০)</sup></span>
+							</a>
+						</td>
+						<td class="apply-online">
+							<a href="/site/view/tendercorner" style="" title="টেন্ডার (০)">
+								<span>টেন্ডার <sup>(০)</sup></span>
+							</a>
+						</td>
+						<td class="apply-online">
+							<a href="/site/view/adcorner" style="" title="বিজ্ঞাপন (০)">
+								<span>বিজ্ঞাপন <sup>(০)</sup></span>
+							</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="add_links">
+			 <a target="_blank" title="" href="http://webmail.mopa.gov.bd/">
+				<img src="http://localhost:8080/zpgazipur/catalog/view/theme/default/image/moopa_web_bn.jpg" alt="" width="100%">
+			 </a>
+		</div>
+		<div class="add_links">
+			<div class="central-eservices">
+				<h5 class="eservice-title title-central">কেন্দ্রীয় ই-সেবা</h5>
+				<ul>
+					<li class="item_1"><a href="http://online.forms.gov.bd/" title="অনলাইনে সেবার আবেদন">অনলাইনে সেবার আবেদন</a></li>
+					<li class="item_2"><a href="http://www.nothi.gov.bd/users/login" title="নথি">নথি</a></li>
+					<li class="item_3"><a href="http://bangladesh.gov.bd/site/page/5c238920-a65f-4168-9c2b-70c39dc7cb1c" title="প্রয়োজনীয় এপস ">প্রয়োজনীয় এপস </a></li>
+					<li class="item_4"><a href="http://bris.lgd.gov.bd/pub/?pg=application_form" title="জন্ম ও মৃত্যু নিবন্ধন">জন্ম ও মৃত্যু নিবন্ধন</a></li>
+					<li class="item_5"><a href="http://xn--d5by7bap7cc3ici3m.xn--54b7fta0cc/" title="উত্তরাধিকার ক্যালকুলেটর">উত্তরাধিকার ক্যালকুলেটর</a></li>
+					<li class="item_6"><a href="http://pcc.police.gov.bd/en/" title="অনলাইন পুলিশ ক্লিয়ারেন্স">অনলাইন পুলিশ ক্লিয়ারেন্স</a></li>
+					<li class="item_7"><a href="http://www.dip.gov.bd/site/page/f2d015a9-1132-4426-8eef-147f1c4bac8a" title="অনলাইনে পাসপোর্টের আবেদন">অনলাইনে পাসপোর্টের আবেদন</a></li>
+					<li class="item_8"><a href="https://services.nidw.gov.bd/" title="জাতীয় পরিচয়পত্রের তথ্য হালনাগাদকরণ">জাতীয় পরিচয়পত্রের তথ্য হালনাগাদকরণ</a></li>
+					<li class="item_9"><a href="http://www.cga.gov.bd/index.php?option=com_wrapper" title="অনলাইন চালান যাচাইকরণ">অনলাইন চালান যাচাইকরণ</a></li>
+					<li class="item_10"><a href="http://www.nbrepayment.gov.bd/" title="অনলাইন আয়কর পরিশোধ">অনলাইন আয়কর পরিশোধ</a></li>
+					<li class="item_11"><a href="http://www.bmet.gov.bd/BMET/onlinaVisaCheckAction" title=" ভিসা যাচাই "> ভিসা যাচাই </a></li>
+					<li class="item_13"><a href="http://www.echallan.gov.bd/" title="ই চালান">ই চালান</a></li>
+					<li class="item_14"><a href="http://accessibledictionary.gov.bd/" title="অভিগম্য অভিধান ">অভিগম্য অভিধান </a></li>					
+				</ul>
+			</div>
+		</div>
+		<div class="add_links">
+			<div class="central-eservices">
+				<h5 class="eservice-title title-dist">ই-সেবা কেন্দ্র, জেলা প্রশাসন</h5>
+				<ul>
+					<li class="item_1"><a href="/site/eservices/9caa8751-1db3-4bb5-9659-baff7cc39bef/নকলের-জন্য-আবেদন" title="নকলের জন্য আবেদন">নকলের জন্য আবেদন</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="add_links">
+			<div class="central-eservices">
+				<h5 class="eservice-title title-other">আভ্যন্তরীণ ই-সেবা</h5>
+				<ul>
+					<li><a href="/site/view/process_map/সেবা-পাবার-ধাপ-" title="সেবা পাবার ধাপ ">সেবা পাবার ধাপ </a></li>
+					<li><a href="/site/view/info_officers/তথ্য-প্রদানকারী-কর্মকর্তা" title="তথ্য প্রদানকারী কর্মকর্তা">তথ্য প্রদানকারী কর্মকর্তা</a></li>
+					<li><a href="http://bdlaws.minlaw.gov.bd/" title="অন্যান্য  আইন">অন্যান্য  আইন</a></li>
+					<li><a href="http://bdlaws.minlaw.gov.bd/bangla_all_sections.php?id=1011/" title="তথ্য অধিকার আইন">তথ্য অধিকার আইন</a></li>
+					<li><a href="http://bdlaws.minlaw.gov.bd/bangla_all_sections.php?id=950/" title="তথ্য প্রযুক্তি আইন ">তথ্য প্রযুক্তি আইন </a></li>
+					<li><a href="/site/view/e-directory/ই--ডিরেক্টরী" title="ই- ডিরেক্টরী">ই- ডিরেক্টরী</a></li>
+					<li><a href="https://www.facebook.com/জেলা-প্রশাসনগাজীপুর-553490618156444/" title="সামাজিক যোগাযোগ ফেসবুক">সামাজিক যোগাযোগ ফেসবুক</a></li>
+					<li><a href="https://www.teachers.gov.bd/" title="শিক্ষক বাতায়ন">শিক্ষক বাতায়ন</a></li>
+					<li><a href="http://online.forms.gov.bd/" title="বাংলাদেশ ফরম (অনলাইন)">বাংলাদেশ ফরম (অনলাইন)</a></li>
+					<li><a href="http://www.forms.gov.bd/" title="বাংলাদেশ ফরম ( ডাউন লোড )">বাংলাদেশ ফরম ( ডাউন লোড )</a></li>
+					<li><a href="/site/videogallery/d9d62def-2014-11e7-8f57-286ed488c766/ডিজিটাল-গাজীপুর" title="ডিজিটাল গাজীপুর">ডিজিটাল গাজীপুর</a></li>
+					<li><a href="https://play.google.com/store/apps/details?id=com.vumi.seba/" title="ভূমি সেবা- মোবাইল অ্যাপ">ভূমি সেবা- মোবাইল অ্যাপ</a></li>
+					<li><a href="/site/page/8a868c73-e443-4b28-9200-a475a564c993/প্রয়োজনীয়-বিধি-ও-নীতিমালা" title="প্রয়োজনীয় বিধি ও নীতিমালা">প্রয়োজনীয় বিধি ও নীতিমালা</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="add_links">
+			<div class="central-eservices">
+				<h5 class="eservice-title title-inno"><a title="ইনোভেশন কর্নার" href="/site/view/innovation_corner">ইনোভেশন কর্নার</a></h5>	
+			</div>
+		</div>
+		<div class="add_links">
+			<div class="central-eservices">
+				<h5 class="eservice-title title-feed"><a title="আপনার মতামত" href="/site/view/portalfeedback">আপনার মতামত</a></h5>	
+			</div>
+		</div>
+		<div class="add_links">
+			<div class="central-eservices">
+				<h5 class="eservice-title title-social">সামাজিক যোগাযোগ মাধ্যম</h5><br>
+				<a title="" href="https://www.facebook.com/dcgazipur" target="_blank" class="share-buttons"> 
+					<img src="http://localhost:8080/zpgazipur/catalog/view/theme/default/image/facebook.png" alt="" width="30px">
+				</a>
+				<a title=" " href="http://www.twitter.com" target="_blank" class="share-buttons"> 
+					<img src="http://localhost:8080/zpgazipur/catalog/view/theme/default/image/twitter.png" alt="" width="30px">
+				</a> 
+				<a title=" " href="https://www.youtube.com/channel/UCP99H5x1LjNIkYlbxWiyYag" target="_blank" class="share-buttons"> 
+					<img src="http://localhost:8080/zpgazipur/catalog/view/theme/default/image/youtube.png" alt="" width="30px">
+				</a>
+			</div>
+		</div>
+		<div class="add_links">
+			<div class="central-eservices">
+				<h5 class="eservice-title title-fall" style="border: none;">ফল আর্মিওয়ার্ম পর্যবেক্ষণ ও সনাক্তকরণ</h5>
+				<iframe src="https://www.youtube.com/embed/zBAKSZqTkRg?rel=0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" width="100%" height="220" frameborder="0"></iframe>
+			</div>
+		</div>
+	</div>
+</div>
+
+  </div>
+
+		
+	</div>
+  
+</div>
+<footer>
+  <div class="container">
+    <div class="row">
+            <div class="col-sm-3">
+        <!--<h5>Information</h5>
+        <ul class="list-unstyled">
+                   <li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=4">জেলা পরিচিতি</a></li>
+                    <li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=6">জেলা পরিষদ ইতিহাস</a></li>
+                    <li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=3">সাংগঠনিক কাঠামো</a></li>
+                    <li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=5">জনবল</a></li>
+                  </ul>-->
+      </div>
+            <div class="col-sm-3">
+        <!--<h5>Customer Service</h5>
+        <ul class="list-unstyled">
+          <li><a href="http://localhost:8080/zpgazipur/index.php?route=information/contact">Contact Us</a></li>
+          <li><a href="http://localhost:8080/zpgazipur/index.php?route=account/return/add">Returns</a></li>
+          <li><a href="http://localhost:8080/zpgazipur/index.php?route=information/sitemap">Site Map</a></li>
+        </ul>-->
+      </div>
+      <div class="col-sm-3">
+        <!--<h5>Extras</h5>
+        <ul class="list-unstyled">
+          <li><a href="http://localhost:8080/zpgazipur/index.php?route=product/manufacturer">Brands</a></li>
+          <li><a href="http://localhost:8080/zpgazipur/index.php?route=account/voucher">Gift Certificates</a></li>
+          <li><a href="http://localhost:8080/zpgazipur/index.php?route=affiliate/login">Affiliate</a></li>
+          <li><a href="http://localhost:8080/zpgazipur/index.php?route=product/special">Specials</a></li>
+        </ul>-->
+      </div>
+      <div class="col-sm-3">
+        <h5>My Account</h5>
+        <ul class="list-unstyled">
+          <li><a href="http://localhost:8080/zpgazipur/index.php?route=account/account">My Account</a></li>
+          <!--<li><a href="http://localhost:8080/zpgazipur/index.php?route=account/order">Order History</a></li>
+          <li><a href="http://localhost:8080/zpgazipur/index.php?route=account/wishlist">Wish List</a></li>
+          <li><a href="http://localhost:8080/zpgazipur/index.php?route=account/newsletter">Newsletter</a></li>-->
+        </ul>
+      </div>
+    </div>
+    <hr>
+    <p>জেলা পরিষদ, গাজীপুর © 2019</p>
+  </div>
+</footer>
+<!--
+OpenCart is open source software and you are free to remove the powered by OpenCart if you want, but its generally accepted practise to make a small donation.
+Please donate via PayPal to donate@opencart.com
+//-->
+</body></html><?php /**PATH E:\wamp64\www\Laravelzpgazipur\zpgazipur\resources\views/Layouts/testing.blade.php ENDPATH**/ ?>

@@ -1,0 +1,18 @@
+<?php $__env->startSection('title'); ?>
+	Designation View 
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('script'); ?>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('container'); ?>
+	<?php $__empty_1 = true; $__currentLoopData = $desigs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $desig): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+		<h1><?php echo e($desig->heading); ?></h1>
+		<?php if($desig->image): ?>
+			<img src="<?php echo e(asset('images/catalog/Users')); ?>/<?php echo e($desig->image); ?>" class="image" style="height: 400px; width: auto;">
+		<?php endif; ?>
+		<?php echo $desig->description; ?>
+
+		<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+		<h1 style="color: red;">Sorry No Data is Available !!</h1>
+	<?php endif; ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('Layouts.user-home', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\wamp64\www\Laravelzpgazipur\zpgazipur\resources\views/User/designationview.blade.php ENDPATH**/ ?>
