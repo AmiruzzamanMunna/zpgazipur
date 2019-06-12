@@ -119,7 +119,7 @@
               </li>
             </ul>
           </li>
-          <li>
+          <!-- <li>
             <a href="#collapse2-2" data-toggle="collapse" class="parent collapsed">Maintenance</a>
             <ul id="collapse2-2" class="collapse">
               <li>
@@ -132,7 +132,7 @@
                 <a href="http://localhost:8080/edumaster/index.php?route=tool/log&amp;user_token=pfcUl2bkbhkNG1D1DDoBnl9KGeBKN159">Error Logs</a>
               </li>
             </ul>
-          </li>
+          </li> -->
         </ul>
       </li>
       <li id="menu-report">

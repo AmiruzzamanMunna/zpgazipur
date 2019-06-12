@@ -35,7 +35,6 @@ class AdminController extends Controller
     {
     	$request->validate([
     		'noticetitle'=>'required',
-    		'noticedescription'=>'required',
     		'startdate'=>'required',
     		'expiredate'=>'required',
     	]);
@@ -70,7 +69,6 @@ class AdminController extends Controller
     {
     	$request->validate([
     		'noticetitle'=>'required',
-    		'noticedescription'=>'required',
     		'startdate'=>'required',
     		'expiredate'=>'required',
     	]);
