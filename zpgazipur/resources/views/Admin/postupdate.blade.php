@@ -59,13 +59,18 @@
             </div>
           </div>
           <div class="form-group required has-error">
+            <label class="col-sm-2 control-label" for="input-username">Image</label>
+              <input type="file" name="image">
+              <div class="text-danger"></div>
+          </div>
+          <div class="form-group required has-error">
             <label class="col-sm-2 control-label" for="input-username" id="description">Description</label><br><br><br>
               <textarea class="summernote" rows="50" cols="50" name="description">{!!$post->description!!}</textarea>
             	<div class="text-danger"></div>
           </div>
           <div class="form-group required has-error">
-            <label class="col-sm-2 control-label" for="input-username">Image</label>
-              <input type="file" name="image">
+            <label class="col-sm-2 control-label" for="input-username">Image 1</label>
+              <input type="file" name="image1" value="{{$post->image2}}">
               <div class="text-danger"></div>
           </div>
           @endforeach

@@ -45,7 +45,7 @@ Route::get('/admin/postedit/{id}','AdminController@postEdit')->name('admin.postE
 Route::post('/admin/postedit/{id}','AdminController@postUpdate')->name('admin.postUpdate');
 Route::get('/admin/postdelete','AdminController@postDelete')->name('admin.postDelete');
 
-Route::get('/admin/allpost','AdminController@allPost')->name('admin.allPost');
+Route::get('/admin/allpost','AdminController@allPostAdd')->name('admin.allPostAdd');
 Route::post('/admin/allpost','AdminController@postSave')->name('admin.postSave');
 
 Route::get('/admin/imageslider','AdminController@imageForm')->name('admin.imageForm');

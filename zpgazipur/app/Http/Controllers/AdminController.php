@@ -110,7 +110,7 @@ class AdminController extends Controller
         return view('Admin.allpostlist')
             ->with('posts',$posts);
     }
-    public function allPost(Request $request)
+    public function allPostAdd(Request $request)
     {
         $menus=Menu::all();
         $submenus=Submenu::all();
@@ -136,6 +136,15 @@ class AdminController extends Controller
             $image1->move($location1, $filename1);
             
             $post->image = $filename1;
+        }
+        if ($request->hasFile('image1')) {
+            $image2 = $request->file('image1');
+            $filename2 = time() . 'image-2.' . $image2->getClientOriginalExtension();
+            $location2 = public_path('images');
+            // Image::make($image1->getRealPath())->resize(280, 280)->save(public_path('images/product'.$filename1));
+            $image2->move($location2, $filename2);
+            
+            $post->image2 = $filename2;
         }
         $post->save();
         $request->session()->flash('message','Data Inserted');
@@ -170,6 +179,15 @@ class AdminController extends Controller
             $image1->move($location1, $filename1);
             
             $post->image = $filename1;
+        }
+        if ($request->hasFile('image1')) {
+            $image2 = $request->file('image1');
+            $filename2 = time() . 'image-2.' . $image2->getClientOriginalExtension();
+            $location2 = public_path('images');
+            // Image::make($image1->getRealPath())->resize(280, 280)->save(public_path('images/product'.$filename1));
+            $image2->move($location2, $filename2);
+            
+            $post->image2 = $filename2;
         }
         $post->save();
         $request->session()->flash('message','Data Updated');

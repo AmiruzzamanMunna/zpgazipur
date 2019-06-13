@@ -15,7 +15,7 @@
     	{{csrf_field()}}
 	  	<div class="page-header">
 		    <div class="container-fluid">
-		      <div class="pull-right"><a href="{{route('admin.courseAdd')}}" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title=""><i class="fa fa-plus"></i></a>
+		      <div class="pull-right"><a href="{{route('admin.allPostAdd')}}" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title=""><i class="fa fa-plus"></i></a>
 		        <button data-toggle="tooltip" title="" class="btn btn-danger"><a href="{{route('admin.postDelete')}}"><i class="fa fa-trash-o"></i></a>
 		        </button>
 		      </div>
@@ -43,6 +43,9 @@
 			                  	<a href="">Image</a>
 			                  </td>
 			                  <td class="text-left">
+			                  	<a href="">Image 2</a>
+			                  </td>
+			                  <td class="text-left">
 			                  	<a href="">Action</a>
 			                  </td>
 			                </tr>
@@ -57,6 +60,11 @@
 			                  <td class="text-left">
 			                  	@if($post->image)
 			                  	<img src="{{asset('images')}}/{{$post->image}}" style="height: 130px;width: auto;">
+			                  	 @endif
+			                  </td>
+			                  <td class="text-left">
+			                  	@if($post->image2)
+			                  	<img src="{{asset('images')}}/{{$post->image2}}" style="height: 130px;width: auto;">
 			                  	 @endif
 			                  </td>
 			                  <td class="text-right"><a href="{{route('admin.postEdit',[$post->id])}}" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Edit"><i class="fa fa-pencil"></i></a></td>
