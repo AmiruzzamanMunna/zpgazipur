@@ -130,6 +130,16 @@
 					            </div>    
 					        </li>
 					        @endforeach
+					        <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">আবেদন ফরম&nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+								<div class="dropdown-menu" style="">
+									<div class="dropdown-inner">
+										<ul class="list-unstyled">
+											<li><a href="{{route('user.studentForm')}}">প্রশিক্ষণ কোর্সে ভর্তির আবেদন ফরম</a></li>
+											<li><a href="">শিক্ষাবৃত্তির আবেদন ফরম</a></li>
+										</ul>
+									</div>
+					            </div>
+							</li>
 							<!-- <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">নির্বাচিত পরিষদ&nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></a>
 								<div class="dropdown-menu" style="">
 									<div class="dropdown-inner">
@@ -140,8 +150,8 @@
 										</ul>
 									</div>
 					            </div>
-					        </li>
-							<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown"> কমিটি&nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+					        </li> -->
+							<!-- <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown"> কমিটি&nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></a>
 								<div class="dropdown-menu" style="">
 									<div class="dropdown-inner">
 										<ul class="list-unstyled">
@@ -166,18 +176,8 @@
 										</ul>
 									</div>
 					            </div>
-					        </li>
-							<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">আবেদন ফরম&nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></a>
-								<div class="dropdown-menu" style="">
-									<div class="dropdown-inner">
-										<ul class="list-unstyled">
-											<li><a href="http://localhost:8080/zpgazipur/index.php?route=student/admissionregister">প্রশিক্ষণ কোর্সে ভর্তির আবেদন ফরম</a></li>
-											<li><a href="http://localhost:8080/zpgazipur/index.php?route=student/admissionregister">শিক্ষাবৃত্তির আবেদন ফরম</a></li>
-										</ul>
-									</div>
-					            </div>
-							</li>
-							<li>
+					        </li> -->
+							<!-- <li>
 								<a href="http://localhost:8080/zpgazipur/admin" class="" target="_blank">অফিসিয়াল</a>
 							</li> -->
 							

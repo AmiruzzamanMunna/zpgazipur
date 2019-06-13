@@ -21,6 +21,7 @@ Route::get('/allview/{menuid}/{subid}','UserController@allView')->name('user.all
 Route::get('/allcategoryview/{id}','UserController@allCategoryView')->name('user.allCategoryView');
 Route::get('/designation/{id}','UserController@designationView')->name('user.designationView');
 Route::get('/menu','UserController@menu');
+Route::get('/student/admission','UserController@studentForm')->name('user.studentForm');
 // Route::get('/layouts','UserController@layouts');
 
 
@@ -38,6 +39,11 @@ Route::get('/admin/editnoticeform/{id}','AdminController@editNotice')->name('adm
 Route::post('/admin/editnoticeform/{id}','AdminController@updateNotice')->name('admin.updateNotice');
 
 Route::get('/admin/deleteNotice','AdminController@noticeDelete')->name('admin.noticeDelete');
+
+Route::get('/admin/postlist','AdminController@allPostList')->name('admin.allPostList');
+Route::get('/admin/postedit/{id}','AdminController@postEdit')->name('admin.postEdit');
+Route::post('/admin/postedit/{id}','AdminController@postUpdate')->name('admin.postUpdate');
+Route::get('/admin/postdelete','AdminController@postDelete')->name('admin.postDelete');
 
 Route::get('/admin/allpost','AdminController@allPost')->name('admin.allPost');
 Route::post('/admin/allpost','AdminController@postSave')->name('admin.postSave');
@@ -63,3 +69,13 @@ Route::post('/admin/menucategory','AdminController@storeNavMenu')->name('admin.s
 
 Route::get('/admin/menusubcategory','AdminController@navSubMenu')->name('admin.navSubMenu');
 Route::post('/admin/menusubcategory','AdminController@StorenavSubMenu')->name('admin.StorenavSubMenu');
+
+Route::get('/admin/courselist','AdminController@courselist')->name('admin.courselist');
+
+Route::get('/admin/courseadd','AdminController@courseAdd')->name('admin.courseAdd');
+Route::post('/admin/courseadd','AdminController@storeCourseAdd')->name('admin.storeCourseAdd');
+
+Route::get('/admin/courseedit/{id}','AdminController@courseEdit')->name('admin.courseEdit');
+Route::post('/admin/courseedit/{id}','AdminController@courseUpdate')->name('admin.courseUpdate');
+
+Route::get('/admin/courseDelete','AdminController@courseDelete')->name('admin.courseDelete');

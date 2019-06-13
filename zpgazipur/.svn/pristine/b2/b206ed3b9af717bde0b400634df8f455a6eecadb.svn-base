@@ -1,0 +1,258 @@
+.navbar-collapse {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+#zp-top {
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+#zp-top .zp-info-search .zp-link-national {
+	color: #ffffff;
+	margin-left: 10px;
+	margin-right: 10px;
+	font-size: 15px;
+}
+.list-inline {
+	margin-bottom: 0px;
+}
+.navbar {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.add_links {
+	width: 100%;
+	padding-bottom: 5px;
+}
+.apply-online {
+    border-bottom-style: solid !important;
+    border-bottom-width: 5px !important;
+    color: #ffffff;
+    font-size: 15px;
+    line-height: 2.1;
+    margin-bottom: 10px;
+    padding-bottom: 15px !important;
+    padding-top: 15px !important;
+    text-align: center;
+    border-right: 1px solid white;
+}
+
+.add_links table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.add_links table td {
+	box-sizing: border-box !important;
+	padding: 5px !important;
+    padding-top: 5px;
+    padding-bottom: 5px;
+	border: 1px solid #d8d8d8 !important;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+
+}
+.add_links .message-title {
+	background-attachment: scroll;
+	background-clip: border-box;
+	background-color: #609513 !important;
+	
+	background-origin: padding-box;
+	background-position-x: 0px;
+	background-position-y: 0px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin-top: 0;
+	padding-left: 0px !important;
+	border: 1px solid #ccc;
+	color: #fff;
+	
+	padding: 5px;
+	padding-bottom: 10px;
+    padding-left: 0px;
+	font-size: 1.2em;
+	overflow: hidden;
+	
+	font-weight: bold;
+	margin-bottom: 0px;
+	line-height: 24px;
+	text-align: center;
+}
+.add_links .picture {
+	border: 1px solid #ebebeb;
+	padding: 5px;
+}
+.add_links .footer {
+	border-left: 1px solid #ebebeb;
+	border-right: 1px solid #ebebeb;
+	border-bottom: 1px solid #ebebeb;
+}
+.add_links .message-name {
+	text-align: center;
+	width: 100%;
+}
+.add_links .message-link {
+	text-align: center;
+	width: 100%;
+}
+.add_links .eservice-title {
+	background-attachment: scroll;
+	background-clip: border-box;
+	background-color: rgba(0, 0, 0, 0);
+	
+	background-origin: padding-box;
+	background-position-x: 0px;
+	background-position-y: 0px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin-top: 0;
+	padding-left: 35px !important;
+	border: 1px solid #ccc;
+	color: #683091;
+	
+	padding: 5px;
+	padding-bottom: 10px;
+    padding-left: 5px;
+	font-size: 1.2em;
+	overflow: hidden;
+	
+	font-weight: bold;
+	margin-bottom: 10px;
+	line-height: 24px;
+}
+.add_links  .title-central{
+	background-image: url("../image/central_e_service.jpg");
+}
+.add_links  .title-dist{
+	background-image: url("../image/district_e_service.jpg");
+}
+.add_links  .title-other{
+	background-image: url("../image/other_e_service.jpg");
+}
+.add_links  .title-inno{
+	background-image: url("../image/innovation_corner.jpg");
+}
+.add_links  .title-feed{
+	background-image: url("../image/feedback_portal.jpg");
+}
+.add_links  .title-social{
+	background-image: url("../image/social_media_corner.jpg");
+}
+.add_links .central-eservices ul {
+	list-style: none;
+}
+.add_links .central-eservices ul li {
+	background: url('../image/bg_block_list.png') no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    background-position-x: 0px;
+    background-position-y: 0px;
+	font-size: 120%;
+	height: auto;
+	list-style-type: none;
+	margin-bottom: 5px;
+	padding-left: 32px;
+	padding-top: 0px;
+	padding-bottom: 8px;
+}
+.notice-board {
+	background: url("../image/welcome_grad.png") repeat-x scroll left top transparent;
+	border: 1px solid #ddd;
+	background-color: #ebebeb;
+	height: auto;
+	min-height: 240px;
+}
+.notice-board-bg {
+	background-image: url("../image/bg_notice_board.png");
+	background-repeat: no-repeat;
+	padding: 10px 0 20px 100px;
+}
+#notice-board-ticker ul li {
+    list-style: none;
+}
+#left-content ul li {
+    margin-left: 20px;
+}
+#notice-board-ticker li {
+    margin-bottom: 5px;
+}
+#notice-board-ticker li {
+    background: url("../image/bullet_tick.png") no-repeat center left;
+}
+#notice-board-ticker ul a {
+    text-decoration: none;
+    font-size: 16px;
+    border-bottom: 0;
+}
+#notice-board-ticker ul a {
+    margin-left: 20px;
+    /*border-bottom: 1px dotted #666;*/
+}
+
+.message-picture {
+	border: 1px solid #ebebeb;
+	padding: 5px;
+}
+.navbar-toggler{
+	padding: .25rem .75rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    background-color: #229ac8;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    margin-left: -411px;
+    margin-top: -76px;
+}
+.caruimage{
+	height: 60%;
+	width: 100%;
+}
+.homeSixBlock{
+	width: 100%;
+	display: table;
+}
+.block +.block{
+	margin-left: 0.5%;
+    margin-right: 0;
+}
+.block{
+	margin-right: 0.5%;
+	background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    -webkit-box-shadow: 1px 1px 1px 1px #ccc;
+    box-shadow: 1px 1px 1px 1px #ccc;
+    cursor: pointer;
+    float: left;
+    height: auto;
+    overflow: hidden;
+    padding: 10px;
+    position: relative;
+    width: 49.5%;
+    cursor: inherit
+}
+..gap {
+    margin: 5px 0 0 0;
+}
+.block ul.dpe-flexible-posts {
+    padding: 0;
+    position: relative;
+    display: table;
+    width: 100%;
+}
+.block ul.dpe-flexible-posts li {
+    margin-left: 0;
+    /*background: url(images/bullet_arrow.png) no-repeat left 7px;*/
+    padding-bottom: 0;
+    padding-left: 15px;
+    height: auto;
+    width: 60%;
+    margin-left: 204px;
+    line-height: 24px !important;
+    margin-bottom: 91px;
+}
+.wp-post-image{
+	margin-top: 17px;
+}
+.post-684{
+	margin-top: -89px;
+}
+.studentform{
+	margin-right: -221px;
+	margin-left: 100px;
+}

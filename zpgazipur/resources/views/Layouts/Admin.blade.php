@@ -64,31 +64,19 @@
           </li>
         </ul>       
       </li>
-      <!-- <li id="menu-extension">
-        <a href="#collapse1" data-toggle="collapse" class="parent collapsed"><i class="fa fa-puzzle-piece fw"></i> Extensions</a>
-        <ul id="collapse1" class="collapse">
+      <li id="menu-extension">
+        <a href="#collapse4" data-toggle="collapse" class="parent collapsed"><i class="fa fa-puzzle-piece fw"></i>Course</a>
+        <ul id="collapse4" class="collapse">
           <li>    
-            <a href="http://localhost:8080/edumaster/index.php?route=marketplace/marketplace&amp;user_token=pfcUl2bkbhkNG1D1DDoBnl9KGeBKN159">Marketplace</a>
+            <a href="{{route('admin.courselist')}}">Course</a>
           </li>
-          <li>
-            <a href="http://localhost:8080/edumaster/index.php?route=marketplace/installer&amp;user_token=pfcUl2bkbhkNG1D1DDoBnl9KGeBKN159">Installer</a>
-          </li>
-          <li>         
-            <a href="http://localhost:8080/edumaster/index.php?route=marketplace/extension&amp;user_token=pfcUl2bkbhkNG1D1DDoBnl9KGeBKN159">Extensions</a>
-          </li>
-          <li>
-            <a href="http://localhost:8080/edumaster/index.php?route=marketplace/modification&amp;user_token=pfcUl2bkbhkNG1D1DDoBnl9KGeBKN159">Modifications</a>
-          </li>
-          <li>
-            <a href="http://localhost:8080/edumaster/index.php?route=marketplace/event&amp;user_token=pfcUl2bkbhkNG1D1DDoBnl9KGeBKN159">Events</a>
-          </li> 
         </ul>
-      </li> -->
+      </li>
       <li id="menu-system">
         <a href="#collapse2" data-toggle="collapse" class="parent collapsed"><i class="fa fa-cog fw"></i>Pages</a> 
         <ul id="collapse2" class="collapse">
           <li> 
-            <a href="{{route('admin.allPost')}}">Add Pages</a>
+            <a href="{{route('admin.allPostList')}}">Pages</a>
           </li>
           <li> 
             <a href="{{route('admin.navMenu')}}">Add Navigation Category</a>

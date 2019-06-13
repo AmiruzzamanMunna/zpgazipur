@@ -12,6 +12,7 @@ use App\ImageSlider;
 use App\Designation;
 use App\Pagecategory;
 use App\Otherpages;
+use App\Course;
 
 class AdminController extends Controller
 {
@@ -103,6 +104,12 @@ class AdminController extends Controller
       		return redirect()->route('admin.noticeList');
     	}
     }
+    public function allPostList(Request $request)
+    {
+        $posts=Post::all();
+        return view('Admin.allpostlist')
+            ->with('posts',$posts);
+    }
     public function allPost(Request $request)
     {
         $menus=Menu::all();
@@ -134,6 +141,53 @@ class AdminController extends Controller
         $request->session()->flash('message','Data Inserted');
         return back();
 
+    }
+    public function postEdit(Request $request,$id)
+    {
+        $menus=Menu::all();
+        $submenus=Submenu::all();
+        $posts=Post::where('id',$id)->get();
+        return view('Admin.postupdate')
+                ->with('menus',$menus)
+                ->with('submenus',$submenus)
+                ->with('posts',$posts);
+    }
+    public function postUpdate(Request $request,$id)
+    {
+        $request->validate([
+            'menu'=>'required',
+            'submenu'=>'required',
+        ]);
+        $post= Post::find($request->id);
+        $post->menu_id=$request->menu;
+        $post->submenu_id=$request->submenu;
+        $post->description=$request->description;
+        if ($request->hasFile('image')) {
+            $image1 = $request->file('image');
+            $filename1 = time() . 'image-1.' . $image1->getClientOriginalExtension();
+            $location1 = public_path('images');
+            // Image::make($image1->getRealPath())->resize(280, 280)->save(public_path('images/product'.$filename1));
+            $image1->move($location1, $filename1);
+            
+            $post->image = $filename1;
+        }
+        $post->save();
+        $request->session()->flash('message','Data Updated');
+        return redirect()->route('admin.allPostList');
+    }
+    public function postDelete(Request $request)
+    {
+        $selected=$request->selected;
+        if ($selected) {
+            foreach ($selected as $select) {
+                Post::where('id',$select)->delete();
+            }
+            $request->session()->flash('message','Data Delected Successfully');
+            return back();
+        }else{
+            $request->session()->flash('message','Sorry No checkbox Selected');
+            return back();
+        }
     }
     public function imageForm(Request $request)
     {
@@ -296,5 +350,61 @@ class AdminController extends Controller
         $submenus->save();
         $request->session()->flash('message','Data Inserted');
         return back();
+    }
+    public function courselist(Request $request)
+    {
+        $courses=Course::all();
+        return view('Admin.courselist')
+            ->with('courses',$courses);
+    }
+    public function courseAdd(Request $request)
+    {
+        return view('Admin.courseadd');
+    }
+    public function storeCourseAdd(Request $request)
+    {
+        $request->validate([
+            'name'=>'required',
+            'year'=>'required',
+        ]);
+        $course= new Course();
+        $course->name=$request->name;
+        $course->year=$request->year;
+        $course->save();
+        $request->session()->flash('message','Data Inserted');
+        return redirect()->route('admin.courselist');
+    }
+    public function courseEdit(Request $request,$id)
+    {
+        $courses=Course::where('id',$id)->get();
+        return view('Admin.courseupdate')
+            ->with('courses',$courses);
+    }
+    public function courseUpdate(Request $request,$id)
+    {
+        $request->validate([
+            'name'=>'required',
+            'year'=>'required',
+        ]);
+        $course=Course::find($request->id);
+        $course->name=$request->name;
+        $course->year=$request->year;
+        $course->save();
+        $request->session()->flash('message','Data Updated');
+        return redirect()->route('admin.courselist');
+    }
+    public function courseDelete(Request $request)
+    {
+        $selected=$request->selected;
+        if ($selected) {
+            foreach ($selected as $select) {
+                Course::where('id',$select)->delete();
+            }
+            $request->session()->flash('message','Data Delected Successfully');
+            return back();
+        }else{
+            $request->session()->flash('message','Sorry No checkbox Selected');
+            return back();
+        }
     }
 }

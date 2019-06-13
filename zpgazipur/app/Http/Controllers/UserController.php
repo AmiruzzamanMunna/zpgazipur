@@ -11,6 +11,7 @@ use App\ImageSlider;
 use App\Designation;
 use App\Pagecategory;
 use App\Otherpages;
+use App\Course;
 
 class UserController extends Controller
 {
@@ -160,5 +161,19 @@ class UserController extends Controller
                 ->with('images',$images)
                 ->with('menus',$menus)
                 ->with('submenus',$submenus);
+    }
+    public function studentForm(Request $request)
+    {
+        $menus=Menu::with('submenus')->get();
+        $desigs=Designation::all();
+        $cats=Pagecategory::with('othercat')->get();
+        $images=ImageSlider::all();
+        $courses=Course::all();
+        return view('User.admissionregister')
+            ->with('courses',$courses)
+            ->with('cats',$cats)
+            ->with('desigs',$desigs)
+            ->with('images',$images)
+            ->with('menus',$menus);
     }
 }
