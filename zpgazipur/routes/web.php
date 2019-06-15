@@ -22,6 +22,7 @@ Route::get('/allcategoryview/{id}','UserController@allCategoryView')->name('user
 Route::get('/designation/{id}','UserController@designationView')->name('user.designationView');
 Route::get('/menu','UserController@menu');
 Route::get('/student/admission','UserController@studentForm')->name('user.studentForm');
+Route::post('/student/admission','UserController@studentFormSave')->name('user.studentFormSave');
 // Route::get('/layouts','UserController@layouts');
 
 
@@ -48,8 +49,10 @@ Route::get('/admin/postdelete','AdminController@postDelete')->name('admin.postDe
 Route::get('/admin/allpost','AdminController@allPostAdd')->name('admin.allPostAdd');
 Route::post('/admin/allpost','AdminController@postSave')->name('admin.postSave');
 
+Route::get('/admin/imagelist','AdminController@imageList')->name('admin.imageList');
 Route::get('/admin/imageslider','AdminController@imageForm')->name('admin.imageForm');
 Route::post('/admin/imageslider','AdminController@imageStore')->name('admin.imageStore');
+Route::get('/admin/imagedelete','AdminController@imageDelete')->name('admin.imageDelete');
 
 Route::get('/admin/add-designation','AdminController@addDesignation')->name('admin.addDesignation');
 Route::post('/admin/add-designation','AdminController@storeDesignation')->name('admin.storeDesignation');
@@ -61,8 +64,12 @@ Route::post('/admin/editdesignation/{id}','AdminController@updateDesignation')->
 Route::get('/admin/addcategory','AdminController@addCategory')->name('admin.addCategory');
 Route::post('/admin/addcategory','AdminController@storeCategory')->name('admin.storeCategory');
 
+Route::get('/admin/otherpagelist','AdminController@otherPageList')->name('admin.otherPageList');
 Route::get('/admin/otherpages','AdminController@otherPageCategory')->name('admin.otherPageCategory');
 Route::post('/admin/otherpages','AdminController@storeOtherPageCategory')->name('admin.storeOtherPageCategory');
+Route::get('/admin/otherpageedit/{id}','AdminController@editOtherPage')->name('admin.editOtherPage');
+Route::post('/admin/otherpageedit/{id}','AdminController@editOtherPageUpdate')->name('admin.editOtherPageUpdate');
+Route::get('/admin/otherpagedelete','AdminController@otherPageDelete')->name('admin.otherPageDelete');
 
 Route::get('/admin/menucategory','AdminController@navMenu')->name('admin.navMenu');
 Route::post('/admin/menucategory','AdminController@storeNavMenu')->name('admin.storeNavMenu');
@@ -79,3 +86,5 @@ Route::get('/admin/courseedit/{id}','AdminController@courseEdit')->name('admin.c
 Route::post('/admin/courseedit/{id}','AdminController@courseUpdate')->name('admin.courseUpdate');
 
 Route::get('/admin/courseDelete','AdminController@courseDelete')->name('admin.courseDelete');
+
+Route::get('/admin/studentcourselist','AdminController@studentCourseList')->name('admin.studentCourseList');

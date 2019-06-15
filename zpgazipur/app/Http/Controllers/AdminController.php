@@ -13,6 +13,7 @@ use App\Designation;
 use App\Pagecategory;
 use App\Otherpages;
 use App\Course;
+use App\Registration;
 
 class AdminController extends Controller
 {
@@ -207,6 +208,12 @@ class AdminController extends Controller
             return back();
         }
     }
+    public function imageList(Request $request)
+    {
+        $images=ImageSlider::all();
+        return view('Admin.imagelist')
+                ->with('images',$images);
+    }
     public function imageForm(Request $request)
     {
         return view('Admin.imageslider');
@@ -227,6 +234,15 @@ class AdminController extends Controller
             }
         }
         $request->session()->flash('message','Data Inserted Successfully');
+        return back();
+    }
+    public function imageDelete(Request $request)
+    {
+        $selected=$request->selected;
+        foreach ($selected as $select) {
+            ImageSlider::where('id',$select)->delete();
+        }
+        $request->session()->flash('message','Data Deleted');
         return back();
     }
     public function addDesignation(Request $request)
@@ -310,6 +326,12 @@ class AdminController extends Controller
         $request->session()->flash('message','Data Inserted');
         return back();
     }
+    public function otherPageList(Request $request)
+    {
+        $others=Otherpages::all();
+        return view('Admin.otherpagelist')
+                ->with('others',$others);
+    }
     public function otherPageCategory(Request $request)
     {
         $menus=Pagecategory::all();
@@ -338,6 +360,47 @@ class AdminController extends Controller
         $other->save();
         $request->session()->flash('message','Data Inserted');
         return back();
+    }
+    public function editOtherPage(Request $request,$id)
+    {
+        $others=Otherpages::where('id',$id)->get();
+        $menus=Pagecategory::all();
+        return view('Admin.updateotherpage')
+                ->with('others',$others)
+                ->with('menus',$menus);
+
+    }
+    public function editOtherPageUpdate(Request $request,$id)
+    {
+        $request->validate([
+            'page_category_id'=>'required',
+            'title'=>'required',
+        ]);
+        $other=Otherpages::find($request->id);
+        $other->page_category_id=$request->page_category_id;
+        $other->title=$request->title;
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time() . 'image-1.' . $image->getClientOriginalExtension();
+            $location = public_path('images');
+            // Image::make($image1->getRealPath())->resize(280, 280)->save(public_path('images/product'.$filename1));
+            $image->move($location, $filename);
+            
+            $other->image = $filename;
+        }
+        $other->description=$request->description;
+        $other->save();
+        $request->session()->flash('message','Data Updated Successfully');
+        return redirect()->route('admin.otherPageList');
+    }
+    public function otherPageDelete(Request $request)
+    {
+        $selected=$request->selected;
+        foreach ($selected as $select) {
+            Otherpages::where('id',$select)->delete();
+        }
+        return back();
+        $request->session()->flash('message','Data Deleted Successfully');
     }
     public function navMenu(Request $request)
     {
@@ -424,5 +487,11 @@ class AdminController extends Controller
             $request->session()->flash('message','Sorry No checkbox Selected');
             return back();
         }
+    }
+    public function studentCourseList(Request $request)
+    {
+        $students=Registration::all();
+        return view('Admin.studentformlist')
+                ->with('students',$students);
     }
 }

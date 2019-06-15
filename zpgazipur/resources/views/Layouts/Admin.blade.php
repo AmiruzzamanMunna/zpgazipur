@@ -85,13 +85,16 @@
             <a href="{{route('admin.navSubMenu')}}">Add Navigation Sub Category</a>
           </li>
           <li> 
-            <a href="{{route('admin.imageForm')}}">Image Slider</a>
+            <a href="{{route('admin.imageList')}}">Image Slider</a>
           </li>
           <li> 
             <a href="{{route('admin.addCategory')}}">Page Category</a>
           </li>
           <li> 
-            <a href="{{route('admin.otherPageCategory')}}">Other Pages</a>
+            <a href="{{route('admin.otherPageList')}}">Other Pages</a>
+          </li>
+          <li> 
+            <a href="{{route('admin.studentCourseList')}}">Student Course List</a>
           </li>
           <li>
             <a href="#collapse2-1" data-toggle="collapse" class="parent collapsed">Designation</a>
