@@ -1,0 +1,7 @@
+<?php $__env->startSection('title'); ?>
+		Index Page
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('container'); ?>
+	sadfasdf
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('Layouts.user-home', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\wamp64\www\Laravelzpgazipur\zpgazipur\resources\views/User/searchresult.blade.php ENDPATH**/ ?>

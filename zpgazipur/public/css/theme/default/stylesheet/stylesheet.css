@@ -145,8 +145,10 @@ div.required .control-label:before {
 	height: 30px;
 	line-height: 20px;
 	padding: 0 10px;
+	width: 280px;
 }
 #search .btn-lg {
+	height: 31px;
 	font-size: 15px;
 	line-height: 28px;
 	padding: 0px 25px;
@@ -776,3 +778,17 @@ h2.price {
 	width: 10px;
 	height: 100px;
 }
+..adminstudentform{
+	margin-left: 100px;
+}
+.adminstudentform{
+	margin-left: 100px;
+}
+.page_title{
+	margin-left: -20px;
+}
+.picture{
+	height: 256px;
+	width: 254px;
+}
+

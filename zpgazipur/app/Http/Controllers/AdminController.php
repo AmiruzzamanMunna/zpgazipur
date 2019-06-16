@@ -125,6 +125,8 @@ class AdminController extends Controller
             'menu'=>'required',
             'submenu'=>'required',
         ]);
+        $test=$request->submenname;
+        dd($test);
         $post= new Post();
         $post->menu_id=$request->menu;
         $post->submenu_id=$request->submenu;
@@ -490,8 +492,16 @@ class AdminController extends Controller
     }
     public function studentCourseList(Request $request)
     {
-        $students=Registration::all();
+        $students=Registration::orderby('id','desc')->get();
         return view('Admin.studentformlist')
                 ->with('students',$students);
+    }
+    public function studentCourseView(Request $request,$id)
+    {
+        $students=Registration::where('id',$id)->get();
+        $courses=Course::all();
+        return view('Admin.studentstatus')
+            ->with('courses',$courses)
+            ->with('students',$students);
     }
 }

@@ -207,28 +207,30 @@
 	width: 100%;
 	display: table;
 }
+/*.block +.block{
+	margin-left: 0.5%;
+    margin-right: 0;
+}*/
 .block{
-	/*margin-right: 0.5%;*/
+	margin-right: 0.5%;
 	background-color: #f5f5f5;
     border: 1px solid #ccc;
     -webkit-box-shadow: 1px 1px 1px 1px #ccc;
     box-shadow: 1px 1px 1px 1px #ccc;
     cursor: pointer;
     float: left;
-    height: auto;
+    height: 217px;
     overflow: hidden;
     padding: 10px;
     position: relative;
     width: 49.5%;
-    cursor: inherit
+    cursor: inherit;
+    margin-bottom: 7px;
 }
-.block +.block{
-	/*margin-left: 0.5%;*/
-    margin-right: 0;
-}
-..gap {
+/*.gap {
     margin: 5px 0 0 0;
-}
+    margin-bottom: 10px;
+}*/
 .block ul.dpe-flexible-posts {
     padding: 0;
     position: relative;
@@ -249,6 +251,7 @@
 .wp-post-image{
 	margin-top: 17px;
 	margin-left: 20px;
+	border-radius: 10.0.block2%;
 }
 .post-684{
 	margin-top: -89px;
@@ -256,4 +259,8 @@
 .studentform{
 	margin-right: -221px;
 	margin-left: 100px;
+}
+.itemlink{
+	margin-top: -7px;
+	font-size: 10px;
 }

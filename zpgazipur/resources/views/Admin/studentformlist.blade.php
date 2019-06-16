@@ -61,6 +61,12 @@
 			                  	<a href="">Applied Course</a>
 			                  </td>
 			                  <td class="text-left">
+			                  	<a href="">Session</a>
+			                  </td>
+			                  <td class="text-left">
+			                  	<a href="">Status</a>
+			                  </td>
+			                  <td class="text-left">
 			                  	<a href="">Action</a>
 			                  </td>
 			                </tr>
@@ -79,9 +85,20 @@
 			                  <td class="text-left">{{$student->qualification}}</td>
 			                  <td class="text-left">{{$student->previouscourse	}}</td>
 			                  <td class="text-left">{{$student->anotherappliedcourse}}</td>
-			                  <td class="text-right"><a href="" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Edit"><i class="fa fa-pencil"></i></a></td>
+			                  <td class="text-left">{{$student->session}}</td>
+			                  <td class="text-left">
+			                  	@if($student->status==1)
+			                  		Approved
+			                  	@elseif($student->status==2)
+			                  		Declined
+			                  	@else
+			                  		Pending
+			                  	@endif
+			                  </td>
+			                  <td class="text-right"><a href="{{route('admin.studentCourseView',[$student->id])}}" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Edit"><i class="fa fa-pencil"></i></a></td>
 			                </tr>
 			                @empty
+			                <h1 style="color: red;">Sorry No Data is Available !!</h1>
 			                @endforelse
 			              </tbody>
 			            </table>

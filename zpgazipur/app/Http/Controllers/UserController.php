@@ -193,6 +193,7 @@ class UserController extends Controller
             'birthdate'=>'required',
             'previouscourse'=>'required',
             'anotherappliedcourse'=>'required',
+            'session'=>'required',
         ]);
         $reg = new Registration();
         $reg->course_category_name=$request->course_category_name;
@@ -208,8 +209,29 @@ class UserController extends Controller
         $reg->birthdate=$request->birthdate;
         $reg->previouscourse=$request->previouscourse;
         $reg->anotherappliedcourse=$request->anotherappliedcourse;
+        $reg->session=$request->session;
+        $reg->status=0;
         $reg->save();
         $request->session()->flash('message','Data Inserted');
         return back();
+    }
+    public function searchResult(Request $request)
+    {
+        $menus=Menu::with('submenus')->get();
+        $desigs=Designation::all();
+        $cats=Pagecategory::with('othercat')->get();
+        $images=ImageSlider::all();
+        $courses=Course::all();
+        $searchresult=$request->search;
+        $submenus=Submenu::all();
+        $results=Submenu::where('submenu_name','like','%'.$searchresult.'%')->get();
+        return view('User.searchresult')
+            ->with('submenus',$submenus)
+            ->with('menus',$menus)
+            ->with('desigs',$desigs)
+            ->with('cats',$cats)
+            ->with('images',$images)
+            ->with('courses',$courses)
+            ->with('results',$results);
     }
 }

@@ -23,6 +23,7 @@ Route::get('/designation/{id}','UserController@designationView')->name('user.des
 Route::get('/menu','UserController@menu');
 Route::get('/student/admission','UserController@studentForm')->name('user.studentForm');
 Route::post('/student/admission','UserController@studentFormSave')->name('user.studentFormSave');
+Route::get('/search/result','UserController@searchResult')->name('user.searchResult');
 // Route::get('/layouts','UserController@layouts');
 
 
@@ -88,3 +89,8 @@ Route::post('/admin/courseedit/{id}','AdminController@courseUpdate')->name('admi
 Route::get('/admin/courseDelete','AdminController@courseDelete')->name('admin.courseDelete');
 
 Route::get('/admin/studentcourselist','AdminController@studentCourseList')->name('admin.studentCourseList');
+
+Route::get('/admin/studentcourseview/{id}','AdminController@studentCourseView')->name('admin.studentCourseView');
+
+Route::get('/admin/statusdelivered/{id}','StatusController@statusApproved')->name('admin.statusApproved');
+Route::get('/admin/statusdeclined/{id}','StatusController@statusDeclined')->name('admin.statusDeclined');

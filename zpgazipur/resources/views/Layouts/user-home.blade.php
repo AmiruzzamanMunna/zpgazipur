@@ -32,17 +32,19 @@
 				<div class="zp-info-search">
 					<a href="{{route('user.index')}}" class="pull-left zp-link-national">বাংলাদেশ জাতীয় তথ্য বাতায়ন</a>
 					<div class="pull-right">
-						<div id="search" class="input-group">
-		  					<input type="text" name="search" value="" placeholder="Search" class="form-control input-lg col-md-12">
-						  	<span class="input-group-btn">
-							    <button type="button" class="btn btn-default btn-lg"><i class="fa fa-search"></i></button>
-						  	</span>
-						</div>
+						<form method="get" action="{{route('user.searchResult')}}">
+							<div id="search" class="input-group">
+			  					<input type="text" name="search" value="" placeholder="Search" class="form-control input-lg">
+							  	<span class="input-group-btn">
+								    <button type="button" class="btn btn-default btn-lg"><i class="fa fa-search"></i></button>
+							  	</span>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
 		    <div id="top-links" class="nav pull-right">
-		      	<ul class="list-inline">
+		      	<!-- <ul class="list-inline">
 			        <li>
 			        	<a href="http://localhost:8080/zpgazipur/index.php?route=information/contact"><i class="fa fa-phone"></i></a>
 			        	<span class="hidden-xs hidden-sm hidden-md">02-49261467</span><br>
@@ -54,7 +56,7 @@
 				            <li><a href="http://localhost:8080/zpgazipur/index.php?route=account/login" class="dropdown-item">Login</a></li>
 	                  	</ul>
 			        </li>
-		      	</ul>
+		      	</ul> -->
 		    </div>
 	  	</div>
 	</nav>
@@ -126,6 +128,7 @@
 											<li><a href="{{route('user.allView',[$menu->id,$sb->id])}}">{{$sb->submenu_name}}</a></li>	
 											@empty
 											@endforelse	
+										</ul>
 									</div>
 					            </div>    
 					        </li>
@@ -220,7 +223,7 @@
 						<div class="add_links">
 							<h5 class="message-title">{{$desig->heading}}</h5>
 							<a href="{{route('user.designationView',[$desig->id])}}">
-								<img class="img-fluid picture" src="{{asset('images/catalog/Users')}}/{{$desig->image}}" alt="" width="100%" height="45px;">
+								<img class="img-fluid picture" src="{{asset('images/catalog/Users')}}/{{$desig->image}}">
 							</a>
 							<div class="footer">
 								<p class="message-name">{{$desig->name}}</p>
@@ -283,50 +286,50 @@
 							 </a>
 						</div>
 						<div class="add_links">
-							<div class="central-eservices">
+							<div class="central-eservices itemlink">
 								<h5 class="eservice-title title-central">কেন্দ্রীয় ই-সেবা</h5>
 								<ul>
-									<li class="item_1"><a href="http://online.forms.gov.bd/" title="অনলাইনে সেবার আবেদন">অনলাইনে সেবার আবেদন</a></li>
-									<li class="item_2"><a href="http://www.nothi.gov.bd/users/login" title="নথি">নথি</a></li>
-									<li class="item_3"><a href="http://bangladesh.gov.bd/site/page/5c238920-a65f-4168-9c2b-70c39dc7cb1c" title="প্রয়োজনীয় এপস ">প্রয়োজনীয় এপস </a></li>
-									<li class="item_4"><a href="http://bris.lgd.gov.bd/pub/?pg=application_form" title="জন্ম ও মৃত্যু নিবন্ধন">জন্ম ও মৃত্যু নিবন্ধন</a></li>
-									<li class="item_5"><a href="http://xn--d5by7bap7cc3ici3m.xn--54b7fta0cc/" title="উত্তরাধিকার ক্যালকুলেটর">উত্তরাধিকার ক্যালকুলেটর</a></li>
-									<li class="item_6"><a href="http://pcc.police.gov.bd/en/" title="অনলাইন পুলিশ ক্লিয়ারেন্স">অনলাইন পুলিশ ক্লিয়ারেন্স</a></li>
-									<li class="item_7"><a href="http://www.dip.gov.bd/site/page/f2d015a9-1132-4426-8eef-147f1c4bac8a" title="অনলাইনে পাসপোর্টের আবেদন">অনলাইনে পাসপোর্টের আবেদন</a></li>
-									<li class="item_8"><a href="https://services.nidw.gov.bd/" title="জাতীয় পরিচয়পত্রের তথ্য হালনাগাদকরণ">জাতীয় পরিচয়পত্রের তথ্য হালনাগাদকরণ</a></li>
-									<li class="item_9"><a href="http://www.cga.gov.bd/index.php?option=com_wrapper" title="অনলাইন চালান যাচাইকরণ">অনলাইন চালান যাচাইকরণ</a></li>
-									<li class="item_10"><a href="http://www.nbrepayment.gov.bd/" title="অনলাইন আয়কর পরিশোধ">অনলাইন আয়কর পরিশোধ</a></li>
-									<li class="item_11"><a href="http://www.bmet.gov.bd/BMET/onlinaVisaCheckAction" title=" ভিসা যাচাই "> ভিসা যাচাই </a></li>
-									<li class="item_13"><a href="http://www.echallan.gov.bd/" title="ই চালান">ই চালান</a></li>
-									<li class="item_14"><a href="http://accessibledictionary.gov.bd/" title="অভিগম্য অভিধান ">অভিগম্য অভিধান </a></li>					
+									<li class="itemlink"><a href="http://online.forms.gov.bd/" title="অনলাইনে সেবার আবেদন">অনলাইনে সেবার আবেদন</a></li>
+									<li class="itemlink"><a href="http://www.nothi.gov.bd/users/login" title="নথি">নথি</a></li>
+									<li class="itemlink"><a href="http://bangladesh.gov.bd/site/page/5c238920-a65f-4168-9c2b-70c39dc7cb1c" title="প্রয়োজনীয় এপস ">প্রয়োজনীয় এপস </a></li>
+									<li class="itemlink"><a href="http://bris.lgd.gov.bd/pub/?pg=application_form" title="জন্ম ও মৃত্যু নিবন্ধন">জন্ম ও মৃত্যু নিবন্ধন</a></li>
+									<li class="itemlink"><a href="http://xn--d5by7bap7cc3ici3m.xn--54b7fta0cc/" title="উত্তরাধিকার ক্যালকুলেটর">উত্তরাধিকার ক্যালকুলেটর</a></li>
+									<li class="itemlink"><a href="http://pcc.police.gov.bd/en/" title="অনলাইন পুলিশ ক্লিয়ারেন্স">অনলাইন পুলিশ ক্লিয়ারেন্স</a></li>
+									<li class="itemlink"><a href="http://www.dip.gov.bd/site/page/f2d015a9-1132-4426-8eef-147f1c4bac8a" title="অনলাইনে পাসপোর্টের আবেদন">অনলাইনে পাসপোর্টের আবেদন</a></li>
+									<li class="itemlink"><a href="https://services.nidw.gov.bd/" title="জাতীয় পরিচয়পত্রের তথ্য হালনাগাদকরণ">জাতীয় পরিচয়পত্রের তথ্য হালনাগাদকরণ</a></li>
+									<li class="itemlink"><a href="http://www.cga.gov.bd/index.php?option=com_wrapper" title="অনলাইন চালান যাচাইকরণ">অনলাইন চালান যাচাইকরণ</a></li>
+									<li class="itemlink"><a href="http://www.nbrepayment.gov.bd/" title="অনলাইন আয়কর পরিশোধ">অনলাইন আয়কর পরিশোধ</a></li>
+									<li class="itemlink"><a href="http://www.bmet.gov.bd/BMET/onlinaVisaCheckAction" title=" ভিসা যাচাই "> ভিসা যাচাই </a></li>
+									<li class="itemlink"><a href="http://www.echallan.gov.bd/" title="ই চালান">ই চালান</a></li>
+									<li class="item"><a href="http://accessibledictionary.gov.bd/" title="অভিগম্য অভিধান ">অভিগম্য অভিধান </a></li>					
 								</ul>
 							</div>
 						</div>
-						<div class="add_links">
+						<div class="add_links itemlink">
 							<div class="central-eservices">
 								<h5 class="eservice-title title-dist">ই-সেবা কেন্দ্র, জেলা প্রশাসন</h5>
 								<ul>
-									<li class="item_1"><a href="/site/eservices/9caa8751-1db3-4bb5-9659-baff7cc39bef/নকলের-জন্য-আবেদন" title="নকলের জন্য আবেদন">নকলের জন্য আবেদন</a></li>
+									<li class="itemlink"><a href="/site/eservices/9caa8751-1db3-4bb5-9659-baff7cc39bef/নকলের-জন্য-আবেদন" title="নকলের জন্য আবেদন">নকলের জন্য আবেদন</a></li>
 								</ul>
 							</div>
 						</div>
 						<div class="add_links">
-							<div class="central-eservices">
+							<div class="central-eservices itemlink">
 								<h5 class="eservice-title title-other">আভ্যন্তরীণ ই-সেবা</h5>
 								<ul>
-									<li><a href="/site/view/process_map/সেবা-পাবার-ধাপ-" title="সেবা পাবার ধাপ ">সেবা পাবার ধাপ </a></li>
-									<li><a href="/site/view/info_officers/তথ্য-প্রদানকারী-কর্মকর্তা" title="তথ্য প্রদানকারী কর্মকর্তা">তথ্য প্রদানকারী কর্মকর্তা</a></li>
-									<li><a href="http://bdlaws.minlaw.gov.bd/" title="অন্যান্য  আইন">অন্যান্য  আইন</a></li>
-									<li><a href="http://bdlaws.minlaw.gov.bd/bangla_all_sections.php?id=1011/" title="তথ্য অধিকার আইন">তথ্য অধিকার আইন</a></li>
-									<li><a href="http://bdlaws.minlaw.gov.bd/bangla_all_sections.php?id=950/" title="তথ্য প্রযুক্তি আইন ">তথ্য প্রযুক্তি আইন </a></li>
-									<li><a href="/site/view/e-directory/ই--ডিরেক্টরী" title="ই- ডিরেক্টরী">ই- ডিরেক্টরী</a></li>
-									<li><a href="https://www.facebook.com/জেলা-প্রশাসনগাজীপুর-553490618156444/" title="সামাজিক যোগাযোগ ফেসবুক">সামাজিক যোগাযোগ ফেসবুক</a></li>
-									<li><a href="https://www.teachers.gov.bd/" title="শিক্ষক বাতায়ন">শিক্ষক বাতায়ন</a></li>
-									<li><a href="http://online.forms.gov.bd/" title="বাংলাদেশ ফরম (অনলাইন)">বাংলাদেশ ফরম (অনলাইন)</a></li>
-									<li><a href="http://www.forms.gov.bd/" title="বাংলাদেশ ফরম ( ডাউন লোড )">বাংলাদেশ ফরম ( ডাউন লোড )</a></li>
-									<li><a href="/site/videogallery/d9d62def-2014-11e7-8f57-286ed488c766/ডিজিটাল-গাজীপুর" title="ডিজিটাল গাজীপুর">ডিজিটাল গাজীপুর</a></li>
-									<li><a href="https://play.google.com/store/apps/details?id=com.vumi.seba/" title="ভূমি সেবা- মোবাইল অ্যাপ">ভূমি সেবা- মোবাইল অ্যাপ</a></li>
-									<li><a href="/site/page/8a868c73-e443-4b28-9200-a475a564c993/প্রয়োজনীয়-বিধি-ও-নীতিমালা" title="প্রয়োজনীয় বিধি ও নীতিমালা">প্রয়োজনীয় বিধি ও নীতিমালা</a></li>
+									<li class="itemlink"><a href="/site/view/process_map/সেবা-পাবার-ধাপ-" title="সেবা পাবার ধাপ ">সেবা পাবার ধাপ </a></li>
+									<li class="itemlink"><a href="/site/view/info_officers/তথ্য-প্রদানকারী-কর্মকর্তা" title="তথ্য প্রদানকারী কর্মকর্তা">তথ্য প্রদানকারী কর্মকর্তা</a></li>
+									<li class="itemlink"><a href="http://bdlaws.minlaw.gov.bd/" title="অন্যান্য  আইন">অন্যান্য  আইন</a></li>
+									<li class="itemlink"><a href="http://bdlaws.minlaw.gov.bd/bangla_all_sections.php?id=1011/" title="তথ্য অধিকার আইন">তথ্য অধিকার আইন</a></li>
+									<li class="itemlink"><a href="http://bdlaws.minlaw.gov.bd/bangla_all_sections.php?id=950/" title="তথ্য প্রযুক্তি আইন ">তথ্য প্রযুক্তি আইন </a></li>
+									<li class="itemlink"><a href="/site/view/e-directory/ই--ডিরেক্টরী" title="ই- ডিরেক্টরী">ই- ডিরেক্টরী</a></li>
+									<li class="itemlink"><a href="https://www.facebook.com/জেলা-প্রশাসনগাজীপুর-553490618156444/" title="সামাজিক যোগাযোগ ফেসবুক">সামাজিক যোগাযোগ ফেসবুক</a></li>
+									<li class="itemlink"><a href="https://www.teachers.gov.bd/" title="শিক্ষক বাতায়ন">শিক্ষক বাতায়ন</a></li>
+									<li class="itemlink"><a href="http://online.forms.gov.bd/" title="বাংলাদেশ ফরম (অনলাইন)">বাংলাদেশ ফরম (অনলাইন)</a></li>
+									<li class="itemlink"><a href="http://www.forms.gov.bd/" title="বাংলাদেশ ফরম ( ডাউন লোড )">বাংলাদেশ ফরম ( ডাউন লোড )</a></li>
+									<li class="itemlink"><a href="/site/videogallery/d9d62def-2014-11e7-8f57-286ed488c766/ডিজিটাল-গাজীপুর" title="ডিজিটাল গাজীপুর">ডিজিটাল গাজীপুর</a></li>
+									<li class="itemlink"><a href="https://play.google.com/store/apps/details?id=com.vumi.seba/" title="ভূমি সেবা- মোবাইল অ্যাপ">ভূমি সেবা- মোবাইল অ্যাপ</a></li>
+									<li class="itemlink"><a href="/site/page/8a868c73-e443-4b28-9200-a475a564c993/প্রয়োজনীয়-বিধি-ও-নীতিমালা" title="প্রয়োজনীয় বিধি ও নীতিমালা">প্রয়োজনীয় বিধি ও নীতিমালা</a></li>
 								</ul>
 							</div>
 						</div>
@@ -344,13 +347,13 @@
 							<div class="central-eservices">
 								<h5 class="eservice-title title-social">সামাজিক যোগাযোগ মাধ্যম</h5><br>
 								<a title="" href="https://www.facebook.com/dcgazipur" target="_blank" class="share-buttons"> 
-									<img src="http://localhost:8080/zpgazipur/catalog/view/theme/default/image/facebook.png" alt="" width="30px">
+									<img src="{{asset('css')}}/theme/default/image/facebook.png" alt="" width="30px">
 								</a>
 								<a title=" " href="http://www.twitter.com" target="_blank" class="share-buttons"> 
-									<img src="http://localhost:8080/zpgazipur/catalog/view/theme/default/image/twitter.png" alt="" width="30px">
+									<img src="{{asset('css')}}/theme/default/image/twitter.png" alt="" width="30px">
 								</a> 
 								<a title=" " href="https://www.youtube.com/channel/UCP99H5x1LjNIkYlbxWiyYag" target="_blank" class="share-buttons"> 
-									<img src="http://localhost:8080/zpgazipur/catalog/view/theme/default/image/youtube.png" alt="" width="30px">
+									<img src="{{asset('css')}}/theme/default/image/youtube.png" alt="" width="30px">
 								</a>
 							</div>
 						</div>
@@ -393,15 +396,15 @@
 				          <li><a href="http://localhost:8080/zpgazipur/index.php?route=product/special">Specials</a></li>
 				        </ul>-->
 			      	</div>
-			      	<div class="col-sm-3">
+			      	<!-- <div class="col-sm-3">
 				        <h5>My Account</h5>
 				        <ul class="list-unstyled">
 				          <li><a href="http://localhost:8080/zpgazipur/index.php?route=account/account">My Account</a></li>
-				          <!--<li><a href="http://localhost:8080/zpgazipur/index.php?route=account/order">Order History</a></li>
+				          <li><a href="http://localhost:8080/zpgazipur/index.php?route=account/order">Order History</a></li>
 				          <li><a href="http://localhost:8080/zpgazipur/index.php?route=account/wishlist">Wish List</a></li>
-				          <li><a href="http://localhost:8080/zpgazipur/index.php?route=account/newsletter">Newsletter</a></li>-->
+				          <li><a href="http://localhost:8080/zpgazipur/index.php?route=account/newsletter">Newsletter</a></li>
 				        </ul>
-			      	</div>
+			      	</div> -->
 			    </div>
 				    <hr>
 				    <p>জেলা পরিষদ, গাজীপুর © 2019</p>

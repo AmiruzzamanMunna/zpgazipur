@@ -118,6 +118,12 @@
 				  	</select>
 			   	</div>
           	</div>
+          	<div class="form-group row">
+		        <label class="col-sm-3 control-label" for="input-dateofbirth">শিক্ষা বর্ষ</label>
+		        <div class="col-sm-6">
+		          <input type="text" name="session" value="" placeholder="2019-2020" id="input-dateofbirth" class="form-control">
+	           	</div>
+	      	</div>
         </fieldset>
         <div class="buttons">
           <div class="col-sm-4"></div>

@@ -27,7 +27,7 @@
 			</div>
 		</div>
 		<div class="homeSixBlock">
-			<div style="background-color: #EFEFEF;border: 1px solid #CCCCCC;margin: 20px 0;padding: 10px;" class="row">
+			<div style="background-color: #EFEFEF;border: 1px solid #CCCCCC;margin: 20px 0;padding: 15px; height: 700px;" class="row">
 				@forelse($cats as $cat)
 				@if($cat->name)
 				<div class="block gap">
