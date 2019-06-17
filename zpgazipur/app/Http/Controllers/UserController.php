@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Notice;
 use App\Menu;
 use App\Submenu;
@@ -24,7 +25,8 @@ class UserController extends Controller
     {
         $menus=Menu::with('submenus')->get();
         $desigs=Designation::all();
-        $cats=Pagecategory::with('othercat')->get();
+        $cats=Pagecategory::all();
+        $subs=Otherpages::orderBy('id','DESC')->get();
         $menueItems=0;
         $submenuItems=0;
         foreach ($menus as $menue) {
@@ -41,6 +43,7 @@ class UserController extends Controller
     	$notices=Notice::orderBy('id','DESC')->paginate(5);
     	return view('User.index')
             ->with('cats',$cats)
+            ->with('subs',$subs)
             ->with('desigs',$desigs)
             ->with('images',$images)
             ->with('notices',$notices)
@@ -78,7 +81,7 @@ class UserController extends Controller
     }
     public function viewAllNotice(Request $request)
     {
-        $cats=Pagecategory::with('othercat')->get();
+        $cats=Pagecategory::all();
         $menus=Menu::with('submenus')->get();
         $desigs=Designation::all();
         $menueItems=0;
@@ -167,7 +170,7 @@ class UserController extends Controller
     {
         $menus=Menu::with('submenus')->get();
         $desigs=Designation::all();
-        $cats=Pagecategory::with('othercat')->get();
+        $cats=Pagecategory::all();
         $images=ImageSlider::all();
         $courses=Course::all();
         return view('User.admissionregister')
@@ -191,9 +194,8 @@ class UserController extends Controller
             'qualification'=>'required',
             'nid'=>'required',
             'birthdate'=>'required',
-            'previouscourse'=>'required',
-            'anotherappliedcourse'=>'required',
             'session'=>'required',
+            'status'=>'required',
         ]);
         $reg = new Registration();
         $reg->course_category_name=$request->course_category_name;
@@ -207,8 +209,12 @@ class UserController extends Controller
         $reg->qualification=$request->qualification;
         $reg->nid=$request->nid;
         $reg->birthdate=$request->birthdate;
-        $reg->previouscourse=$request->previouscourse;
-        $reg->anotherappliedcourse=$request->anotherappliedcourse;
+        if ($request->previouscourse) {
+            $reg->previouscourse=$request->previouscourse;
+        }
+        if ($request->anotherappliedcourse) {
+            $reg->anotherappliedcourse=$request->anotherappliedcourse;
+        }
         $reg->session=$request->session;
         $reg->status=0;
         $reg->save();
@@ -219,12 +225,13 @@ class UserController extends Controller
     {
         $menus=Menu::with('submenus')->get();
         $desigs=Designation::all();
-        $cats=Pagecategory::with('othercat')->get();
+        $cats=Pagecategory::all();
         $images=ImageSlider::all();
         $courses=Course::all();
         $searchresult=$request->search;
         $submenus=Submenu::all();
-        $results=Submenu::where('submenu_name','like','%'.$searchresult.'%')->get();
+        // $results=DB::table("SELECT zp_submenu.submenu_name,zp_post.* FROM zp_submenu LEFT JOIN zp_post ON zp_post.submenu_id=zp_submenu.id")->where('zp_submenu.submenu_name','like','%'.$searchresult.'%')->get();
+        $results=DB::table('zp_post')->leftjoin('zp_submenu','zp_submenu.id','=','zp_post.submenu_id')->where('zp_submenu.submenu_name','like','%'.$searchresult.'%')->get();
         return view('User.searchresult')
             ->with('submenus',$submenus)
             ->with('menus',$menus)

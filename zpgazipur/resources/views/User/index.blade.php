@@ -34,12 +34,22 @@
 					<h2 class="widget-title">{{$cat->name}}</h2>
 					<ul class="dpe-flexible-posts">
 						<img width="150" height="114" src="{{asset('images/uploads')}}/{{$cat->image}}" class="attachment-medium wp-post-image" alt="Social work Final">
-						@forelse($cat->othercat as $page)
-							<li id="post-684" class="post-684 post type-post status-publish format-standard has-post-thumbnail hentry category---bn">
-								<a href="{{route('user.allCategoryView',[$page->id])}}">
-									<div class="page_title">{{$page->title}}</div>
-								</a>
-							</li>
+						@php
+							$page_counter=0;
+						@endphp
+						@forelse($subs as $page)
+							@if($cat->id==$page->page_category_id)
+								@php
+									$page_counter++;
+								@endphp
+								@if($page_counter<=3)
+									<li id="post-684" class="post-684 post type-post status-publish format-standard has-post-thumbnail hentry category---bn">
+										<a href="{{route('user.allCategoryView',[$page->id])}}">
+											<div class="page_title">{{$page->title}}</div>
+										</a>
+									</li>
+								@endif
+							@endif
 						@empty
 						@endforelse
 					</ul><!-- .dpe-flexible-posts -->

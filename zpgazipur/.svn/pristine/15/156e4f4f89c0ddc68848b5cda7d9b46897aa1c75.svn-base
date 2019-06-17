@@ -1,0 +1,11 @@
+@extends('Layouts.user-home')
+@section('title')
+		Index Page
+@endsection
+@section('container')
+	@forelse($results as $result)
+		{!!$result->description!!}
+	@empty
+	<h1 style="color: red;">Sorry No Data is Available !!</h1>
+	@endforelse
+@endsection

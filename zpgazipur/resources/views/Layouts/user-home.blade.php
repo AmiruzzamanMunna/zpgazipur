@@ -36,7 +36,7 @@
 							<div id="search" class="input-group">
 			  					<input type="text" name="search" value="" placeholder="Search" class="form-control input-lg">
 							  	<span class="input-group-btn">
-								    <button type="button" class="btn btn-default btn-lg"><i class="fa fa-search"></i></button>
+								    <button type="submit" class="btn btn-default btn-lg"><i class="fa fa-search"></i></button>
 							  	</span>
 							</div>
 						</form>
@@ -133,12 +133,15 @@
 					            </div>    
 					        </li>
 					        @endforeach
-					        <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">আবেদন ফরম&nbsp;</a>
+					        <li class="dropdown open"><a href="" class="dropdown-toggle" data-toggle="dropdown">আবেদন ফরম&nbsp;</a>
 								<div class="dropdown-menu" style="">
 									<div class="dropdown-inner">
 										<ul class="list-unstyled">
-											<li><a href="{{route('user.studentForm')}}">প্রশিক্ষণ কোর্সে ভর্তির আবেদন ফরম</a></li>
-											<li><a href="">শিক্ষাবৃত্তির আবেদন ফরম</a></li>
+											<li><a href="{{route('user.studentForm')}}">প্রশিক্ষণ কোর্সে ভর্তির আবেদন ফরম</a>
+											</li>
+											<li>
+												<a href="{{route('user.studentForm')}}">শিক্ষাবৃত্তির আবেদন ফরম</a>
+											</li>
 										</ul>
 									</div>
 					            </div>

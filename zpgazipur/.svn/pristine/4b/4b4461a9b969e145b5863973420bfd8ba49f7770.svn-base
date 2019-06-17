@@ -1,0 +1,65 @@
+-- phpMyAdmin SQL Dump
+-- version 4.8.5
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1:3306
+-- Generation Time: Jun 17, 2019 at 10:43 AM
+-- Server version: 5.7.26
+-- PHP Version: 7.2.18
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `zpgazipur`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `zp_registration`
+--
+
+DROP TABLE IF EXISTS `zp_registration`;
+CREATE TABLE IF NOT EXISTS `zp_registration` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `course_category_name` varchar(1000) NOT NULL,
+  `applicant_name` varchar(1000) NOT NULL,
+  `father_name` varchar(1000) NOT NULL,
+  `mother_name` varchar(1000) NOT NULL,
+  `occupation` varchar(1000) NOT NULL,
+  `permanent_address` varchar(1000) NOT NULL,
+  `present_address` varchar(1000) NOT NULL,
+  `mobile` varchar(1000) NOT NULL,
+  `qualification` varchar(1000) NOT NULL,
+  `nid` varchar(1000) NOT NULL,
+  `birthdate` varchar(1000) NOT NULL,
+  `previouscourse` varchar(1000) NOT NULL,
+  `anotherappliedcourse` varchar(1000) NOT NULL,
+  `session` varchar(1000) NOT NULL,
+  `status` varchar(1000) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `zp_registration`
+--
+
+INSERT INTO `zp_registration` (`id`, `course_category_name`, `applicant_name`, `father_name`, `mother_name`, `occupation`, `permanent_address`, `present_address`, `mobile`, `qualification`, `nid`, `birthdate`, `previouscourse`, `anotherappliedcourse`, `session`, `status`) VALUES
+(4, 'ড্রাইভইন', 'Akram', 'Xyz', 'Xyz', 'Xyz', 'Chowrasta', 'Chowrasta', 'Xyz', 'BCSE', '121209090909099898989', '20-10-1997', 'ড্রাইভইন', 'ড্রাইভইন', '2019-2020', 'Approved'),
+(3, 'ড্রাইভইন', 'Amiruzzaman', 'Adv. Md. Rustum Ali', 'asfsafasf', 'Lawyer', 'Bhura 140/12 joydevpur,gazipur', 'Bhura 140/12 joydevpur,gazipur', '01787284068', 'BCSE', '12121212121212-323232323', '15-09-1993', 'ড্রাইভইন', 'ড্রাইভইন', '2019-2020', 'Declined'),
+(5, 'ড্রাইভইন', 'Akram Hossain', 'Abdul Karim', 'asdfsa', 'Businessman', 'Chowrasta', 'Chowrasta', 'Xyz', 'BBA', '232323232323', '08-07-1995', 'কম্পিউটার', 'ড্রাইভইন', '2019-2020', 'Approved'),
+(6, 'ড্রাইভইন', 'Shammy Jannat', 'Xyz', 'Xyz', 'Businessman', 'Shimul Toli', 'Shimul Toli', 'Xyz', 'BBA', '121209090909099898989', 'xyz', 'কম্পিউটার', 'কম্পিউটার', '2019-2020', 'Approved');
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

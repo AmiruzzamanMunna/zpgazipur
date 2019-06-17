@@ -91,6 +91,7 @@ Route::get('/admin/courseDelete','AdminController@courseDelete')->name('admin.co
 Route::get('/admin/studentcourselist','AdminController@studentCourseList')->name('admin.studentCourseList');
 
 Route::get('/admin/studentcourseview/{id}','AdminController@studentCourseView')->name('admin.studentCourseView');
+Route::post('/admin/studentcourseview/{id}','AdminController@studentCourseViewUpdate')->name('admin.studentCourseViewUpdate');
 
 Route::get('/admin/statusdelivered/{id}','StatusController@statusApproved')->name('admin.statusApproved');
 Route::get('/admin/statusdeclined/{id}','StatusController@statusDeclined')->name('admin.statusDeclined');

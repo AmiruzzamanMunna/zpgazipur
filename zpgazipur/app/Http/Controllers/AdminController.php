@@ -14,6 +14,7 @@ use App\Pagecategory;
 use App\Otherpages;
 use App\Course;
 use App\Registration;
+use App\Status;
 
 class AdminController extends Controller
 {
@@ -499,9 +500,53 @@ class AdminController extends Controller
     public function studentCourseView(Request $request,$id)
     {
         $students=Registration::where('id',$id)->get();
+        $statuss=Status::all();
         $courses=Course::all();
         return view('Admin.studentstatus')
+            ->with('statuss',$statuss)
             ->with('courses',$courses)
             ->with('students',$students);
+    }
+    public function studentCourseViewUpdate(Request $request,$id)
+    {
+        $request->validate([
+            'course_category_name'=>'required',
+            'applicant_name'=>'required',
+            'father_name'=>'required',
+            'mother_name'=>'required',
+            'occupation'=>'required',
+            'permanent_address'=>'required',
+            'present_address'=>'required',
+            'mobile'=>'required',
+            'qualification'=>'required',
+            'nid'=>'required',
+            'birthdate'=>'required',
+            'session'=>'required',
+            'status'=>'required',
+        ]);
+        $student=Registration::find($request->id);
+        $student->course_category_name=$request->course_category_name;
+        $student->applicant_name=$request->applicant_name;
+        $student->father_name=$request->father_name;
+        $student->mother_name=$request->mother_name;
+        $student->occupation=$request->occupation;
+        $student->permanent_address=$request->permanent_address;
+        $student->present_address=$request->present_address;
+        $student->mobile=$request->mobile;
+        $student->qualification=$request->qualification;
+        $student->nid=$request->nid;
+        $student->birthdate=$request->birthdate;
+        if ($request->previouscourse) {
+            $student->previouscourse=$request->previouscourse;
+        }
+        if ($request->anotherappliedcourse) {
+            $student->anotherappliedcourse=$request->anotherappliedcourse;
+        }
+        
+        $student->session=$request->session;
+        $student->status=$request->status;
+        $student->save();
+        $request->session()->flash('message','Data Modified');
+        return redirect()->route('admin.studentCourseList');
     }
 }

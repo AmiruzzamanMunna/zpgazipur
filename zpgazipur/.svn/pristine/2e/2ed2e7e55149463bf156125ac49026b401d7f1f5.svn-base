@@ -1,0 +1,12 @@
+<?php $__env->startSection('title'); ?>
+		Index Page
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('container'); ?>
+	<?php $__empty_1 = true; $__currentLoopData = $results; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $result): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+		<?php echo $result->description; ?>
+
+	<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+	<h1 style="color: red;">Sorry No Data is Available !!</h1>
+	<?php endif; ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('Layouts.user-home', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\wamp64\www\Laravelzpgazipur\zpgazipur\resources\views/User/searchresult.blade.php ENDPATH**/ ?>

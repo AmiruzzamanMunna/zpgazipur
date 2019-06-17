@@ -86,15 +86,7 @@
 			                  <td class="text-left">{{$student->previouscourse	}}</td>
 			                  <td class="text-left">{{$student->anotherappliedcourse}}</td>
 			                  <td class="text-left">{{$student->session}}</td>
-			                  <td class="text-left">
-			                  	@if($student->status==1)
-			                  		Approved
-			                  	@elseif($student->status==2)
-			                  		Declined
-			                  	@else
-			                  		Pending
-			                  	@endif
-			                  </td>
+			                  <td class="text-left">{{$student->status}}</td>
 			                  <td class="text-right"><a href="{{route('admin.studentCourseView',[$student->id])}}" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Edit"><i class="fa fa-pencil"></i></a></td>
 			                </tr>
 			                @empty

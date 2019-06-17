@@ -909,3 +909,6 @@ input[type="checkbox"]:checked::after, .checkbox input[type="checkbox"]:checked:
 .btnform{
 	margin-left: 447px;
 }
+.labelform{
+	margin-left: 76px;
+}

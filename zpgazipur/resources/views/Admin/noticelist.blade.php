@@ -68,7 +68,7 @@
 			                  <td class="text-left">{{$notice->expiredate}}</td>
 			                  <td class="text-left">
 			                  	@if($notice->attachment)
-			                  		<a href="{{route('admin.downFile',$notice->attachment)}}" class="btn btn-primary">Download Pdf</a>
+			                  		<a href="{{route('admin.downFile',$notice->attachment)}}" class="btn btn-primary">Download</a>
 		                  	 	@endif
 			                  </td>
 			                  <td class="text-right"><a href="{{route('admin.editNotice',$notice->id)}}" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Edit"><i class="fa fa-pencil"></i></a></td>
