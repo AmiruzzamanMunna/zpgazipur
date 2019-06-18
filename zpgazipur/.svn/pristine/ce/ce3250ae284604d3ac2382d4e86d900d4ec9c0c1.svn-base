@@ -1,0 +1,22 @@
+<?php $__env->startSection('title'); ?>
+	All View 
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('script'); ?>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('container'); ?>
+	<?php $__empty_1 = true; $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+	<?php if($post->image): ?>
+		<img src="<?php echo e(asset('images')); ?>/<?php echo e($post->image); ?>" class="image" style="height:250px;width:690px; margin-left:50px; margin-top: 10px;">
+	<?php endif; ?>
+	<div style="margin-left:50px;">
+		<?php echo $post->description; ?>
+
+	</div>
+	<?php if($post->image2): ?>
+		<img src="<?php echo e(asset('images')); ?>/<?php echo e($post->image2); ?>" class="image" style="height:200px;width:auto; margin-left:250px;">
+	<?php endif; ?>
+	<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+	<h1 style="color: red;">Sorry No Data is Available !!</h1>
+	<?php endif; ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('Layouts.user-home', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH F:\wamp64\www\zpgazipur\resources\views/User/allview.blade.php ENDPATH**/ ?>

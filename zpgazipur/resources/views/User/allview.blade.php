@@ -7,7 +7,7 @@
 @section('container')
 	@forelse($posts as $post)
 	@if($post->image)
-		<img src="{{asset('images')}}/{{$post->image}}" class="image" style="height:200px;width:auto; margin-left:250px;">
+		<img src="{{asset('images')}}/{{$post->image}}" class="image" style="height:275px;width:490px; margin-left:50px; margin-top: 10px;">
 	@endif
 	<div style="margin-left:50px;">
 		{!!$post->description!!}

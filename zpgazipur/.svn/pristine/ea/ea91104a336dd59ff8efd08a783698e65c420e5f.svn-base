@@ -1,0 +1,61 @@
+<?php $__env->startSection('title'); ?>
+	Approved Student List
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('container'); ?>
+<div id="content">
+	<div class="row">
+      	<?php if(session('message')): ?>
+          <div class="alert alert-success col-3">
+            <?php echo e(session('message')); ?>
+
+          </div>
+        <?php endif; ?>
+    </div>
+	<form action="<?php echo e(route('admin.noticeDelete')); ?>" enctype="multipart/form-data" id="form-user">
+    	<?php echo e(csrf_field()); ?>
+
+	  	<div class="page-header">
+		    <div class="container-fluid">
+		      <div class="pull-right">
+		      </div>
+		      <h1>Approved Student List Information</h1>
+		    </div>
+		  	<div class="container-fluid">
+			    <div class="panel panel-default">
+			      <div class="panel-body">
+			          <div class="table-responsive">
+			            <table class="table table-bordered table-hover">
+			              <thead>
+			                <tr>
+			                  <td class="text-left">
+			                  	<a href="">Name</a>
+			                  </td>
+			                  <td class="text-left">
+			                  	<a href="">Address</a>
+			                  </td>
+			                  <td class="text-left">
+			                  	<a href="">Phone Number</a>
+			                  </td>
+			                </tr>
+			              </thead>
+			              <tbody>
+			              	<?php $__empty_1 = true; $__currentLoopData = $students; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $student): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+			            	<tr>
+			                  <td class="text-left"><?php echo e($student->applicant_name); ?></td>
+			                  <td class="text-left"><?php echo e($student->present_address); ?></td>
+			                  <td class="text-left"><?php echo e($student->mobile); ?></td>
+			                </tr>
+			                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+			                <?php endif; ?>
+			              </tbody>
+			            </table>
+			          </div>
+			      </div>
+			 	</div>
+      		</div>
+      	</div>
+    </form>
+    
+</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('Layouts.user-home', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH F:\wamp64\www\zpgazipur\resources\views/User/approvedstudent.blade.php ENDPATH**/ ?>

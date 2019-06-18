@@ -5,12 +5,13 @@
 <title>জেলা পরিষদ, গাজীপুর</title>
 <base href="http://localhost:8080/zpgazipur/">
 <meta name="description" content="জেলা পরিষদ, গাজীপুর">
-@yield('script')
 <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  @yield('script')
 <!-- <script src="{{asset('js')}}/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script> -->
 <!-- <link href="{{asset('js')}}/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"> -->
 <!-- <script src="{{asset('js')}}/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script> -->
@@ -140,7 +141,21 @@
 											<li><a href="{{route('user.studentForm')}}">প্রশিক্ষণ কোর্সে ভর্তির আবেদন ফরম</a>
 											</li>
 											<li>
-												<a href="{{route('user.studentForm')}}">শিক্ষাবৃত্তির আবেদন ফরম</a>
+												<a href="{{route('user.studentWaiverForm')}}">শিক্ষাবৃত্তির আবেদন ফরম</a>
+											</li>
+										</ul>
+									</div>
+					            </div>
+							</li>
+							<li class="dropdown open"><a href="" class="dropdown-toggle" data-toggle="dropdown">অনুমোদিত আবেদনকারীদের তালিকা</a>
+								<div class="dropdown-menu" style="">
+									<div class="dropdown-inner">
+										<ul class="list-unstyled">
+											<li>
+												<a href="{{route('user.approvedStudentDriving')}}">ড্রাইভইন</a>
+											</li>
+											<li>
+												<a href="{{route('user.approvedStudentComputer')}}">কম্পিউটার</a>
 											</li>
 										</ul>
 									</div>

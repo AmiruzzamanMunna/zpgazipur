@@ -2,6 +2,9 @@
 @section('title')
 	Registration Form
 @endsection
+@section('script')
+	<script src="{{asset('js')}}/formvalidation.js" type="text/javascript"></script>
+@endsection
 @section('container')
 <div class="row">
  	@if($errors->any())
@@ -18,14 +21,14 @@
     @endif
 	<div class="col-md-12 m-auto">
 	<h1 class="text-center">প্রশিক্ষণ কোর্সে ভর্তির আবেদন ফরম</h1>
-	<form action="" method="post" enctype="multipart/form-data" class="form-horizontal studentform">
+	<form name="validform" action="" method="post" enctype="multipart/form-data" class="form-horizontal studentform">
 		{{csrf_field()}}
         <fieldset id="account">
           	<div class="form-group row">
             	<label class="col-sm-3 control-label" for="input-coursenameid">প্রশিক্ষণ কোর্সের নাম</label>
 	            <div class="col-sm-6">
-	              	<select name="course_category_name" id="input-coursenameid" class="form-control">
-						<option value="">প্রশিক্ষণ কোর্সের নাম</option>
+	              	<select name="course_category_name" id="coursenameid" class="form-control">
+						<option value="0">প্রশিক্ষণ কোর্সের নাম</option>
 						@foreach($courses as $course)
 						<option value="{{$course->name}}">{{$course->name}}</option>
 						@endforeach
@@ -35,7 +38,7 @@
           	<div class="form-group row">
 	            <label class="col-sm-3 control-label" for="input-studentname">প্রশিক্ষণার্থীর নাম</label>
 	            <div class="col-sm-6">
-	              <input type="text" name="applicant_name" value="" placeholder="প্রশিক্ষণার্থীর নাম" id="input-studentname" class="form-control">
+	              <input type="text" name="applicant_name" value="" placeholder="প্রশিক্ষণার্থীর নাম" id="studentname" class="form-control">
                	</div>
           	</div>
           	<div class="form-group row">
@@ -93,14 +96,14 @@
 		  	<div class="form-group row">
 		        <label class="col-sm-3 control-label" for="input-dateofbirth">জন্ম তারিখ</label>
 		        <div class="col-sm-6">
-		          <input type="text" name="birthdate" value="" placeholder="জন্ম তারিখ" id="input-dateofbirth" class="form-control">
+		          <input type="date" name="birthdate" value="" placeholder="জন্ম তারিখ" id="input-dateofbirth" class="form-control">
 	           	</div>
 	      	</div>
 		  	<div class="form-group row">
 	            <label class="col-sm-3 control-label" for="input-previouscourse">জেলা পরিষদ হতে ইতিপূর্বে কোন প্রশিক্ষণ গ্রহণ করে থাকলে তার নাম</label>
 	            <div class="col-sm-6">
 	              <select name="previouscourse" id="input-previouscourse" class="form-control">
-					<option value="-1">জেলা পরিষদ হতে ইতিপূর্বে কোন প্রশিক্ষণ গ্রহণ করে থাকলে তার নাম</option>
+					<option value="0">জেলা পরিষদ হতে ইতিপূর্বে কোন প্রশিক্ষণ গ্রহণ করে থাকলে তার নাম</option>
 					@foreach($courses as $course)
 						<option value="{{$course->name}}">{{$course->name}}</option>
 					@endforeach
@@ -111,7 +114,7 @@
 	            <label class="col-sm-3 control-label" for="input-anotherappliedcourse">অন্য কোন প্রশিক্ষণ ট্রেডে আবেদন করে থাকলে তার নাম</label>
 	            <div class="col-sm-6">
 	              	<select name="anotherappliedcourse" id="input-anotherappliedcourse" class="form-control">
-						<option value="-1">অন্য কোন প্রশিক্ষণ ট্রেডে আবেদন করে থাকলে তার নাম</option>
+						<option value="0">অন্য কোন প্রশিক্ষণ ট্রেডে আবেদন করে থাকলে তার নাম</option>
 						@foreach($courses as $course)
 						<option value="{{$course->name}}">{{$course->name}}</option>
 						@endforeach

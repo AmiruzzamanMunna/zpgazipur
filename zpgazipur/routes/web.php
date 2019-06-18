@@ -23,7 +23,11 @@ Route::get('/designation/{id}','UserController@designationView')->name('user.des
 Route::get('/menu','UserController@menu');
 Route::get('/student/admission','UserController@studentForm')->name('user.studentForm');
 Route::post('/student/admission','UserController@studentFormSave')->name('user.studentFormSave');
+Route::get('/student/waiver','UserController@studentWaiverForm')->name('user.studentWaiverForm');
+Route::post('/student/waiver','UserController@studentWaiverFormSave')->name('user.studentWaiverFormSave');
 Route::get('/search/result','UserController@searchResult')->name('user.searchResult');
+Route::get('/student/driving/approved','UserController@approvedStudentDriving')->name('user.approvedStudentDriving');
+Route::get('/student/computer/approved','UserController@approvedStudentComputer')->name('user.approvedStudentComputer');
 // Route::get('/layouts','UserController@layouts');
 
 

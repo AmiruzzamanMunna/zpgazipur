@@ -127,7 +127,6 @@ class AdminController extends Controller
             'submenu'=>'required',
         ]);
         $test=$request->submenname;
-        dd($test);
         $post= new Post();
         $post->menu_id=$request->menu;
         $post->submenu_id=$request->submenu;

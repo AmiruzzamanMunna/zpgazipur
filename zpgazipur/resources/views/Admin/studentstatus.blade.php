@@ -78,7 +78,7 @@
           </div>
           <div class="form-group required has-error">
             <label class="col-sm-2 labelform" for="input-username">প্রশিক্ষণার্থীর বর্তমান ঠিকানা</label>
-            <div class="col-sm-9 labelform">
+            <div class="col-sm-9">
               <input type="text" name="present_address" placeholder="প্রশিক্ষণার্থীর বর্তমান ঠিকানা" id="input-username" class="form-control" value="{{$student->present_address}}">
               <div class="text-danger"></div>
             </div>

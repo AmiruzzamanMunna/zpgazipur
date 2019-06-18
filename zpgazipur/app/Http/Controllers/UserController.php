@@ -82,6 +82,7 @@ class UserController extends Controller
     public function viewAllNotice(Request $request)
     {
         $cats=Pagecategory::all();
+        $subs=Otherpages::orderBy('id','DESC')->get();
         $menus=Menu::with('submenus')->get();
         $desigs=Designation::all();
         $menueItems=0;
@@ -101,6 +102,7 @@ class UserController extends Controller
         return view('User.index')
             ->with('cats',$cats)
             ->with('desigs',$desigs)
+            ->with('subs',$subs)
             ->with('images',$images)
             ->with('notices',$notices)
             ->with('menus',$menus)
@@ -194,8 +196,8 @@ class UserController extends Controller
             'qualification'=>'required',
             'nid'=>'required',
             'birthdate'=>'required',
+            'anotherappliedcourse'=>'different:course_category_name',
             'session'=>'required',
-            'status'=>'required',
         ]);
         $reg = new Registration();
         $reg->course_category_name=$request->course_category_name;
@@ -216,10 +218,28 @@ class UserController extends Controller
             $reg->anotherappliedcourse=$request->anotherappliedcourse;
         }
         $reg->session=$request->session;
-        $reg->status=0;
+        $reg->status='New Applicantion';
         $reg->save();
         $request->session()->flash('message','Data Inserted');
         return back();
+    }
+    public function studentWaiverForm(Request $request)
+    {
+        $menus=Menu::with('submenus')->get();
+        $desigs=Designation::all();
+        $cats=Pagecategory::all();
+        $images=ImageSlider::all();
+        $courses=Course::all();
+        return view('User.studentwaiverform')
+                ->with('courses',$courses)
+                ->with('cats',$cats)
+                ->with('desigs',$desigs)
+                ->with('images',$images)
+                ->with('menus',$menus);
+    }
+    public function studentWaiverFormSave(Request $request)
+    {
+        # code...
     }
     public function searchResult(Request $request)
     {
@@ -230,8 +250,7 @@ class UserController extends Controller
         $courses=Course::all();
         $searchresult=$request->search;
         $submenus=Submenu::all();
-        // $results=DB::table("SELECT zp_submenu.submenu_name,zp_post.* FROM zp_submenu LEFT JOIN zp_post ON zp_post.submenu_id=zp_submenu.id")->where('zp_submenu.submenu_name','like','%'.$searchresult.'%')->get();
-        $results=DB::table('zp_post')->leftjoin('zp_submenu','zp_submenu.id','=','zp_post.submenu_id')->where('zp_submenu.submenu_name','like','%'.$searchresult.'%')->get();
+        $results=DB::table('zp_post')->leftjoin('zp_submenu','zp_submenu.id','=','zp_post.submenu_id')->where('zp_submenu.submenu_name','like','%'.$searchresult.'%')->take(1)->get();
         return view('User.searchresult')
             ->with('submenus',$submenus)
             ->with('menus',$menus)
@@ -240,5 +259,35 @@ class UserController extends Controller
             ->with('images',$images)
             ->with('courses',$courses)
             ->with('results',$results);
+    }
+    public function approvedStudentDriving(Request $request)
+    {
+        $students=Registration::where('course_category_name','ড্রাইভিং')->where('status','approved')->get();
+        $menus=Menu::with('submenus')->get();
+        $desigs=Designation::all();
+        $cats=Pagecategory::all();
+        $images=ImageSlider::all();
+        $courses=Course::all();
+        return view('User.approvedstudent')
+                ->with('menus',$menus)
+                ->with('desigs',$desigs)
+                ->with('cats',$cats)
+                ->with('images',$images)
+                ->with('students',$students);
+    }
+    public function approvedStudentComputer(Request $request)
+    {
+        $students=Registration::where('course_category_name','কম্পিউটার')->where('status','approved')->get();
+        $menus=Menu::with('submenus')->get();
+        $desigs=Designation::all();
+        $cats=Pagecategory::all();
+        $images=ImageSlider::all();
+        $courses=Course::all();
+        return view('User.approvedstudent')
+                ->with('menus',$menus)
+                ->with('desigs',$desigs)
+                ->with('cats',$cats)
+                ->with('images',$images)
+                ->with('students',$students);
     }
 }
