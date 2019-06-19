@@ -3,7 +3,7 @@
 	Approved Student List
 @endsection
 @section('container')
-<div id="content">
+<div id="content col-md-12">
 	<div class="row">
       	@if(session('message'))
           <div class="alert alert-success col-3">
@@ -18,7 +18,7 @@
 		      <div class="pull-right">
 		      </div>
 		      <h1>Approved Student List</h1>
-		    </div>
+		    </div><br><br>
 		  	<div class="container-fluid">
 			    <div class="panel panel-default">
 			      <div class="panel-body">
@@ -27,7 +27,7 @@
 			              <thead>
 			                <tr>
 			                	<td class="text-left">
-			                  	<a href="">Id</a>
+			                  	<a href="">SL No.</a>
 			                  </td>
 			                  <td class="text-left">
 			                  	<a href="">Name</a>

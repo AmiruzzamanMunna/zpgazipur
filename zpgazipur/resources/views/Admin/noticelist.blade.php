@@ -49,6 +49,8 @@
 			                  	<a href="">Expire Date</a>
 			                  </td>
 			                  <td class="text-left">
+			                  	<a href="">Image</a>
+			                  </td><td class="text-left">
 			                  	<a href="">Attachment</a>
 			                  </td>
 			                  <td class="text-left">
@@ -67,6 +69,10 @@
 			                  <td class="text-left">{{$notice->noticedate}}</td>
 			                  <td class="text-left">{{$notice->expiredate}}</td>
 			                  <td class="text-left">
+			                  	@if($notice->image)
+			                  		<img src="{{asset('images')}}/{{$notice->image}}" height="180px;" width="auto">
+		                  	 	@endif
+			                  </td><td class="text-left">
 			                  	@if($notice->attachment)
 			                  		<a href="{{route('admin.downFile',$notice->attachment)}}" class="btn btn-primary">Download</a>
 		                  	 	@endif

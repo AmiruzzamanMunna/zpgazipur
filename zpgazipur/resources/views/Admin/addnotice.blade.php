@@ -52,9 +52,16 @@
           	</div>
           </div>
           <div class="form-group required has-error">
+            <label class="col-sm-2 control-label" for="input-username">Image</label>
+            <div class="col-sm-10">
+              <input type="file" name="image" placeholder="image" id="input-username" class="form-control">
+              <div class="text-danger"></div>
+            </div>
+          </div>
+          <div class="form-group required has-error">
             <label class="col-sm-2 control-label" for="input-username">Attachment</label>
             <div class="col-sm-10">
-              <input type="file" name="attachment" placeholder="Insert Only Pdf or Image File" id="input-username" class="form-control">
+              <input type="file" name="attachment" placeholder="Insert Only Pdf File" id="input-username" class="form-control">
             	<div class="text-danger"></div>
           	</div>
           </div>

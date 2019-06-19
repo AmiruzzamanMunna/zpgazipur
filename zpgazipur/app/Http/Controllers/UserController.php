@@ -27,6 +27,7 @@ class UserController extends Controller
         $desigs=Designation::all();
         $cats=Pagecategory::all();
         $subs=Otherpages::orderBy('id','DESC')->get();
+        $courses=Course::all();
         $menueItems=0;
         $submenuItems=0;
         foreach ($menus as $menue) {
@@ -42,6 +43,7 @@ class UserController extends Controller
         $images=ImageSlider::all();
     	$notices=Notice::orderBy('id','DESC')->paginate(5);
     	return view('User.index')
+            ->with('courses',$courses)
             ->with('cats',$cats)
             ->with('subs',$subs)
             ->with('desigs',$desigs)
@@ -53,6 +55,7 @@ class UserController extends Controller
     }
     public function viewNotice(Request $request,$id)
     {
+        $courses=Course::all();
         $desigs=Designation::all();
         $menus=Menu::all();
         $submenus=Submenu::all();
@@ -71,7 +74,8 @@ class UserController extends Controller
         $images=ImageSlider::all();
     	$notices=Notice::where('id',$id)->get();
     	return view('User.viewnotice')
-    			->with('desigs',$desigs)
+    			->with('courses',$courses)
+                ->with('desigs',$desigs)
                 ->with('images',$images)
                 ->with('notices',$notices)
                 ->with('menus',$menus)
@@ -81,6 +85,7 @@ class UserController extends Controller
     }
     public function viewAllNotice(Request $request)
     {
+        $courses=Course::all();
         $cats=Pagecategory::all();
         $subs=Otherpages::orderBy('id','DESC')->get();
         $menus=Menu::with('submenus')->get();
@@ -100,6 +105,7 @@ class UserController extends Controller
         $images=ImageSlider::all();
         $notices=Notice::orderBy('id','desc')->get();
         return view('User.index')
+            ->with('courses',$courses)
             ->with('cats',$cats)
             ->with('desigs',$desigs)
             ->with('subs',$subs)
@@ -130,12 +136,14 @@ class UserController extends Controller
     }
     public function allView(Request $request,$menuid,$subid)
     {
+        $courses=Course::all();
         $desigs=Designation::all();
         $images=ImageSlider::all();
         $menus=Menu::all();
         $submenus=Submenu::all();
         $posts=Post::where('menu_id',$menuid)->where('submenu_id',$subid)->get();
         return view('User.allview')
+                ->with('courses',$courses)
                 ->with('desigs',$desigs)
                 ->with('images',$images)
                 ->with('menus',$menus)
@@ -144,12 +152,14 @@ class UserController extends Controller
     }
     public function allCategoryView(Request $request,$id)
     {
+        $courses=Course::all();
         $desigs=Designation::all();
         $images=ImageSlider::all();
         $menus=Menu::all();
         $submenus=Submenu::all();
         $posts=Otherpages::where('id',$id)->get();
         return view('User.allview')
+            ->with('courses',$courses)
             ->with('desigs',$desigs)
             ->with('images',$images)
             ->with('menus',$menus)
@@ -158,11 +168,13 @@ class UserController extends Controller
 }
     public function designationView(Request $request,$id)
     {
+        $courses=Course::all();
         $desigs=Designation::where('id',$id)->get();
         $images=ImageSlider::all();
         $menus=Menu::all();
         $submenus=Submenu::all();
         return view('User.designationview')
+                ->with('courses',$courses)
                 ->with('desigs',$desigs)
                 ->with('images',$images)
                 ->with('menus',$menus)
@@ -260,30 +272,16 @@ class UserController extends Controller
             ->with('courses',$courses)
             ->with('results',$results);
     }
-    public function approvedStudentDriving(Request $request)
+    public function approvedStudent(Request $request,$name)
     {
-        $students=Registration::where('course_category_name','ড্রাইভিং')->where('status','approved')->get();
+        $students=Registration::where('course_category_name',$name)->where('status','approved')->get();
         $menus=Menu::with('submenus')->get();
         $desigs=Designation::all();
         $cats=Pagecategory::all();
         $images=ImageSlider::all();
         $courses=Course::all();
         return view('User.approvedstudent')
-                ->with('menus',$menus)
-                ->with('desigs',$desigs)
-                ->with('cats',$cats)
-                ->with('images',$images)
-                ->with('students',$students);
-    }
-    public function approvedStudentComputer(Request $request)
-    {
-        $students=Registration::where('course_category_name','কম্পিউটার')->where('status','approved')->get();
-        $menus=Menu::with('submenus')->get();
-        $desigs=Designation::all();
-        $cats=Pagecategory::all();
-        $images=ImageSlider::all();
-        $courses=Course::all();
-        return view('User.approvedstudent')
+                ->with('courses',$courses)
                 ->with('menus',$menus)
                 ->with('desigs',$desigs)
                 ->with('cats',$cats)

@@ -11,6 +11,9 @@
 				@forelse($notices as $notice)
 					<p>{{$notice->title}}</p>
 					<p>{{$notice->description}}</p>
+					@if($notice->image)
+						<img src="{{asset('images')}}/{{$notice->image}}">
+					@endif
 					@if($notice->attachment)
 					<embed src="{{asset('files')}}/{{$notice->attachment}}" width="600px" height="830px;"></embed><br><br>
 					<a href="{{route('admin.downFile',$notice->attachment)}}" class="btn btn-primary">Download File</a>

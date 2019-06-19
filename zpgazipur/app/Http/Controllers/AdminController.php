@@ -47,6 +47,13 @@ class AdminController extends Controller
     	$notice->noticedate=$request->startdate;
     	$notice->expiredate=$request->expiredate;
     	$date1=$request->expiredate;
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imagename = time() . 'image-1.' . $image->getClientOriginalExtension();
+            $location1 = public_path('images');
+            $image->move($location1, $imagename);
+            $notice->image = $imagename;
+        }
     	if ($request->hasFile('attachment')) {
         $file = $request->file('attachment');
         $filename = time() . 'File-1.' . $file->getClientOriginalExtension();
@@ -81,6 +88,13 @@ class AdminController extends Controller
     	$notice->noticedate=$request->startdate;
     	$notice->expiredate=$request->expiredate;
     	$date1=$request->expiredate;
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imagename = time() . 'image-1.' . $image->getClientOriginalExtension();
+            $location1 = public_path('images');
+            $image->move($location1, $imagename);
+            $notice->image = $imagename;
+        }
     	if ($request->hasFile('attachment')) {
         $file = $request->file('attachment');
         $filename = time() . 'pdf-1.' . $file->getClientOriginalExtension();
@@ -493,7 +507,9 @@ class AdminController extends Controller
     public function studentCourseList(Request $request)
     {
         $students=Registration::orderby('id','desc')->get();
+        $statuss=Status::all();
         return view('Admin.studentformlist')
+                ->with('statuss',$statuss)
                 ->with('students',$students);
     }
     public function studentCourseView(Request $request,$id)
@@ -547,5 +563,13 @@ class AdminController extends Controller
         $student->save();
         $request->session()->flash('message','Data Modified');
         return redirect()->route('admin.studentCourseList');
+    }
+    public function filter(Request $request)
+    {
+        $students=Registration::orderby('id','desc')->where('status','like','%'.$request->filter.'%')->get();
+        $statuss=Status::all();
+        return view('Admin.studentformlist')
+                ->with('statuss',$statuss)
+                ->with('students',$students);
     }
 }

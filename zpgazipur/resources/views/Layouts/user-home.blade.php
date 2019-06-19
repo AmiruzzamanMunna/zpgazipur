@@ -3,6 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>জেলা পরিষদ, গাজীপুর</title>
+<head>
 <base href="http://localhost:8080/zpgazipur/">
 <meta name="description" content="জেলা পরিষদ, গাজীপুর">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,6 +12,8 @@
   <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="http://w2ui.com/src/w2ui-1.4.2.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://w2ui.com/src/w2ui-1.4.2.min.css" />
   @yield('script')
 <!-- <script src="{{asset('js')}}/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script> -->
 <!-- <link href="{{asset('js')}}/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"> -->
@@ -62,7 +65,7 @@
 	  	</div>
 	</nav>
 	<div id="common-home" class="container">
-		<div class="row">
+		<div class="">
 			<div class="col-sm-8 col-md-12">
 				<div id="demo" class="carousel slide" data-ride="carousel">
 
@@ -110,21 +113,23 @@
 				  </div>  
 				</nav> -->
 			
-		  		<nav id="menu" class="navbar navbar-expand-md">
+		  		<nav id="menu" class="navbar navbar-expand-lg navbar-light bg-light btn btn-navbar">
 		  		 	<div class="navbar-header"><span id="category" class="visible-xs"></span>
 				      <!-- <button type="button" class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target="#collapsibleNavbar"><i class="fa fa-bars"></i>
 				      </button> -->
 				    </div>
-				    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-				      	<ul class="nav navbar-nav"><br><br>
-							<li>
+				    <div class="" id="collapsibleNavbar">
+				      	<ul class="nav navbar-nav">
+							<li class="nav-item active">
 								<a href="{{route('user.index')}}"><i class="fa fa-home" style="font-size: 18px;"></i>&nbsp;&nbsp;প্রথম পাতা</a>
 							</li>
+							<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span></button>
 							@foreach($menus as $menu)
-					        <li class="dropdown open"><a href="" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">{{$menu->menu_title}}&nbsp</a>
+					        <li class="dropdown"><a href="" class="dropdown-toggle nav-item" style="margin-left: 10px;" data-toggle="dropdown" aria-expanded="true">{{$menu->menu_title}}&nbsp</a>
 								<div class="dropdown-menu" style="">
 									<div class="dropdown-inner">
-										<ul class="list-unstyled"><br>
+										<ul class="list-unstyled">
 											@forelse($menu->submenus as $sb)
 											<li><a href="{{route('user.allView',[$menu->id,$sb->id])}}">{{$sb->submenu_name}}</a></li>	
 											@empty
@@ -134,7 +139,7 @@
 					            </div>    
 					        </li>
 					        @endforeach
-					        <li class="dropdown open"><a href="" class="dropdown-toggle" data-toggle="dropdown">আবেদন ফরম&nbsp;</a>
+					        <li class="dropdown"><a href="" class="dropdown-toggle" style="margin-left: 10px;" data-toggle="dropdown">আবেদন ফরম&nbsp;</a>
 								<div class="dropdown-menu" style="">
 									<div class="dropdown-inner">
 										<ul class="list-unstyled">
@@ -142,20 +147,6 @@
 											</li>
 											<li>
 												<a href="{{route('user.studentWaiverForm')}}">শিক্ষাবৃত্তির আবেদন ফরম</a>
-											</li>
-										</ul>
-									</div>
-					            </div>
-							</li>
-							<li class="dropdown open"><a href="" class="dropdown-toggle" data-toggle="dropdown">অনুমোদিত আবেদনকারীদের তালিকা</a>
-								<div class="dropdown-menu" style="">
-									<div class="dropdown-inner">
-										<ul class="list-unstyled">
-											<li>
-												<a href="{{route('user.approvedStudentDriving')}}">ড্রাইভইন</a>
-											</li>
-											<li>
-												<a href="{{route('user.approvedStudentComputer')}}">কম্পিউটার</a>
 											</li>
 										</ul>
 									</div>
@@ -423,6 +414,7 @@
 				          <li><a href="http://localhost:8080/zpgazipur/index.php?route=account/newsletter">Newsletter</a></li>
 				        </ul>
 			      	</div> -->
+
 			    </div>
 				    <hr>
 				    <p>জেলা পরিষদ, গাজীপুর © 2019</p>

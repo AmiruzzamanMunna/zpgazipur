@@ -11,18 +11,30 @@
           </div>
         @endif
     </div>
-	<form action="{{route('admin.noticeDelete')}}" enctype="multipart/form-data" id="form-user">
-    	{{csrf_field()}}
+	<form action="{{route('admin.filter')}}" enctype="multipart/form-data" id="form-user" method="post">
 	  	<div class="page-header">
 		    <div class="container-fluid">
 		      <div class="pull-right"><a href="{{route('admin.noticeForm')}}" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title=""><i class="fa fa-plus"></i></a>
-		        <button type="submit" data-toggle="tooltip" title="" class="btn btn-danger"><a href="{{route('admin.noticeDelete')}}"><i class="fa fa-trash-o"></i></a>
+		        <button type="" data-toggle="tooltip" title="" class="btn btn-danger"><a href=""><i class="fa fa-trash-o"></i></a>
 		        </button>
 		      </div>
 		      <h1>Student Course List Information</h1>
 		      <ul class="breadcrumb">
 		      </ul>
+		      <div class="col-md-5 ml-auto"><br><br><br>
+		        	<form>
+		        		{{csrf_field()}}
+		        		<h3>Filter</h5>
+		        			<select name="filter">
+		        				@foreach($statuss as $status)
+		        				<option>{{$status->name}}</option>
+		        				@endforeach
+		        			</select>
+		        		<button type="submit" class="btn btn-primary">Submit</button><br><br>
+		        	</form>
+		        </div>
 		    </div>
+
 		  	<div class="container-fluid">
 			    <div class="panel panel-default">
 			      <div class="panel-heading">

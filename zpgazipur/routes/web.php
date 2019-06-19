@@ -26,8 +26,7 @@ Route::post('/student/admission','UserController@studentFormSave')->name('user.s
 Route::get('/student/waiver','UserController@studentWaiverForm')->name('user.studentWaiverForm');
 Route::post('/student/waiver','UserController@studentWaiverFormSave')->name('user.studentWaiverFormSave');
 Route::get('/search/result','UserController@searchResult')->name('user.searchResult');
-Route::get('/student/driving/approved','UserController@approvedStudentDriving')->name('user.approvedStudentDriving');
-Route::get('/student/computer/approved','UserController@approvedStudentComputer')->name('user.approvedStudentComputer');
+Route::get('/student/approved/{name}','UserController@approvedStudent')->name('user.approvedStudent');
 // Route::get('/layouts','UserController@layouts');
 
 
@@ -96,6 +95,8 @@ Route::get('/admin/studentcourselist','AdminController@studentCourseList')->name
 
 Route::get('/admin/studentcourseview/{id}','AdminController@studentCourseView')->name('admin.studentCourseView');
 Route::post('/admin/studentcourseview/{id}','AdminController@studentCourseViewUpdate')->name('admin.studentCourseViewUpdate');
+
+Route::post('/admin/filter','AdminController@filter')->name('admin.filter');
 
 Route::get('/admin/statusdelivered/{id}','StatusController@statusApproved')->name('admin.statusApproved');
 Route::get('/admin/statusdeclined/{id}','StatusController@statusDeclined')->name('admin.statusDeclined');

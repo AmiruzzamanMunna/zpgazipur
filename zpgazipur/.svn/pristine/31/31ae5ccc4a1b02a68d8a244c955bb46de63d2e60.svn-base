@@ -1,0 +1,57 @@
+-- phpMyAdmin SQL Dump
+-- version 4.8.4
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1:3306
+-- Generation Time: Jun 19, 2019 at 06:23 AM
+-- Server version: 5.7.24
+-- PHP Version: 7.2.14
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `zpgazipur`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `zp_course`
+--
+
+DROP TABLE IF EXISTS `zp_course`;
+CREATE TABLE IF NOT EXISTS `zp_course` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(1000) NOT NULL,
+  `year` varchar(1000) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `zp_course`
+--
+
+INSERT INTO `zp_course` (`id`, `name`, `year`) VALUES
+(6, 'অনলাইন আউট-সোর্সিং প্রশিক্ষণ', '2019-2020'),
+(5, 'বেসিক কম্পিউটার প্রশিক্ষণ', '2019-2020'),
+(4, 'বি. আর. টি. সির মাধ্যমে ড্রাইভিং প্রশিক্ষণ', '2019-2020'),
+(7, 'লেদার টেকনোলজি প্রশিক্ষণ', '2019-2020'),
+(8, 'সেলাই. ব্লক. বাটিক প্রশিক্ষণ', '2019-2020'),
+(9, 'গার্মেন্টস মান উন্নয়নের দক্ষতা বৃদ্ধি প্রশিক্ষণ', '2019-2020'),
+(10, 'মৌ চাষ প্রশিক্ষণ', '2019-2020'),
+(11, 'ইলেকট্রিক ওয়ারিং ও মেরামত প্রশিক্ষণ', '2019-2020'),
+(12, 'ওয়েল্ডিং প্রশিক্ষণ', '2019-2020');
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

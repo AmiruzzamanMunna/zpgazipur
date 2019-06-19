@@ -1,0 +1,42 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text;
+namespace Zpgazipur
+{
+    #region Zp_course
+    public class Zp_course
+    {
+        #region Member Variables
+        protected int _id;
+        protected string _name;
+        protected string _year;
+        #endregion
+        #region Constructors
+        public Zp_course() { }
+        public Zp_course(string name, string year)
+        {
+            this._name=name;
+            this._year=year;
+        }
+        #endregion
+        #region Public Properties
+        public virtual int Id
+        {
+            get {return _id;}
+            set {_id=value;}
+        }
+        public virtual string Name
+        {
+            get {return _name;}
+            set {_name=value;}
+        }
+        public virtual string Year
+        {
+            get {return _year;}
+            set {_year=value;}
+        }
+        #endregion
+    }
+    #endregion
+}
