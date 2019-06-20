@@ -1,0 +1,62 @@
+<?php $__env->startSection('title'); ?>
+	All View 
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('script'); ?>
+<script>
+$(document).ready(function() {
+
+  $(".popup_image").on('click', function() {
+    w2popup.open({
+      title: 'Image',
+      body: '<div class="w2ui-centered"><img  src="' + $(this).attr('src') + '"></img></div>',
+      width: 1000,
+      height: 1000
+    });
+  });
+
+});
+	
+$(document).ready(function(){
+    
+    $(".zoom").hover(function(){
+		
+		$(this).addClass('transition');
+	}, function(){
+        
+		$(this).removeClass('transition');
+	});
+});
+    
+
+</script>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('container'); ?>
+	<?php $__empty_1 = true; $__currentLoopData = $address; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+    <?php echo e($post->name); ?>
+
+	<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+	<h1 style="color: red;">Sorry No Data is Available !!</h1>
+	<?php endif; ?>
+<?php $__env->stopSection(); ?>
+
+
+<style>
+img.zoom {
+    width: 80%;
+    height: auto;
+    border-radius:5px;
+    object-fit:cover;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+}
+
+.transition {
+    -webkit-transform: scale(1.2); 
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+}
+</style>
+<?php echo $__env->make('Layouts.user-home', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\wamp64\www\Laravelzpgazipur\zpgazipur\resources\views/User/address.blade.php ENDPATH**/ ?>
