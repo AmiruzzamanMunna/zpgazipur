@@ -8,7 +8,7 @@
 	@forelse($desigsnation as $desig)
 		<h1>{{$desig->heading}}</h1>
 		@if($desig->image)
-			<img src="{{asset('images/catalog/Users')}}/{{$desig->image}}" class="image" style="height:200px;width:auto; margin-left:250px;">
+			<img src="{{asset('images/catalog/Users')}}/{{$desig->image}}" class="img-fluid image mx-auto d-block" style="height:200px;width:auto;">
 		@endif
 		<div style="margin-left:50px;">
 			{!!$desig->description!!}

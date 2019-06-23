@@ -152,14 +152,14 @@
 	padding-bottom: 8px;
 }
 .notice-board {
-	background: url("../image/welcome_grad.png") repeat-x scroll left top transparent;
+	background: url("/image/welcome_grad.png") repeat-x scroll left top transparent;
 	border: 1px solid #ddd;
 	background-color: #ebebeb;
 	height: auto;
 	min-height: 240px;
 }
 .notice-board-bg {
-	background-image: url("../image/bg_notice_board.png");
+	background-image: url("/image/bg_notice_board.png");
 	background-repeat: no-repeat;
 	padding: 10px 0 20px 100px;
 }
@@ -173,7 +173,7 @@
     margin-bottom: 5px;
 }
 #notice-board-ticker li {
-    background: url("../image/bullet_tick.png") no-repeat center left;
+    background: url("/image/bullet_tick.png") no-repeat center left;
 }
 #notice-board-ticker ul a {
     text-decoration: none;
@@ -264,3 +264,90 @@
 	margin-top: -7px;
 	font-size: 10px;
 }
+
+h5.videoGallery {
+    background-color: #ebebeb!important;
+    color: #fff;
+    padding: 8px;
+    margin-top: 0;
+    margin-left: 15px;
+    color: black;
+}
+.videoGallery {
+    height: auto;
+}
+.videogallarygap {
+    margin: 5px 0 0 0;
+}
+.vid-container {
+    position: relative;
+    /* padding-bottom: 52%; */
+    height: 100%;
+    float: left;
+    width: 70%;
+}
+.videogap {
+    margin: 5px -18px 0 0;
+}
+.vid-list-container {
+    width: 25%;
+    overflow: auto;
+    margin-left: 5%;
+    padding-bottom: 20px;
+    float: left;
+    height: 315px;
+}
+.vid-list {
+    width: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.vid-item {
+    display: block;
+    height: auto;
+    margin: 0;
+    width: 148px;
+}
+.thumb {
+    /* position: relative; */
+    overflow: hidden;
+    height: 84px;
+}
+.vid-item .desc {
+    color: #21A1D2;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+.whitebreak{
+	height: 10px;
+	width: 100%;
+	background: #ffff;
+}
+
+.dtls {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.bottomfooter{
+	margin-top: 20px;
+}
+.dtls-fotter{
+	margin-left: 34px;
+	color: #23a1d1;
+}
+.fotter-ul{
+	list-style: none;
+}
+#dtls li{
+    background: url("../image/bullet_tick.png") no-repeat center left;
+}
+#dtls li a{
+	margin-left: 20px;
+}
+
+.copypast{
+	text-align: center;
+}
+

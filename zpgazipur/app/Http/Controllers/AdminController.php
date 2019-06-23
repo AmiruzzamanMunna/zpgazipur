@@ -25,10 +25,6 @@ class AdminController extends Controller
     {
     	return view('Layouts.Admin');
     }
-    public function loginPage(Request $request)
-    {
-        return view('Admin.login');
-    }
     public function noticeList(Request $request)
     {
     	$notices=Notice::all();

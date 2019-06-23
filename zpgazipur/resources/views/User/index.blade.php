@@ -39,9 +39,9 @@
 						@endphp
 						@forelse($subs as $page)
 							@if($cat->id==$page->page_category_id)
-								@php
-									$page_counter++;
-								@endphp
+									<?php
+										$page_counter++
+									?>
 								@if($page_counter<=3)
 									<li id="post-684" class="post-684 post type-post status-publish format-standard has-post-thumbnail hentry category---bn">
 										<a href="{{route('user.allCategoryView',[$page->id])}}">
@@ -86,12 +86,43 @@
 								<a href="{{route('user.approvedStudent',[$course->name])}}">{{$course->name}}</a>
 							</li>
 						@endforeach
-						<!-- <li><a href="#" rel="bookmark" title="২০১৮-১৯ অর্থ বছরের গরিব ও মেধাবী ছাত্র-ছাত্রীদের শিক্ষাবৃত্তি ফরম">২০১৮-১৯ অর্থ বছরের গরিব ও মেধাবী ছাত্র-ছাত্রীদের শিক্ষাবৃত্তি ফরম</a></li>
-						<li><a href="#" rel="bookmark" title="২০১৮-১৯ অর্থ বছরের গরিব ও মেধাবী ছাত্র-ছাত্রীদের শিক্ষাবৃত্তি সংক্রান্ত বিজ্ঞপ্তি">২০১৮-১৯ অর্থ বছরের গরিব ও মেধাবী ছাত্র-ছাত্রীদের শিক্ষাবৃত্তি সংক্রান্ত বিজ্ঞপ্তি</a></li>
-						<li><a href="#" rel="bookmark" title="গাজীপুর জেলা পরিষদের ২০ তম সভার নোটিশ">গাজীপুর জেলা পরিষদের ২০ তম সভার নোটিশ</a></li>
-						<li><a href="#" rel="bookmark" title="Md Mahbub Alam (NOC)">Md Mahbub Alam (NOC)</a></li>
-						<li><a href="#" rel="bookmark" title="Mr. Md Ashraf Hossain ( NOC )">Mr. Md Ashraf Hossain ( NOC )</a></li> -->
                     </ul>
+				</div>
+			</div>
+		</div><br><br>
+		<div class="row">
+			<div class="videoGallery videogallarygap col-12">
+				<h5 class="videoGallery">ভিডিও গ্যালারী </h5>
+				<div class="vid-container videogap">
+					<iframe id="vid_frame" src="https://www.youtube.com/embed/J9vUulq4tZI" frameborder="0" width="100%" height="300" llowfullscreen="" style="margin-left: 15px;"></iframe>                   
+                </div>
+                <div class="vid-list-container">
+                    <div class="vid-list">
+                		<div class="vid-item" onclick="document.getElementById('vid_frame').src='https://www.youtube.com/embed/J9vUulq4tZI'">
+                    		<div class="thumb">
+                    			<img src="http://www.zpgazipur.org/wp-content/uploads/2015/08/Untitled-11.png">
+                    		</div>
+                            <div class="desc">৭ই মার্চ, ১৯৭১,বঙ্গবন্ধুর ঐতিহাসিক ভাষন ।</div>
+                        </div>                                         
+                        <div class="vid-item" onclick="document.getElementById('vid_frame').src='https://www.youtube.com/embed/pdVOvzl53Zg'">
+                        	<div class="thumb">
+                        		<img src="http://www.zpgazipur.org/wp-content/uploads/2018/04/digital-bangladesh101.png">
+                        	</div>
+                        	<div class="desc">Digital Bangladesh</div>
+                        </div>        
+                        <div class="vid-item" onclick="document.getElementById('vid_frame').src='https://www.youtube.com/embed/hFiIWngRPzY'">
+                          	<div class="thumb">
+	                          	<img src="http://www.zpgazipur.org/wp-content/uploads/2018/01/pm_sheikh-hasina.jpg">
+                          	</div>
+                          	<div class="desc">Jনির্বাচনী অঙ্গীকার ।</div>
+                        </div>
+                        <div class="vid-item" onclick="document.getElementById('vid_frame').src='https://www.youtube.com/embed/3zboCreFtGc'">
+                            <div class="thumb">
+                            	<img src="http://www.zpgazipur.org/wp-content/uploads/2015/08/Untitled-41.png">
+                            </div>
+                            <div class="desc">২৫শে সেপ্টম্বর ১৯৭৪,বঙ্গবন্ধুর জাতিসংঘে ভাষন ।</div>
+                        </div>                               
+                    </div>
 				</div>
 			</div>
 		</div>

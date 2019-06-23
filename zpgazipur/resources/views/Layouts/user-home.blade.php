@@ -373,7 +373,7 @@
 						<div class="add_links">
 							<div class="central-eservices">
 								<h5 class="eservice-title title-social">সামাজিক যোগাযোগ মাধ্যম</h5><br>
-								<a title="" href="https://www.facebook.com/dcgazipur" target="_blank" class="share-buttons"> 
+								<a title="" href="https://www.facebook.com/gazipurzilaporishod/" target="_blank" class="share-buttons"> 
 									<img src="{{asset('css')}}/theme/default/image/facebook.png" alt="" width="30px">
 								</a>
 								<a title=" " href="http://www.twitter.com" target="_blank" class="share-buttons"> 
@@ -395,7 +395,23 @@
   			</div>	
 		</div>
 		<footer>
-	  		<div class="container">
+			<div class="whitebreak"></div>
+	  		 	<div class="container dtls">
+	  			<div class="row" id="dtls">
+	  				@foreach($menus as $menu)
+  					<div class="bot_col col-lg-3 col-md-3 col-sm-12 col-xm-12">
+  						<h3 class="dtls-fotter">{{$menu->menu_title}}</h3><br>
+  						@foreach($menu->submenus as $sb)
+  						<ul class="fotter-ul">
+  							<li><a href="{{route('user.allView',[$menu->id,$sb->id])}}">{{$sb->submenu_name}}</a></li>
+  						</ul>
+  						@endforeach
+  					</div>
+  					@endforeach
+	  			</div>
+	  		</div>
+					<div class="whitebreak"></div>
+			<div class="container">
 			    <div class="row">
 		            <div class="col-sm-3">
 				        <!--<h5>Information</h5>
@@ -434,9 +450,11 @@
 			      	</div> -->
 
 			    </div>
-				    <hr>
-				    <p>জেলা পরিষদ, গাজীপুর © 2019</p>
-		  	</div>
+			</div>
+			<div class="copypast">
+				<hr>
+				<p>জেলা পরিষদ, গাজীপুর © 2019</p>
+			</div>
 		</footer>
 	</div>
 </body>

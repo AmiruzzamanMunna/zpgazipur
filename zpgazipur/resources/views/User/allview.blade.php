@@ -42,7 +42,7 @@ $(document).ready(function() {
 		<div class="container">
 		  <div class="content">
 		      <div class="content-overlay"></div>
-			     <img class="content-image popup_image" src="{{asset('images')}}/{{$post->image2}}" style="height:800px;width:400px; margin-left:100px;">
+			     <img class="content-image popup_image" src="{{asset('images')}}/{{$post->image2}}" style="height:500px;width:400px; margin-left:100px;">
 		      <div class="content-details fadeIn-bottom">
 		        <h4 class="content-title">View Image</h4>
 		      </div>
