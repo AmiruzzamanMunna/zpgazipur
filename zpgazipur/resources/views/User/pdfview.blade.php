@@ -48,7 +48,6 @@ $(document).ready(function(){
 				<li><a href="#" rel="bookmark" title="Md Mahbub Alam (NOC)">Md Mahbub Alam (NOC)</a></li>
 				<li><a href="#" rel="bookmark" title="Mr. Md Ashraf Hossain ( NOC )">Mr. Md Ashraf Hossain ( NOC )</a></li> -->
             </ul>
-			<a class="btn btn-primary pull-right" style="margin-right: 15px;" href="/site/view/notices" title="সকল নোটিশ">সকল</a>
 		</div>
 	</div>
 	@empty

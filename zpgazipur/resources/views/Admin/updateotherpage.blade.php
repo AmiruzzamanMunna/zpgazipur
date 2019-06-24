@@ -65,6 +65,13 @@
               <textarea class="summernote" rows="50" cols="50" name="description">{!!$other->description!!}</textarea>
             	<div class="text-danger"></div>
           </div>
+          <div class="form-group required has-error">
+            <label class="col-sm-2 control-label" for="input-username">Image 1</label>
+            <div class="col-sm-10">
+              <input type="file" name="image1" value="{{$other->image1}}" placeholder="category name" id="input-username" class="form-control">
+              <div class="text-danger"></div>
+            </div>
+          </div>
           @endforeach
       	</form>
         @if($errors->any())

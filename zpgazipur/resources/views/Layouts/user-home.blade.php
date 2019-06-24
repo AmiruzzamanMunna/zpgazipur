@@ -15,9 +15,6 @@
   <script type="text/javascript" src="http://w2ui.com/src/w2ui-1.4.2.min.js"></script>
   <link rel="stylesheet" type="text/css" href="http://w2ui.com/src/w2ui-1.4.2.min.css" />
   @yield('script')
-<!-- <script src="{{asset('js')}}/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script> -->
-<!-- <link href="{{asset('js')}}/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"> -->
-<!-- <script src="{{asset('js')}}/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script> -->
 <link href="{{asset('js')}}/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css">
 <link href="{{asset('css')}}/theme/default/stylesheet/zpgazipurstyle.css" rel="stylesheet">
@@ -56,19 +53,6 @@
 			<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
 			</script>
 		    <div id="top-links" class="nav pull-right">
-		      	<!-- <ul class="list-inline">
-			        <li>
-			        	<a href="http://localhost:8080/zpgazipur/index.php?route=information/contact"><i class="fa fa-phone"></i></a>
-			        	<span class="hidden-xs hidden-sm hidden-md">02-49261467</span><br>
-			        </li>
-			        <li class="dropdown">
-			        	<a href="http://localhost:8080/zpgazipur/index.php?route=account/account" title="Account" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <span class="hidden-xs hidden-sm hidden-md">Account</span> <span class="caret"></span></a>
-			          	<ul class="dropdown-menu dropdown-menu-right">
-	                        <li><a href="http://localhost:8080/zpgazipur/index.php?route=account/register" class="dropdown-item">Register</a></li>
-				            <li><a href="http://localhost:8080/zpgazipur/index.php?route=account/login" class="dropdown-item">Login</a></li>
-	                  	</ul>
-			        </li>
-		      	</ul> -->
 		    </div>
 	  	</div>
 	</nav>
@@ -101,26 +85,6 @@
 					    <span class="carousel-control-next-icon"></span>
 				  	</a>
 				</div>
-				<!-- <nav class="navbar navbar-expand-md bg-dark navbar-dark" id="menu">
-				  <a class="navbar-brand" href="#">Navbar</a>
-				  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-				    <span class="navbar-toggler-icon"></span>
-				  </button>
-				  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-				    <ul class="navbar-nav">
-				      <li class="nav-item">
-				        <a class="nav-link" href="#">Link</a>
-				      </li>
-				      <li class="nav-item">
-				        <a class="nav-link" href="#">Link</a>
-				      </li>
-				      <li class="nav-item">
-				        <a class="nav-link" href="#">Link</a>
-				      </li>    
-				    </ul>
-				  </div>  
-				</nav> -->
-			
 		  		<nav id="menu" class="navbar navbar-expand-lg navbar-light bg-light btn btn-navbar">
 		  		 	<div class="navbar-header"><span id="category" class="visible-xs"></span>
 				      <!-- <button type="button" class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target="#collapsibleNavbar"><i class="fa fa-bars"></i>
@@ -168,47 +132,6 @@
 									</div>
 					            </div>
 							</li>
-							<!-- <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">নির্বাচিত পরিষদ&nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></a>
-								<div class="dropdown-menu" style="">
-									<div class="dropdown-inner">
-										<ul class="list-unstyled">
-											<li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=9">চেয়ারম্যান</a></li>
-											<li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=12">প্যানেল চেয়ারম্যান</a></li>
-											<li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=13">সদস্যগণ</a></li>
-										</ul>
-									</div>
-					            </div>
-					        </li> -->
-							<!-- <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown"> কমিটি&nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></a>
-								<div class="dropdown-menu" style="">
-									<div class="dropdown-inner">
-										<ul class="list-unstyled">
-											<li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=14">সিদ্ধান্ত গ্রহণকারী কমিটি</a></li>
-											<li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=15">টেন্ডার উন্মুক্ত কমিটি</a></li>
-											<li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=16">দরপত্র মূল্যায়ন কমিটি</a></li>
-											<li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=17">গাছ মূল্যায়ন কমিটি</a></li>
-											<li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=18">এডিপি বাস্তবায়ন</a></li>
-										</ul>
-									</div>
-					            </div>
-					        </li>
-							<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">সম্পদ&nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></a>
-								<div class="dropdown-menu" style="">
-									<div class="dropdown-inner">
-										<ul class="list-unstyled">
-											<li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=19">জমি</a></li>
-											<li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=20">খেয়াঘাট</a></li>
-											<li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=21">পুকুর</a></li>
-											<li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=22">মার্কেট</a></li>
-											<li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=23">ডাকবাংলো</a></li>
-										</ul>
-									</div>
-					            </div>
-					        </li> -->
-							<!-- <li>
-								<a href="http://localhost:8080/zpgazipur/admin" class="" target="_blank">অফিসিয়াল</a>
-							</li> -->
-							
 				      	</ul>
 				    </div>
 			  	</nav><br>
@@ -236,7 +159,6 @@
 						  }
 					});
 				</script>
-				<!-- </div> -->
 			</div>
 		</div>
 		<div class="row">
@@ -259,31 +181,6 @@
 						</div>
 						@empty
 						@endforelse
-						<!-- <div class="add_links">
-							<h5 class="message-title">প্রধান নির্বাহী কর্মকর্তা</h5>
-							<a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=10" alt="প্রধান নির্বাহী কর্মকর্তা" title="">
-								<img class="img-fluid picture" src="{{asset('images')}}/catalog/Users/ddlg_jamil-ahmed.jpg" alt="" width="100%" height="45px;">
-							</a>
-							<div class="footer">
-								<p class="message-name">জনাব জামিল আহমেদ</p>
-								<p class="message-name"><a class="message-link" href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=10">বিস্তারিত</a></p>
-							</div>
-						</div>
-						<div class="add_links">
-							<a href="/site/view/district_branding_home" alt="জেলা ব্র্যান্ডিং" title="">
-								<img class="img img-responsive" src="http://bangladesh.gov.bd/sites/default/files/files/bangladesh.gov.bd/graphical_result_button/d2712647_cde4_4e80_afdc_a1ab27bcd2bd/Tamplate_DistrictBranding_b (3).png" alt="" width="100%" height="45px;">
-							</a>
-						</div>
-						<div class="add_links">
-							<a href="/site/view/sps_data" alt="সেবা সহজিকরন" title=""> 
-								<img src="http://bangladesh.gov.bd/sites/default/files/files/bangladesh.gov.bd/graphical_result_button/17dd9bb7_0856_4824_897e_6136ac6ca9b2/Tamplate_sps_bn.png" alt="" width="100%" height="45px;">
-							</a>
-						</div>
-						<div class="add_links">
-							<a href="http://online.forms.gov.bd" alt="ই-সেবার আবেদন" title=""> 
-								<img src="http://bangladesh.gov.bd/sites/default/files/files/bangladesh.gov.bd/graphical_result_button/6b8058ef_c17d_4a2d_9b26_b4779731503b/Tamplate_eservice_bn%20(1).png" alt="" width="100%" height="45px;">
-							</a>
-						</div> -->
 						<div class="add_links">
 							<table style="width:100%;table-layout:fixed;">
 								<tbody>
@@ -307,11 +204,6 @@
 								</tbody>
 							</table>
 						</div>
-						<!-- <div class="add_links">
-							 <a target="_blank" title="" href="http://webmail.mopa.gov.bd/">
-								<img src="http://localhost:8080/zpgazipur/catalog/view/theme/default/image/moopa_web_bn.jpg" alt="" width="100%">
-							 </a>
-						</div> -->
 						<div class="add_links">
 							<div class="central-eservices itemlink">
 								<h5 class="eservice-title title-central">কেন্দ্রীয় ই-সেবা</h5>
@@ -399,7 +291,7 @@
 	  		 	<div class="container dtls">
 	  			<div class="row" id="dtls">
 	  				@foreach($menus as $menu)
-  					<div class="bot_col col-lg-3 col-md-3 col-sm-12 col-xm-12">
+  					<div class="bot_col col-lg-3 col-md-3 col-sm-12 col-xm-12"><br>
   						<h3 class="dtls-fotter">{{$menu->menu_title}}</h3><br>
   						@foreach($menu->submenus as $sb)
   						<ul class="fotter-ul">
@@ -414,48 +306,19 @@
 			<div class="container">
 			    <div class="row">
 		            <div class="col-sm-3">
-				        <!--<h5>Information</h5>
-				        <ul class="list-unstyled">
-				                   <li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=4">জেলা পরিচিতি</a></li>
-				                    <li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=6">জেলা পরিষদ ইতিহাস</a></li>
-				                    <li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=3">সাংগঠনিক কাঠামো</a></li>
-				                    <li><a href="http://localhost:8080/zpgazipur/index.php?route=information/information&amp;information_id=5">জনবল</a></li>
-				                  </ul>-->
+				        
 			      	</div>
 	            	<div class="col-sm-3">
-				        <!--<h5>Customer Service</h5>
-				        <ul class="list-unstyled">
-				          <li><a href="http://localhost:8080/zpgazipur/index.php?route=information/contact">Contact Us</a></li>
-				          <li><a href="http://localhost:8080/zpgazipur/index.php?route=account/return/add">Returns</a></li>
-				          <li><a href="http://localhost:8080/zpgazipur/index.php?route=information/sitemap">Site Map</a></li>
-				        </ul>-->
 			      	</div>
 			      	<div class="col-sm-3">
-				        <!--<h5>Extras</h5>
-				        <ul class="list-unstyled">
-				          <li><a href="http://localhost:8080/zpgazipur/index.php?route=product/manufacturer">Brands</a></li>
-				          <li><a href="http://localhost:8080/zpgazipur/index.php?route=account/voucher">Gift Certificates</a></li>
-				          <li><a href="http://localhost:8080/zpgazipur/index.php?route=affiliate/login">Affiliate</a></li>
-				          <li><a href="http://localhost:8080/zpgazipur/index.php?route=product/special">Specials</a></li>
-				        </ul>-->
 			      	</div>
-			      	<!-- <div class="col-sm-3">
-				        <h5>My Account</h5>
-				        <ul class="list-unstyled">
-				          <li><a href="http://localhost:8080/zpgazipur/index.php?route=account/account">My Account</a></li>
-				          <li><a href="http://localhost:8080/zpgazipur/index.php?route=account/order">Order History</a></li>
-				          <li><a href="http://localhost:8080/zpgazipur/index.php?route=account/wishlist">Wish List</a></li>
-				          <li><a href="http://localhost:8080/zpgazipur/index.php?route=account/newsletter">Newsletter</a></li>
-				        </ul>
-			      	</div> -->
-
 			    </div>
 			</div>
 			<div class="copypast">
 				<hr>
 				<p>জেলা পরিষদ, গাজীপুর © 2019</p>
 			</div>
-		</footer>
+		</footer><br>
 	</div>
 </body>
 </html>

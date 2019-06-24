@@ -92,9 +92,9 @@
 		</div><br><br>
 		<div class="row">
 			<div class="videoGallery videogallarygap col-12">
-				<h5 class="videoGallery">ভিডিও গ্যালারী </h5>
+				<h5 class="videoGallery col-12" style="margin-left: 2px;">ভিডিও গ্যালারী </h5>
 				<div class="vid-container videogap">
-					<iframe id="vid_frame" src="https://www.youtube.com/embed/J9vUulq4tZI" frameborder="0" width="100%" height="300" llowfullscreen="" style="margin-left: 15px;"></iframe>                   
+					<iframe id="vid_frame" src="https://www.youtube.com/embed/J9vUulq4tZI" frameborder="0" width="100%" height="300" llowfullscreen="" style="margin-left: 10px;"></iframe>                   
                 </div>
                 <div class="vid-list-container">
                     <div class="vid-list">

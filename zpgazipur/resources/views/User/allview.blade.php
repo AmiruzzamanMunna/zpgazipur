@@ -34,6 +34,16 @@ $(document).ready(function() {
 		      </div>
 		  </div>
 		</div>
+  @elseif($post->image)
+  <div class="container">
+      <div class="content">
+          <div class="content-overlay"></div>
+           <img class="content-image popup_image" src="{{asset('images')}}/{{$post->image}}" style="height:500px;width:400px; margin-left:100px;">
+          <div class="content-details fadeIn-bottom">
+            <h4 class="content-title">View Image</h4>
+          </div>
+      </div>
+    </div>
   @endif
 	<div style="margin-left:50px;">
 		{!!$post->description!!}
