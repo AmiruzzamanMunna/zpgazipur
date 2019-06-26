@@ -122,5 +122,14 @@ Route::get('/admin/filter','AdminController@filter')->name('admin.filter');
 
 Route::get('/admin/statusdelivered/{id}','StatusController@statusApproved')->name('admin.statusApproved');
 Route::get('/admin/statusdeclined/{id}','StatusController@statusDeclined')->name('admin.statusDeclined');
+
+Route::get('/admin/stufflist','StuffContoller@stuffList')->name('stuff.stuffList');
+Route::get('/admin/addstuff','StuffContoller@addStuff')->name('stuff.addStuff');
+Route::post('/admin/addstuff','StuffContoller@addStuffStore')->name('stuff.addStuffStore');
+Route::get('/admin/random','StuffContoller@random');
+
+Route::get('/admin/applicationList','ApplicationController@applicationList')->name('application.applicationList');
+Route::get('/admin/addapplication','ApplicationController@addApplication')->name('application.addApplication');
+Route::post('/admin/addapplication','ApplicationController@applicationStore')->name('application.applicationStore');
 });
 

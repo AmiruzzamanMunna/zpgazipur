@@ -94,7 +94,7 @@
 			                  <td class="text-center">
 			                  	<input type="checkbox" name="selected[]" value="{{$student->id}}">
 			                  </td>
-			                  <td class="text-left">{{$i++}}</td>
+			                  <td class="text-left">{{$student->id}}</td>
 			                  <td class="text-left">{{$student->course_category_name}}</td>
 			                  <td class="text-left">{{$student->applicant_name}}</td>
 			                  <td class="text-left">{{$student->father_name}}</td>
@@ -121,7 +121,7 @@
     <div class="col-md-12">
     	<div class="row">
           	<div class="col-md-5 m-auto" style="margin-left: 600px;">
-          		
+          		{{$students->links()}}
           	</div>
       	</div>
     </div>

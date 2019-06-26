@@ -547,7 +547,7 @@ class AdminController extends Controller
     }
     public function studentCourseList(Request $request)
     {
-        $students=Registration::orderby('id','desc')->get();
+        $students=Registration::orderby('id','asc')->paginate(100);
         $statuss=Status::all();
         $i=1;
         return view('Admin.studentformlist')
@@ -609,7 +609,7 @@ class AdminController extends Controller
     }
     public function filter(Request $request)
     {
-        $students=Registration::orderby('id','desc')->where('status','like','%'.$request->filter.'%')->get();
+        $students=Registration::orderby('id','desc')->where('status','like','%'.$request->filter.'%')->paginate(100);
         $statuss=Status::all();
         $i=1;
         return view('Admin.studentformlist')

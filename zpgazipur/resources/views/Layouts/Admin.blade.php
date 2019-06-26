@@ -75,6 +75,22 @@
           </li>
         </ul>
       </li>
+      <li id="menu-extension">
+        <a href="#collapse6" data-toggle="collapse" class="parent collapsed"><i class="fa fa-puzzle-piece fw"></i>Employee</a>
+        <ul id="collapse6" class="collapse">
+          <li>    
+            <a href="{{route('stuff.stuffList')}}">Employee</a>
+          </li>
+        </ul>
+      </li>
+      <li id="menu-extension">
+        <a href="#collapse7" data-toggle="collapse" class="parent collapsed"><i class="fa fa-puzzle-piece fw"></i>Application</a>
+        <ul id="collapse7" class="collapse">
+          <li>    
+            <a href="{{route('application.applicationList')}}">Application</a>
+          </li>
+        </ul>
+      </li>
       <li id="menu-system">
         <a href="#collapse2" data-toggle="collapse" class="parent collapsed"><i class="fa fa-cog fw"></i>Pages</a> 
         <ul id="collapse2" class="collapse">
