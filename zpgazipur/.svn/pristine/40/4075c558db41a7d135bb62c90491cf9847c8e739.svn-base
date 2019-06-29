@@ -1,0 +1,61 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use App\Admin;
+use App\Employee;
+use App\DesignationPost;
+use App\ApplicationReference;
+use App\ApplicationCategories;
+use App\ApplicationReceive;
+
+class ApplicationController extends Controller
+{
+	public function applicationList(Request $request)
+	{
+		$applists=ApplicationReceive::all();
+		return view('Admin.applicationlist')
+			->with('applists',$applists);
+	}
+    public function addApplication(Request $request)
+    {
+    	$references=ApplicationReference::all();
+    	$catagories=ApplicationCategories::all();
+    	$desigs=DesignationPost::all();
+    	return view('Admin.addapplication')
+    		->with('desigs',$desigs)
+    		->with('references',$references)
+    		->with('catagories',$catagories);
+    }
+    public function applicationStore(Request $request)
+    {
+    	$request->validate([
+    		'application_category_name'=>'required',
+    		'reference_id'=>'required',
+    		'receiveddate'=>'required',
+    	]);
+    	
+        if ($request->hasFile('attachment')) {
+            $i=0;
+            foreach($request->attachment as $file){
+                $app= new ApplicationReceive();
+                $i++;
+                $filename = time()+$i . 'application.'. $file->getClientOriginalExtension();
+                $location = public_path('files');
+                // Image::make($image1->getRealPath())->resize(280, 280)->save(public_path('images/product'.$filename1));
+                $file->move($location, $filename);
+                $app->attachment = $filename;
+                $app->application_category_name=$request->application_category_name;
+                $app->reference_id=$request->reference_id;
+                $app->receiveddate=$request->receiveddate;
+                $app->stuff_id=1;
+                $app->token_id=Str::random(4).time();
+                $app->save();
+            }
+        }
+    	$request->session()->flash('message','Data Inserted');
+    	return back();
+    }
+}

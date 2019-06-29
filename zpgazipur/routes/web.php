@@ -114,6 +114,9 @@ Route::post('/admin/courseedit/{id}','AdminController@courseUpdate')->name('admi
 Route::get('/admin/courseDelete','AdminController@courseDelete')->name('admin.courseDelete');
 
 Route::get('/admin/studentcourselist','AdminController@studentCourseList')->name('admin.studentCourseList');
+Route::get('/admin/student/approved','AdminController@approved')->name('admin.approved');
+Route::get('/admin/student/pending','AdminController@pending')->name('admin.pending');
+Route::get('/admin/student/cancel','AdminController@cancel')->name('admin.cancel');
 
 Route::get('/admin/studentcourseview/{id}','AdminController@studentCourseView')->name('admin.studentCourseView');
 Route::post('/admin/studentcourseview/{id}','AdminController@studentCourseViewUpdate')->name('admin.studentCourseViewUpdate');
@@ -131,5 +134,9 @@ Route::get('/admin/random','StuffContoller@random');
 Route::get('/admin/applicationList','ApplicationController@applicationList')->name('application.applicationList');
 Route::get('/admin/addapplication','ApplicationController@addApplication')->name('application.addApplication');
 Route::post('/admin/addapplication','ApplicationController@applicationStore')->name('application.applicationStore');
+
+Route::get('/admin/application/delete','ApplicationController@deleteApplication')->name('application.deleteApplication');
+Route::get('/admin/applicationdetails/{id}','ApplicationController@applicationDetails')->name('application.applicationDetails');
+Route::post('/admin/send/','ApplicationController@testSend')->name('application.testSend');
 });
 

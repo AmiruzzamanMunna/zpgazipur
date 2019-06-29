@@ -1,0 +1,54 @@
+-- phpMyAdmin SQL Dump
+-- version 4.8.5
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1:3306
+-- Generation Time: Jun 27, 2019 at 06:35 AM
+-- Server version: 5.7.26
+-- PHP Version: 7.2.18
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `zpgazipur`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `zp_application_received`
+--
+
+DROP TABLE IF EXISTS `zp_application_received`;
+CREATE TABLE IF NOT EXISTS `zp_application_received` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `reference_id` varchar(1000) NOT NULL,
+  `application_category_name` varchar(1000) NOT NULL,
+  `receiveddate` varchar(1000) NOT NULL,
+  `stuff_id` varchar(1000) NOT NULL,
+  `token_id` varchar(1000) NOT NULL,
+  `attachment` varchar(1000) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `zp_application_received`
+--
+
+INSERT INTO `zp_application_received` (`id`, `reference_id`, `application_category_name`, `receiveddate`, `stuff_id`, `token_id`, `attachment`) VALUES
+(1, 'Public & office Reference', 'উন্নয়ন প্রকল্প গ্রহনের আবেদন', '2019-06-26', 'চেয়ারম্যান', 'H1141561548471', NULL),
+(2, 'Chairman & Members Reference', 'কম্পিউটারের জন্য আবেদন', '2019-06-26', 'অফিস সহকারী-03', 'h8zE1561549060', NULL);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 26, 2019 at 09:01 AM
+-- Generation Time: Jun 29, 2019 at 05:48 AM
 -- Server version: 5.7.26
 -- PHP Version: 7.2.18
 
@@ -25,26 +25,24 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `zp_employee`
+-- Table structure for table `zp_application_received_invoice`
 --
 
-DROP TABLE IF EXISTS `zp_employee`;
-CREATE TABLE IF NOT EXISTS `zp_employee` (
+DROP TABLE IF EXISTS `zp_application_received_invoice`;
+CREATE TABLE IF NOT EXISTS `zp_application_received_invoice` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `post_name_id` varchar(1000) NOT NULL,
-  `name` varchar(1000) NOT NULL,
-  `number` varchar(1000) DEFAULT NULL,
-  `joiningdate` varchar(1000) DEFAULT NULL,
+  `token_id` varchar(1000) NOT NULL,
+  `reference_id` varchar(1000) NOT NULL,
+  `application_category_name` varchar(1000) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `zp_employee`
+-- Dumping data for table `zp_application_received_invoice`
 --
 
-INSERT INTO `zp_employee` (`id`, `post_name_id`, `name`, `number`, `joiningdate`) VALUES
-(1, 'চেয়ারম্যান', 'জনাব আখতারউজ্জামান', '০১৭১২০৮০৭৮৫', '1953-01-23'),
-(2, 'প্রধান নির্বাহী কর্মকর্তা', 'জনাব জামিল আহমেদ', '০১৭১২১০৩২০০', NULL);
+INSERT INTO `zp_application_received_invoice` (`id`, `token_id`, `reference_id`, `application_category_name`) VALUES
+(1, 'EKFa1561785802', 'Public & office Reference', 'উন্নয়ন প্রকল্প গ্রহনের আবেদন');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

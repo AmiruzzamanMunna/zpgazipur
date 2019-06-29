@@ -17,6 +17,7 @@
 <!-- end -->
 <link href="{{asset('css')}}/bootstrap.css" type="text/css" rel="stylesheet" />
 <link href="{{asset('js')}}/javascript/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet" />
+<script src="https://kit.fontawesome.com/8c9262f7a5.js"></script>
 <script src="{{asset('js')}}/javascript/jquery/datetimepicker/moment/moment.min.js" type="text/javascript"></script>
 <script src="{{asset('js')}}/javascript/jquery/datetimepicker/moment/moment-with-locales.min.js" type="text/javascript"></script>
 <script src="{{asset('js')}}/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
@@ -30,7 +31,7 @@
 <div id="container">
 <header id="header" class="navbar navbar-static-top">
   <div class="container-fluid">
-    <div id="header-logo" class="navbar-header"><a href="" class="navbar-brand"><img src="{{asset('images')}}/Edumaster_resized.png" id="logoimage" alt="OpenCart" title="OpenCart" /></a></div>
+    <div id="header-logo" class="navbar-header"><a href="{{route('admin.index')}}" class="navbar-brand"><img src="{{asset('images')}}/Edumaster_resized.png" id="logoimage" alt="OpenCart" title="OpenCart" /></a></div>
     <a href="#" id="button-menu" class="hidden-md hidden-lg"><span class="fa fa-bars"></span></a>     
     <ul class="nav navbar-nav navbar-right">
       <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{asset('images')}}/profile-45x45.png" alt="Hishab Super" title="hishab" id="user-profile" class="img-circle" />Hishab Super <i class="fa fa-caret-down fa-fw"></i></a>
@@ -63,7 +64,7 @@
         <a href="#collapse1" data-toggle="collapse" class="parent collapsed"><i class="fa fa-cog fw"></i> Notice</a>
         <ul id="collapse1" class="collapse">
           <li>
-            <a href="{{route('admin.noticeList')}}"><i class="fa fa-dashboard fw"></i> Notice</a> 
+            <a href="{{route('admin.noticeList')}}"><i class="far fa-flag-alt"></i>Notice</a> 
           </li>
         </ul>       
       </li>
@@ -91,6 +92,23 @@
           </li>
         </ul>
       </li>
+      <li id="menu-extension">
+        <a href="#collapse8" data-toggle="collapse" class="parent collapsed"><i class="fa fa-puzzle-piece fw"></i>Student Course List</a>
+        <ul id="collapse8" class="collapse">
+          <li>    
+            <a href="{{route('admin.studentCourseList')}}">Student Course List</a>
+          </li>
+          <li>    
+            <a href="{{route('admin.approved')}}">Approved Student List</a>
+          </li>
+          <li>    
+            <a href="{{route('admin.pending')}}">Pending Student List</a>
+          </li>
+          <li>    
+            <a href="{{route('admin.cancel')}}">Cancel Student List</a>
+          </li>
+        </ul>
+      </li>
       <li id="menu-system">
         <a href="#collapse2" data-toggle="collapse" class="parent collapsed"><i class="fa fa-cog fw"></i>Pages</a> 
         <ul id="collapse2" class="collapse">
@@ -114,9 +132,6 @@
           </li>
           <li> 
             <a href="{{route('admin.gallaryImage')}}">Gallary</a>
-          </li>
-          <li> 
-            <a href="{{route('admin.studentCourseList')}}">Student Course List</a>
           </li>
           <li>
             <a href="#collapse2-1" data-toggle="collapse" class="parent collapsed">Designation</a>

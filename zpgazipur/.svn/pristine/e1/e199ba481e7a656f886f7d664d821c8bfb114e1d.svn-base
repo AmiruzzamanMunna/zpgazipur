@@ -1,0 +1,57 @@
+-- phpMyAdmin SQL Dump
+-- version 4.8.5
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1:3306
+-- Generation Time: Jun 29, 2019 at 10:08 AM
+-- Server version: 5.7.26
+-- PHP Version: 7.2.18
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `zpgazipur`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `zp_application_received`
+--
+
+DROP TABLE IF EXISTS `zp_application_received`;
+CREATE TABLE IF NOT EXISTS `zp_application_received` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `invoice_id` int(11) NOT NULL,
+  `reference_id` varchar(1000) NOT NULL,
+  `application_category_name` varchar(1000) NOT NULL,
+  `applicationname` varchar(1000) NOT NULL,
+  `applicationaddress` varchar(1000) NOT NULL,
+  `applicationnumber` varchar(1000) NOT NULL,
+  `receiveddate` varchar(1000) NOT NULL,
+  `stuff_id` varchar(1000) NOT NULL,
+  `token_id` varchar(1000) NOT NULL,
+  `attachment` varchar(1000) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `zp_application_received`
+--
+
+INSERT INTO `zp_application_received` (`id`, `invoice_id`, `reference_id`, `application_category_name`, `applicationname`, `applicationaddress`, `applicationnumber`, `receiveddate`, `stuff_id`, `token_id`, `attachment`) VALUES
+(38, 4, 'Public & office Reference', 'উন্নয়ন প্রকল্প গ্রহনের আবেদন', 'Amir', 'Gp', '1212121212', '2019-06-29', '1', 'Genx1561802864', '1561802865application.pdf');
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

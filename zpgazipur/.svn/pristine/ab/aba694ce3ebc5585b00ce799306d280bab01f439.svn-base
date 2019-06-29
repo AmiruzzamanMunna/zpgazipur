@@ -1,0 +1,58 @@
+-- phpMyAdmin SQL Dump
+-- version 4.8.5
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1:3306
+-- Generation Time: Jun 27, 2019 at 06:42 AM
+-- Server version: 5.7.26
+-- PHP Version: 7.2.18
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `zpgazipur`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `zp_application_categories`
+--
+
+DROP TABLE IF EXISTS `zp_application_categories`;
+CREATE TABLE IF NOT EXISTS `zp_application_categories` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(1000) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `zp_application_categories`
+--
+
+INSERT INTO `zp_application_categories` (`id`, `name`) VALUES
+(1, 'উন্নয়ন প্রকল্প গ্রহনের আবেদন'),
+(2, 'অনুদানের জন্য আবেদন'),
+(3, 'শিক্ষাবৃত্তির জন্য আবেদন'),
+(4, 'সেলাই মেশিনের জন্য আবেদন'),
+(5, 'হুইল চেয়ারের জন্য আবেদন'),
+(6, 'কম্পিউটারের জন্য আবেদন'),
+(7, 'কন্ট্রাক্টর আবেদন'),
+(8, 'জমি প্রাপ্তির আবেদন'),
+(9, 'দোকান প্রাপ্তির আবেদন'),
+(10, 'ঠিকাদার তালিকা ভূক্তির জন্য আবেদন'),
+(11, 'ঠিকাদার নবায়ন আবেদন');
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
