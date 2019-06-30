@@ -138,5 +138,24 @@ Route::group(['middleware'=>['adminSess']],function(){
 	Route::get('/admin/application/delete','ApplicationController@deleteApplication')->name('application.deleteApplication');
 	Route::get('/admin/applicationdetails/{id}','ApplicationController@applicationDetails')->name('application.applicationDetails');
 	Route::post('/admin/send/','ApplicationController@testSend')->name('application.testSend');
-	});
+
+	Route::get('/admin/statusdelivered/{id}','StatusController@statusApproved')->name('admin.statusApproved');
+	Route::get('/admin/statusdeclined/{id}','StatusController@statusDeclined')->name('admin.statusDeclined');
+
+	Route::get('/admin/stufflist','StuffContoller@stuffList')->name('stuff.stuffList');
+	Route::get('/admin/addstuff','StuffContoller@addStuff')->name('stuff.addStuff');
+	Route::post('/admin/addstuff','StuffContoller@addStuffStore')->name('stuff.addStuffStore');
+	Route::get('/admin/random','StuffContoller@random');
+
+	Route::get('/admin/applicationList','ApplicationController@applicationList')->name('application.applicationList');
+	Route::get('/admin/addapplication','ApplicationController@addApplication')->name('application.addApplication');
+	Route::post('/admin/addapplication','ApplicationController@applicationStore')->name('application.applicationStore');
+
+	Route::get('/admin/application/delete','ApplicationController@deleteApplication')->name('application.deleteApplication');
+	Route::get('/admin/applicationdetails/{id}','ApplicationController@applicationDetails')->name('application.applicationDetails');
+	Route::post('/admin/filesend','ApplicationController@fileSend')->name('application.fileSend');
+});
+
+
+
 

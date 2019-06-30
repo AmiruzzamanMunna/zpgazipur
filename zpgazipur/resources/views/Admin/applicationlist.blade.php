@@ -52,6 +52,9 @@
 			                  	<a href="">Applicant Token Number</a>
 			                  </td>
 			                  <td class="text-left">
+			                  	<a href="">Status</a>
+			                  </td>
+			                  <td class="text-left">
 			                  	<a href="">Action</a>
 			                  </td>
 			                </tr>
@@ -66,6 +69,7 @@
 			                  <td class="text-left">{{$applist->number}}</td>
 			                  <td class="text-left">{{$applist->application_category_name}}</td>
 			                  <td class="text-left">{{$applist->token_id}}</td>
+			                  <td class="text-left">{{$applist->status_name}}</td>
 			                  <td class="text-right"><a href="{{route('application.applicationDetails',[$applist->id])}}" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Edit"><i class="fa fa-pencil"></i></a></td>
 			                </tr>
 			                @empty

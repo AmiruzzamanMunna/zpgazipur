@@ -1,0 +1,89 @@
+<?php $__env->startSection('title'); ?>
+	Application List
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('container'); ?>
+<div id="content">
+	<div class="row">
+      	<?php if(session('message')): ?>
+          <div class="alert alert-success col-3">
+            <?php echo e(session('message')); ?>
+
+          </div>
+        <?php endif; ?>
+    </div>
+	<form action="<?php echo e(route('application.deleteApplication')); ?>" enctype="multipart/form-data" id="form-user">
+    	<?php echo e(csrf_field()); ?>
+
+	  	<div class="page-header">
+		    <div class="container-fluid">
+		      <div class="pull-right"><a href="<?php echo e(route('application.addApplication')); ?>" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title=""><i class="fa fa-plus"></i></a>
+		        <button type="submit" data-toggle="tooltip" title="" class="btn btn-danger"><a href="<?php echo e(route('application.deleteApplication')); ?>"><i class="fa fa-trash-o"></i></a>
+		        </button>
+		      </div>
+		      <h1>Application List</h1>
+		      <ul class="breadcrumb">
+		      </ul>
+		    </div>
+		  	<div class="container-fluid">
+			    <div class="panel panel-default">
+			      <div class="panel-heading">
+			        <h3 class="panel-title"><i class="fa fa-list"></i>Application List</h3>
+			      </div>
+			      <div class="panel-body">
+			          <div class="table-responsive">
+			            <table class="table table-bordered table-hover">
+			              <thead>
+			                <tr>
+			                  <td style="width: 1px;" class="text-center">
+			                  	<input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', this.checked);" />
+			                  </td>
+			                  <td class="text-left">
+			                  	<a href="">Reference By</a>
+			                  </td>
+			                  <td class="text-left">
+			                  	<a href="">Applicant's Name</a>
+			                  </td><td class="text-left">
+			                  	<a href="">Applicant's Address</a>
+			                  </td><td class="text-left">
+			                  	<a href="">Application Phone</a>
+			                  </td><td class="text-left">
+			                  	<a href="">Application Category</a>
+			                  </td>
+			                  <td class="text-left">
+			                  	<a href="">Applicant Token Number</a>
+			                  </td>
+			                  <td class="text-left">
+			                  	<a href="">Status</a>
+			                  </td>
+			                  <td class="text-left">
+			                  	<a href="">Action</a>
+			                  </td>
+			                </tr>
+			              </thead>
+			              <tbody>
+			              	<?php $__empty_1 = true; $__currentLoopData = $applists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $applist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+			            	<tr>
+			                  <td class="text-center"><input type="checkbox" name="selected[]" value="<?php echo e($applist->id); ?>"></td>
+			                  <td class="text-left"><?php echo e($applist->reference_id); ?></td>
+			                  <td class="text-left"><?php echo e($applist->name); ?></td>
+			                  <td class="text-left"><?php echo e($applist->address); ?></td>
+			                  <td class="text-left"><?php echo e($applist->number); ?></td>
+			                  <td class="text-left"><?php echo e($applist->application_category_name); ?></td>
+			                  <td class="text-left"><?php echo e($applist->token_id); ?></td>
+			                  <td class="text-left"><?php echo e($applist->status_name); ?></td>
+			                  <td class="text-right"><a href="<?php echo e(route('application.applicationDetails',[$applist->id])); ?>" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Edit"><i class="fa fa-pencil"></i></a></td>
+			                </tr>
+			                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+			                	<h1 style="color: red;">Sorry No Data is Available !!</h1>
+			                <?php endif; ?>
+			              </tbody>
+			            </table>
+			          </div>
+			      </div>
+			 	</div>
+      		</div>
+      	</div>
+    </form> 
+</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('Layouts.Admin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\Laravelzpgazipur\zpgazipur\resources\views/Admin/applicationlist.blade.php ENDPATH**/ ?>

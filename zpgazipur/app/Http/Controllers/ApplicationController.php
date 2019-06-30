@@ -6,17 +6,20 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Admin;
 use App\Employee;
+use App\Designation;
 use App\DesignationPost;
 use App\ApplicationReference;
 use App\ApplicationCategories;
 use App\ApplicationReceive;
 use App\ApplicationReceiveInvoice;
+use App\FileTransfer;
+use App\FileStatus;
 
 class ApplicationController extends Controller
 {
 	public function applicationList(Request $request)
 	{
-		$applists=ApplicationReceiveInvoice::all();
+		$applists=ApplicationReceiveInvoice::leftjoin('zp_file_status','zp_file_status.status_id','zp_application_received_invoice.status_id')->get();
 		return view('Admin.applicationlist')
 			->with('applists',$applists);
 	}
@@ -87,9 +90,28 @@ class ApplicationController extends Controller
     }
     public function applicationDetails(Request $request,$id)
     {
+        $desigs=DesignationPost::all();
         $applists=ApplicationReceive::leftjoin('zp_admin','zp_admin.id','zp_application_received.stuff_id')->where('invoice_id',$id)->get();
         return view('Admin.applicationlistdetails')
+            ->with('desigs',$desigs)
             ->with('applists',$applists);
+    }
+    public function fileSend(Request $request)
+    {
+        $file=new FileTransfer();
+        $file->applicationid=$request->applicationid;
+        $file->to_postname_id=$request->reference_id;
+        $file->filestatus=1;
+        $file->from_stuff_id=$request->session()->get('loggedAdmin');
+        $app=ApplicationReceiveInvoice::find($request->applicationid);
+        $trans=FileTransfer::where('applicationid',$request->applicationid)->first();
+        $trans->filestatus=2;
+        $app->status_id=2;
+        $trans->save();
+        $file->save();
+        $app->save();
+        $request->session()->flash('message','Record Send');
+        return redirect()->route('application.applicationList');
     }
     public function testSend(Request $request)
     {

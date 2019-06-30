@@ -65,7 +65,7 @@
 			                  	<a href="">Mother Name</a>
 			                  </td>
 			                  <td class="text-left">
-			                  	<a href="">Occupation</a>
+			                  	<a href="">Phone Number</a>
 			                  </td>
 			                  <td class="text-left">
 			                  	<a href="">Qualification</a>
@@ -98,7 +98,7 @@
 			                  <td class="text-left">{{$student->applicant_name}}</td>
 			                  <td class="text-left">{{$student->father_name}}</td>
 			                  <td class="text-left">{{$student->mother_name}}</td>
-			                  <td class="text-left">{{$student->occupation}}</td>
+			                  <td class="text-left">{{$student->mobile}}</td>
 			                  <td class="text-left">{{$student->qualification}}</td>
 			                  <td class="text-left">{{$student->previouscourse	}}</td>
 			                  <td class="text-left">{{$student->anotherappliedcourse}}</td>

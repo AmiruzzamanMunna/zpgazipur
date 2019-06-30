@@ -223,7 +223,7 @@ class UserController extends Controller
             'occupation'=>'required',
             'permanent_address'=>'required',
             'present_address'=>'required',
-            'mobile'=>'required',
+            'mobile'=>'required|digits:11',
             'qualification'=>'required',
             'nid'=>'required',
             'birthdate'=>'required',

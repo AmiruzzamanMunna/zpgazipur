@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Login</title>
+<link rel="stylesheet" href="<?php echo e(asset('css')); ?>/login.css" />
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="<?php echo e(asset('images')); ?>/logo.png" id="icon" alt="" />
+    </div>
+
+    <!-- Login Form -->
+    <form method="post" action="" enctype="multipart/form-data">
+    	<?php echo e(csrf_field()); ?>
+
+      <input type="text" id="login" class="fadeIn second" name="name" placeholder="User Name"/>
+      <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password"/>
+      <input type="submit" class="fadeIn fourth" value="Log In">
+    </form>
+  </div>
+	<?php if($errors->any()): ?>
+  	<ul>
+	    <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+	      <li><?php echo e($error); ?></li>
+	    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+  	</ul>
+	<?php endif; ?>
+	<?php if(session('message')): ?>
+      <div class="alert alert-success col-5">
+        <?php echo e(session('message')); ?>
+
+      </div>
+    <?php endif; ?>
+</div>
+</body>
+</html>
+<script>
+  // $("input").prop('required',true);
+</script><?php /**PATH E:\Laravelzpgazipur\zpgazipur\resources\views/Admin/login.blade.php ENDPATH**/ ?>

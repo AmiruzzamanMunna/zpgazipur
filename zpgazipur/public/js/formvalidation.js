@@ -18,7 +18,6 @@ $(document).ready(function(){
 				required:true,
 				minlength:11,
 				maxlength:11,
-				number:true,
 			},
 			nid:'required',
 			qualification:'required',

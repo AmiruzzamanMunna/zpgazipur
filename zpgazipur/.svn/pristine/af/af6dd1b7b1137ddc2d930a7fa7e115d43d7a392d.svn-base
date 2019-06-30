@@ -1,0 +1,79 @@
+<?php $__env->startSection('title'); ?>
+	Approved Student List
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('container'); ?>
+<div id="content col-md-12">
+	<div class="row">
+      	<?php if(session('message')): ?>
+          <div class="alert alert-success col-3">
+            <?php echo e(session('message')); ?>
+
+          </div>
+        <?php endif; ?>
+    </div>
+	<form action="<?php echo e(route('admin.noticeDelete')); ?>" enctype="multipart/form-data" id="form-user">
+    	<?php echo e(csrf_field()); ?>
+
+	  	<div class="page-header">
+		    <div class="container-fluid">
+		      <div class="pull-right">
+		      </div>
+		      <h1>Approved Student List</h1>
+		    </div><br><br>
+		  	<div class="container-fluid">
+			    <div class="panel panel-default">
+			      <div class="panel-body">
+			          <div class="table-responsive">
+			            <table class="table table-bordered table-hover">
+			              <thead>
+			                <tr>
+			                	<td class="text-left">
+			                  	<a href="">SL No.</a>
+			                  </td>
+			                  <td class="text-left">
+			                  	<a href="">Name</a>
+			                  </td>
+			                  <td class="text-left">
+			                  	<a href="">Course Name</a>
+			                  </td>
+			                  <td class="text-left">
+			                  	<a href="">Father's Name</a>
+			                  </td>
+			                  <td class="text-left">
+			                  	<a href="">Mother's Name</a>
+			                  </td>
+			                  <td class="text-left">
+			                  	<a href="">Session</a>
+			                  </td>
+			                </tr>
+			              </thead>
+			              <tbody>
+			              	<?php
+			              		$i=0;
+			              	?>
+			              	<?php $__empty_1 = true; $__currentLoopData = $students; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $student): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+			              		<?php
+			              			$i++;
+			              		?>	
+			            	<tr>
+			                  <td class="text-left"><?php echo e($i); ?></td>
+			                  <td class="text-left"><?php echo e($student->applicant_name); ?></td>
+			                  <td class="text-left"><?php echo e($student->course_category_name); ?></td>
+			                  <td class="text-left"><?php echo e($student->father_name); ?></td>
+			                  <td class="text-left"><?php echo e($student->mother_name); ?></td>
+			                  <td class="text-left"><?php echo e($student->session); ?></td>
+			                </tr>
+			                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+			                <?php endif; ?>
+			              </tbody>
+			            </table>
+			          </div>
+			      </div>
+			 	</div>
+      		</div>
+      	</div>
+    </form>
+    
+</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('Layouts.user-home', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\Laravelzpgazipur\zpgazipur\resources\views/User/approvedstudent.blade.php ENDPATH**/ ?>

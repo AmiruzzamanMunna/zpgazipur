@@ -36,10 +36,10 @@
 			                  	<a href="">Course Name</a>
 			                  </td>
 			                  <td class="text-left">
-			                  	<a href="">Address</a>
+			                  	<a href="">Father's Name</a>
 			                  </td>
 			                  <td class="text-left">
-			                  	<a href="">Phone Number</a>
+			                  	<a href="">Mother's Name</a>
 			                  </td>
 			                  <td class="text-left">
 			                  	<a href="">Session</a>
@@ -58,8 +58,8 @@
 			                  <td class="text-left">{{$i}}</td>
 			                  <td class="text-left">{{$student->applicant_name}}</td>
 			                  <td class="text-left">{{$student->course_category_name}}</td>
-			                  <td class="text-left">{{$student->present_address}}</td>
-			                  <td class="text-left">{{$student->mobile}}</td>
+			                  <td class="text-left">{{$student->father_name}}</td>
+			                  <td class="text-left">{{$student->mother_name}}</td>
 			                  <td class="text-left">{{$student->session}}</td>
 			                </tr>
 			                @empty
