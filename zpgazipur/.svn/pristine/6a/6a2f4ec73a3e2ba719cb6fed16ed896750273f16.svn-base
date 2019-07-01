@@ -1,0 +1,132 @@
+<?php $__env->startSection('title'); ?>
+	Application List
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('container'); ?>
+<div id="content">
+	<div class="row">
+      	<?php if(session('message')): ?>
+          <div class="alert alert-success col-3">
+            <?php echo e(session('message')); ?>
+
+          </div>
+        <?php endif; ?>
+    </div>
+	<form action="<?php echo e(route('application.fileSend')); ?>" method="post" enctype="multipart/form-data" id="form-user">
+    	<?php echo e(csrf_field()); ?>
+
+	  	<div class="page-header">
+		    <div class="container-fluid">
+		      <div class="pull-right"><a href="<?php echo e(route('stuff.addStuff')); ?>" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title=""><i class="fa fa-save"></i></a>
+		      </div>
+		      <h1>Application's Details Information</h1>
+		      <ul class="breadcrumb">
+		      </ul>
+		    </div>
+		  	<div class="container-fluid">
+			    <div class="panel panel-default">
+			      	<div class="panel-heading">
+				        <h3 class="panel-title"><i class="fa fa-list"></i>Application's Details List</h3>
+			      	</div>
+		      		<div class="panel-body">
+				  		<div class="col-md-6">
+				  			<?php $__currentLoopData = $applists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $applist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+				  			<input type="hidden" name="applicationid" value="<?php echo e($applist->invoice_id); ?>">
+				  			<div class="form-group required has-error row">
+					            <label class="col-sm-4 control-label" for="input-username">Reference By</label>
+					            <div class="col-sm-6">
+					              <input type="text" name="address" placeholder="Application Address" id="input-username" class="form-control" value="<?php echo e($applist->reference_id); ?>">
+					              <div class="text-danger"></div>
+					            </div>
+				          	</div>
+				          	<div class="form-group required has-error row">
+					            <label class="col-sm-4 control-label" for="input-username">Application Category</label>
+					            <div class="col-sm-6">
+					              <input type="text" name="address" placeholder="Application Address" id="input-username" class="form-control" value="<?php echo e($applist->application_category_name); ?>">
+					              <div class="text-danger"></div>
+					            </div>
+				          	</div>
+				          	<div class="form-group required has-error row">
+					            <label class="col-sm-4 control-label" for="input-username">Applicant Name</label>
+					            <div class="col-sm-6">
+					              <input type="text" name="name" placeholder="Application Name" id="input-username" class="form-control" value="<?php echo e($applist->applicationname); ?>">
+					              <div class="text-danger"></div>
+					            </div>
+				          	</div>
+				  		</div>
+				  		<div class="col-md-5">
+				          	<div class="form-group required has-error row">
+					            <label class="col-sm-4 control-label" for="input-username">Applicant Address</label>
+					            <div class="col-sm-6">
+					              <input type="text" name="address" placeholder="Application Address" id="input-username" class="form-control" value="<?php echo e($applist->applicationaddress); ?>">
+					              <div class="text-danger"></div>
+					            </div>
+				          	</div>
+				          	<div class="form-group required has-error row">
+					            <label class="col-sm-4 control-label" for="input-username">Applicant Phone</label>
+					            <div class="col-sm-6">
+					              <input type="text" name="number" placeholder="Application Address" id="input-username" class="form-control" value="<?php echo e($applist->applicationnumber); ?>">
+					              <div class="text-danger"></div>
+					            </div>
+				          	</div>
+			          		<div class="form-group required has-error row">
+					            <label class="col-sm-4 control-label" for="input-username">Received Date</label>
+					            <div class="col-sm-6">
+					              <input type="text" name="receiveddate" placeholder="Application Received Date" id="input-username" class="form-control" value="<?php echo e($applist->receiveddate); ?>">
+					              <div class="text-danger"></div>
+					            </div>
+				          	</div>
+				          	<?php break; ?>
+				          	<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+				  		</div>
+				  		<div class="container">
+					  		<div class="col-sm-6">
+						  		<table class="table table-bordered table-hover center">
+					              	<thead>
+						                <tr>
+						                  <td style="width: 1px;" class="text-center">
+						                  	<input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', this.checked);" />
+						                  </td>
+						                  <td class="text-center">
+						                  	<a href="">File</a>
+						                  </td>
+						                </tr>
+					              	</thead>
+					              	<tbody>
+						            	<?php $__currentLoopData = $applists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $applist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+							            	<tr>
+							                  <td class="text-center">
+							                  	<input type="checkbox" name="selected[]" value="">
+							                  </td>
+							                  <td class="text-right">
+							                  	<a href="<?php echo e(route('admin.downFile',$applist->attachment)); ?>" class="btn btn-primary btn-block">Download</a>
+							                  </td>
+							                </tr>
+					                	<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+					              	</tbody>
+					            </table>
+					        </div>
+					    </div>
+				    	<div class="form-group required has-error row">
+				            <label class="col-sm-2 control-label" for="input-username">Send To</label>
+				            <div class="col-sm-5">
+				              	<select name="reference_id" id="input-username" class="form-control">
+
+					                <option value="">Select</option>
+					                <?php $__currentLoopData = $desigs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $desig): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+					                <option value="<?php echo e($desig->id); ?>"><?php echo e($desig->name); ?></option>
+					                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+				              	</select>
+				              <div class="text-danger"></div>
+				            </div>
+				            <div class="col-sm-2">
+				            	<button type="submit" class="btn btn-primary">Send</button>
+				            </div>
+			          	</div>
+			      	</div>
+			 	</div>
+      		</div>
+      	</div>
+    </form> 
+</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('Layouts.Admin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH F:\wamp64\www\zpgazipur\resources\views/Admin/applicationlistdetails.blade.php ENDPATH**/ ?>
