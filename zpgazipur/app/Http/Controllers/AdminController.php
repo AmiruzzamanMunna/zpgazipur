@@ -18,6 +18,7 @@ use App\Registration;
 use App\Status;
 use App\Gallary;
 use App\Admin;
+use App\Session;
 
 class AdminController extends Controller
 {
@@ -42,14 +43,11 @@ class AdminController extends Controller
     	$request->validate([
     		'noticetitle'=>'required',
     		'startdate'=>'required',
-    		'expiredate'=>'required',
     	]);
     	$notice= new Notice();
     	$notice->title=$request->noticetitle;
     	$notice->description=$request->noticedescription;
     	$notice->noticedate=$request->startdate;
-    	$notice->expiredate=$request->expiredate;
-    	$date1=$request->expiredate;
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imagename = time() . 'image-1.' . $image->getClientOriginalExtension();
@@ -491,30 +489,42 @@ class AdminController extends Controller
     }
     public function courselist(Request $request)
     {
-        $courses=Course::all();
+        $courses=Course::leftjoin('zp_sessions','zp_sessions.session_id','zp_course.year')->get();
+        $sessions=Session::orderby('session_id','desc')->get();
         return view('Admin.courselist')
+            ->with('sessions',$sessions)
+            ->with('courses',$courses);
+    }
+    public function courseFilter(Request $request)
+    {
+        $courses=Course::leftjoin('zp_sessions','zp_sessions.session_id','zp_course.year')->where('year',$request->status_year)->get();
+        $sessions=Session::orderby('session_id','desc')->get();
+        return view('Admin.courselist')
+            ->with('sessions',$sessions)
             ->with('courses',$courses);
     }
     public function courseAdd(Request $request)
     {
-        return view('Admin.courseadd');
+        $sessions=Session::orderby('session_id','desc')->get();
+        return view('Admin.courseadd')
+                ->with('sessions',$sessions);
     }
     public function storeCourseAdd(Request $request)
     {
         $request->validate([
             'name'=>'required',
-            'year'=>'required',
+            'session_id'=>'required',
         ]);
         $course= new Course();
         $course->name=$request->name;
-        $course->year=$request->year;
+        $course->year=$request->session_id;
         $course->save();
         $request->session()->flash('message','Data Inserted');
         return redirect()->route('admin.courselist');
     }
     public function courseEdit(Request $request,$id)
     {
-        $courses=Course::where('id',$id)->get();
+        $courses=Course::leftjoin('zp_sessions','zp_sessions.session_id','zp_course.year')->where('id',$id)->get();
         return view('Admin.courseupdate')
             ->with('courses',$courses);
     }
@@ -526,7 +536,6 @@ class AdminController extends Controller
         ]);
         $course=Course::find($request->id);
         $course->name=$request->name;
-        $course->year=$request->year;
         $course->save();
         $request->session()->flash('message','Data Updated');
         return redirect()->route('admin.courselist');
@@ -545,11 +554,40 @@ class AdminController extends Controller
             return back();
         }
     }
+    public function sessionList(Request $request)
+    {
+        $sessions=Session::all();
+        return view('admin.sessionList',['sessions'=>$sessions]);
+    }
+    public function sessionAdd(Request $request)
+    {
+        return view('Admin.sessionadd');
+    }
+    public function sessionStore(Request $request)
+    {
+        $request->validate([
+            'session_name'=>'required',
+        ]);
+        $session=new Session();
+        $session->session_name=$request->session_name;
+        $session->save();
+        $request->session()->flash('message','Data Inserted');
+        return back();
+    }
+    public function sessionEdit(Request $request,$id)
+    {
+        
+    }
+    public function sessionUpdate(Request $request,$id)
+    {
+        
+    }
     public function studentCourseList(Request $request)
     {
-        $students=Registration::orderby('id','asc')->paginate(100);
+        $students=Registration::leftjoin('zp_sessions','zp_sessions.session_id','zp_registration.session')->paginate(100);
         $statuss=Status::all();
-        $courses=Course::all();
+        $sessions=Session::first();
+        $courses=Course::where('year',$sessions->session_id)->get();
         return view('Admin.studentformlist')
                 ->with('courses',$courses)
                 ->with('statuss',$statuss)
@@ -656,6 +694,10 @@ class AdminController extends Controller
         if ($request->course && $request->filter) {
 
             $students=Registration::orderby('id','desc')->where('course_category_name','like','%'.$request->course.'%')->where('status','like','%'.$request->filter.'%')->paginate(100);
+        }
+        if ($request->applicant_name && $request->filter) {
+
+            $students=Registration::orderby('id','desc')->where('applicant_name','like','%'.$request->applicant_name.'%')->where('status','like','%'.$request->filter.'%')->paginate(100);
         }
         if ($request->course && $request->applicant_name) {
             $students=Registration::orderby('id','desc')->where('course_category_name','like','%'.$request->course.'%')->where('applicant_name','like','%'.$request->applicant_name.'%')->paginate(100);

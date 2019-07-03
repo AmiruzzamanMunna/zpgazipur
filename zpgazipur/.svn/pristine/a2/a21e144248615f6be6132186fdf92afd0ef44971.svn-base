@@ -1,0 +1,161 @@
+<?php $__env->startSection('title'); ?>
+	Student Course List
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('container'); ?>
+<div id="content">
+	<div class="row">
+      	<?php if(session('message')): ?>
+          <div class="alert alert-success col-3">
+            <?php echo e(session('message')); ?>
+
+          </div>
+        <?php endif; ?>
+    </div>
+	<form action="<?php echo e(route('admin.filter')); ?>" enctype="multipart/form-data" id="form-user">
+	  	<div class="page-header">
+		    <div class="container-fluid">
+		      <div class="pull-right"><a data-toggle="tooltip" title="" class="btn btn-primary" data-original-title=""><i class="fa fa-plus"></i></a>
+		        <button type="" data-toggle="tooltip" title="" class="btn btn-danger"><a href=""><i class="fa fa-trash-o"></i></a>
+		        </button>
+		      </div>
+		      <div style="text-align: center;">
+		      	<h1>Student Course List Information</h1>
+		      </div>
+		      <ul class="breadcrumb">
+		      </ul>
+	      		<div class="">
+		        	<form class="form-inline" action="">
+		        		<?php echo e(csrf_field()); ?>
+
+		        		<h3>Filter</h5>
+		        			<div class="form-group col-md-2">
+			        			<label for="application_status">Application status</label>
+			        			<select id="application_status" class="form-control" name="filter">
+			        				<option value="0">Select--</option>
+			        				<?php $__currentLoopData = $statuss; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $status): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+			        				<option><?php echo e($status->name); ?></option>
+			        				<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+			        			</select>
+		        			</div>
+		        			<div class="form-group col-md-2">
+			        			<label for="course_name">Course Name</label>
+			        			<select name="course" class="form-control">
+			        				<option value="0">Select--</option>
+			        				<?php $__currentLoopData = $courses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $course): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+			        				<option><?php echo e($course->name); ?></option>
+			        				<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+			        			</select>
+		        			</div>
+		        			<div class="form-group col-md-2">
+			        			<label for="applicant_name">Applicant Name</label>
+			        			<input type="text" id="applicant_name" class="form-control" name="applicant_name" placeholder="Student Name">
+		        			</div>
+		        			<div class="form-group col-md-2">
+			        			<label for="mobile">Mobile Number</label>
+			        			<input type="text" id="mobile" class="form-control" name="mobile" placeholder="Phone Number">
+		        			</div><br><br>
+		        			<button type="submit" class="btn btn-primary" style="height: 32px; margin:05px;">Submit</button>
+		        	</form>
+		        </div>
+		    </div>
+		  	<div class="container-fluid">
+			    <div class="panel panel-default">
+			      <div class="panel-heading">
+			        <h3 class="panel-title"><i class="fa fa-list"></i>Student Course List</h3>
+			      </div>
+			      <div class="panel-body">
+			          <div class="table-responsive">
+			            <table class="table table-bordered table-hover">
+			              <thead>
+			                <tr>
+			                  <td style="width: 1px;" class="text-center">
+			                  	<input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', this.checked);" />
+			                  </td>
+			                  <td class="text-left">
+			                  	<a href="">SL No.</a>
+			                  </td>
+			                  <td class="text-left">
+			                  	<a href="">Course Name</a>
+			                  </td>
+			                  <td class="text-left">
+			                  	<a href="">Applicant Name</a>
+			                  </td>
+			                  <td class="text-left">
+			                  	<a href="">Father Name</a>
+			                  </td>
+			                  <td class="text-left">
+			                  	<a href="">Mother Name</a>
+			                  </td>
+			                  <td class="text-left">
+			                  	<a href="">Phone Number</a>
+			                  </td>
+			                  <td class="text-left">
+			                  	<a href="">Qualification</a>
+			                  </td>
+			                  <td class="text-left">
+			                  	<a href="">Previous Course</a>
+			                  </td>
+			                  <td class="text-left">
+			                  	<a href="">Applied Course</a>
+			                  </td>
+			                  <td class="text-left">
+			                  	<a href="">Session</a>
+			                  </td>
+			                  <td class="text-left">
+			                  	<a href="">Status</a>
+			                  </td>
+			                  <td class="text-left">
+			                  	<a href="">Action</a>
+			                  </td>
+			                </tr>
+			              </thead>
+			              <tbody>
+			              	<?php $__empty_1 = true; $__currentLoopData = $students; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $student): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+			            	<tr>
+			                  <td class="text-center">
+			                  	<input type="checkbox" name="selected[]" value="<?php echo e($student->id); ?>">
+			                  </td>
+			                  <td class="text-left"><?php echo e((($students->currentpage()-1)*$students->perpage())+$loop->iteration); ?></td>
+			                  <td class="text-left"><?php echo e($student->course_category_name); ?></td>
+			                  <td class="text-left"><?php echo e($student->applicant_name); ?></td>
+			                  <td class="text-left"><?php echo e($student->father_name); ?></td>
+			                  <td class="text-left"><?php echo e($student->mother_name); ?></td>
+			                  <td class="text-left"><?php echo e($student->mobile); ?></td>
+			                  <td class="text-left"><?php echo e($student->qualification); ?></td>
+			                  <td class="text-left"><?php echo e($student->previouscourse); ?></td>
+			                  <td class="text-left"><?php echo e($student->anotherappliedcourse); ?></td>
+			                  <td class="text-left"><?php echo e($student->session_name); ?></td>
+			                  <td class="text-left"><?php echo e($student->status); ?></td>
+			                  <td class="text-right"><a href="<?php echo e(route('admin.studentCourseView',[$student->id])); ?>" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Edit"><i class="fa fa-pencil"></i></a></td>
+			                </tr>
+			                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+			                <h1 style="color: red;">Sorry No Data is Available !!</h1>
+			                <?php endif; ?>
+			              </tbody>
+			            </table>
+			          </div>
+			      </div>
+			 	</div>
+      		</div>
+      	</div>
+      	<div class="row">
+      		<div class="col-12">
+      			<div class="row">
+      				<div class="col-4">
+      					<p style="text-align: center; font-family: sans-serif; font-size: 15px; color: #1aa3ec;">Page <?php echo e($students->currentpage()); ?> of <?php echo e($students->lastpage()); ?> (Total <?php echo e($students->total()); ?> Entries)</p> 
+      				</div>
+      			</div>
+      		</div>		 
+		</div>
+    </form>
+    <div class="col-md-12">
+    	<div class="row">
+          	<div class="col-md-5 m-auto" style="margin-left: 600px;">
+          		<?php echo e($students->links()); ?>
+
+          	</div>
+      	</div>
+    </div>
+</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('Layouts.Admin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH F:\wamp64\www\zpgazipur\resources\views/Admin/studentformlist.blade.php ENDPATH**/ ?>

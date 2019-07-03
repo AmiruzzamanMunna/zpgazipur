@@ -1,6 +1,6 @@
 @extends('Layouts.Admin')
 @section('title')
-  Notice Form
+  Designation Form
 @endsection
 @section('script')
 <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">

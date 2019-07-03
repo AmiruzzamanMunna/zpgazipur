@@ -1,6 +1,6 @@
 @extends('Layouts.Admin')
 @section('title')
-	Employe Form
+	Employee Form
 @endsection
 @section('container')
 <div id="content">
@@ -9,7 +9,7 @@
       <div class="pull-right">
         <button type="submit" href=""  form="form-user" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Save"><i class="fa fa-save"></i></button>
         <a href="" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="Cancel"><i class="fa fa-reply"></i></a></div>
-      <h1>Notice Form</h1>
+      <h1>Employee Form</h1>
       <ul class="breadcrumb">
       </ul>
     </div>
@@ -36,9 +36,9 @@
             </div>
           </div>
           <div class="form-group required has-error">
-            <label class="col-sm-2 control-label" for="name">Employe Name:</label>
+            <label class="col-sm-2 control-label" for="name">Employee Name:</label>
             <div class="col-sm-10">
-              <input type="text" name="name" placeholder="Employe Name" id="input-username" class="form-control">
+              <input type="text" name="name" placeholder="Employee Name" id="input-username" class="form-control">
             	<div class="text-danger"></div>
           	</div>
           </div>
@@ -50,7 +50,7 @@
           	</div>
           </div>
           <div class="form-group required has-error">
-            <label class="col-sm-2 control-label" for="joiningdate">Joining Date fo Employe:</label>
+            <label class="col-sm-2 control-label" for="joiningdate">Joining Date fo Employee:</label>
             <div class="col-sm-10">
               <input type="date" name="joiningdate" placeholder="Date of Joining" id="input-username" class="form-control">
                 <div class="text-danger"></div>

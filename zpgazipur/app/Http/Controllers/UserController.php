@@ -16,6 +16,7 @@ use App\Course;
 use App\Registration;
 use App\Gallary;
 use App\Address;
+use App\Session;
 
 class UserController extends Controller
 {
@@ -30,7 +31,8 @@ class UserController extends Controller
         $desigs=Designation::all();
         $cats=Pagecategory::all();
         $subs=Otherpages::orderBy('id','DESC')->get();
-        $courses=Course::all();
+        $sessions=Session::first();
+        $courses=Course::where('year',$sessions->session_id)->get();
         $menueItems=0;
         $submenuItems=0;
         foreach ($menus as $menue) {
@@ -111,7 +113,7 @@ class UserController extends Controller
         }
         $images=ImageSlider::all();
         $notices=Notice::orderBy('id','desc')->get();
-        return view('User.index')
+        return view('User.viewallnotice')
             ->with('courses',$courses)
             ->with('cats',$cats)
             ->with('desigs',$desigs)
@@ -197,19 +199,38 @@ class UserController extends Controller
                 ->with('menus',$menus)
                 ->with('submenus',$submenus);
     }
-    public function studentForm(Request $request)
+    public function preCourse(Request $request)
     {
         $address=Address::all();
         $menus=Menu::with('submenus')->get();
         $desigs=Designation::all();
         $cats=Pagecategory::all();
         $images=ImageSlider::all();
-        $courses=Course::all();
+        $sessions=Session::orderBy('session_id','desc')->take(1)->first();
+        $coursesessions=Session::all();
+        $precourse=Course::where('year',$request->Course_ID)->get();
+        return response()->json($precourse);
+    }
+    public function studentForm(Request $request)
+    {
+
+        $address=Address::all();
+        $menus=Menu::with('submenus')->get();
+        $desigs=Designation::all();
+        $cats=Pagecategory::all();
+        $images=ImageSlider::all();
+        $sessions=Session::orderBy('session_id','desc')->take(1)->first();
+        $coursesessions=Session::all();
+        $precourse=Course::where('year',$request->x)->get();
+        $courses=Course::where('year',$sessions->session_id)->get();
         return view('User.admissionregister')
             ->with('courses',$courses)
             ->with('cats',$cats)
             ->with('address',$address)
             ->with('desigs',$desigs)
+            ->with('coursesessions',$coursesessions)
+            ->with('precourse',$precourse)
+            ->with('sessions',$sessions)
             ->with('images',$images)
             ->with('menus',$menus);
     }
@@ -228,7 +249,6 @@ class UserController extends Controller
             'nid'=>'required',
             'birthdate'=>'required',
             'anotherappliedcourse'=>'different:course_category_name',
-            'session'=>'required',
         ]);
         $reg = new Registration();
         $reg->course_category_name=$request->course_category_name;
@@ -242,13 +262,14 @@ class UserController extends Controller
         $reg->qualification=$request->qualification;
         $reg->nid=$request->nid;
         $reg->birthdate=$request->birthdate;
-        if ($request->previouscourse) {
+        if ($request->sessionyear) {
+            $reg->previousyear=$request->sessionyear;
             $reg->previouscourse=$request->previouscourse;
         }
         if ($request->anotherappliedcourse) {
             $reg->anotherappliedcourse=$request->anotherappliedcourse;
         }
-        $reg->session=$request->session;
+        $reg->session=$request->session_id;
         $reg->status='New Applicantion';
         $reg->save();
         $request->session()->flash('message','Data Inserted');

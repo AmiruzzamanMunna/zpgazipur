@@ -21,9 +21,17 @@
     @endif
 	<div class="col-md-12 m-auto">
 	<h1 class="text-center">প্রশিক্ষণ কোর্সে ভর্তির আবেদন ফরম</h1>
-	<form name="validform" action="" method="post" enctype="multipart/form-data" class="form-horizontal studentform">
+	<form name="validform" action="{{route('user.studentFormSave')}}" method="post" enctype="multipart/form-data" class="form-horizontal studentform">
 		{{csrf_field()}}
         <fieldset id="account">
+	      	<div class="form-group row">
+            	<label class="col-sm-3 control-label" for="input-coursenameid">শিক্ষা বর্ষ</label>
+	            <div class="col-sm-6">
+	              	<select name="session_id" class="form-control" readonly>
+						<option value="{{$sessions->session_id}}">{{$sessions->session_name}}</option>
+				  	</select>
+			   </div>
+          	</div>
           	<div class="form-group row">
             	<label class="col-sm-3 control-label" for="input-coursenameid">প্রশিক্ষণ কোর্সের নাম</label>
 	            <div class="col-sm-6">
@@ -101,12 +109,17 @@
 	      	</div>
 		  	<div class="form-group row">
 	            <label class="col-sm-3 control-label" for="input-previouscourse">জেলা পরিষদ হতে ইতিপূর্বে কোন প্রশিক্ষণ গ্রহণ করে থাকলে তার নাম</label>
-	            <div class="col-sm-6">
-	              <select name="previouscourse" id="input-previouscourse" class="form-control">
+	            <div class="col-sm-3">
+	              <select name="sessionyear" id="sessionyear" class="form-control">
 					<option value="0">জেলা পরিষদ হতে ইতিপূর্বে কোন প্রশিক্ষণ গ্রহণ করে থাকলে তার নাম</option>
-					@foreach($courses as $course)
-						<option value="{{$course->name}}">{{$course->name}}</option>
+					@foreach($coursesessions as $sessionyear)
+						<option value="{{$sessionyear->session_id}}">{{$sessionyear->session_name}}</option>
 					@endforeach
+				  </select>
+			   	</div>
+			   	<div class="col-sm-3">
+	              <select name="previouscourse" id="previouscourse" class="form-control">
+					<option value="0">জেলা পরিষদ হতে ইতিপূর্বে কোন প্রশিক্ষণ গ্রহণ করে থাকলে তার নাম</option>
 				  </select>
 			   	</div>
           	</div>
@@ -121,12 +134,7 @@
 				  	</select>
 			   	</div>
           	</div>
-          	<div class="form-group row">
-		        <label class="col-sm-3 control-label" for="input-dateofbirth">শিক্ষা বর্ষ</label>
-		        <div class="col-sm-6">
-		          <input type="text" name="session" value="" placeholder="2019-2020" id="input-dateofbirth" class="form-control">
-	           	</div>
-	      	</div>
+          	
         </fieldset>
         <div class="buttons">
           <div class="col-sm-4"></div>
@@ -137,4 +145,31 @@
       </form>
   </div>
 </div>
+<script type="text/javascript">
+	$(document).ready(function(){
+
+		$('#sessionyear').change(function(){
+			var x=$('#sessionyear').val();
+			$.ajax({
+				type:'GET',
+				url:"{{route('user.preCourse')}}",
+				headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+				data: {
+					'Course_ID':x
+				},
+				success:function(result){
+
+					var courseOptions="";
+		            for(var i=0;i<result.length;i++){
+		                 courseOptions+='<option value="'+result[i].name+'">'+result[i].name+'</option>';
+		            }
+		            $('#previouscourse').html(courseOptions);
+				},
+				error: function(data){
+					console.log(data);
+				},
+			});
+		});
+	});
+</script>
 @endsection

@@ -45,13 +45,6 @@
           	</div>
           </div>
           <div class="form-group required has-error">
-            <label class="col-sm-2 control-label" for="input-username">Notice Expire Date</label>
-            <div class="col-sm-10">
-              <input type="date" name="expiredate" placeholder="Notice Expire Date" id="input-username" class="form-control" value="{{$notice->expiredate}}">
-                <div class="text-danger"></div>
-          	</div>
-          </div>
-          <div class="form-group required has-error">
             <label class="col-sm-2 control-label" for="input-username">Image</label>
             <div class="col-sm-10">
               <input type="file" name="image" placeholder="Insert Only Pdf or Image File" id="input-username" class="form-control" value="{{$notice->image}}">

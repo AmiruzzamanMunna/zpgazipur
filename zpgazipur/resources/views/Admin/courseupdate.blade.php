@@ -44,7 +44,7 @@
           <div class="form-group required has-error">
             <label class="col-sm-2 control-label" for="input-username">Year</label>
             <div class="col-sm-10">
-              <input type="text" name="year" placeholder="Year" id="input-username" class="form-control" value="{{$course->year}}">
+              <input type="text" name="year" placeholder="Year" id="input-username" class="form-control" value="{{$course->session_name}}">
               <div class="text-danger"></div>
             </div>
           </div>
