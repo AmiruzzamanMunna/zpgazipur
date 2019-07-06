@@ -8,7 +8,7 @@
     <div class="container-fluid">
       <div class="pull-right">
         <button type="submit" href=""  form="form-user" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Save"><i class="fa fa-save"></i></button>
-        <a href="" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="Cancel"><i class="fa fa-reply"></i></a></div>
+        <a href="{{route('admin.noticeList')}}" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="Cancel"><i class="fa fa-reply"></i></a></div>
       <h1>Notice Form</h1>
       <ul class="breadcrumb">
       </ul>
@@ -62,7 +62,7 @@
         @if($errors->any())
           <ul>
             @foreach($errors->all() as $error)
-              <li>{{$error}}</li>
+              <li style="color: red">{{$error}}</li>
             @endforeach
           </ul>
         @endif

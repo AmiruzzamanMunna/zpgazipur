@@ -24,26 +24,41 @@ class AdminController extends Controller
 {
     public function index(Request $request)
     {
-    	return view('Layouts.Admin');
+        $admins=Admin::where('id',$request->session()->get('loggedAdmin'))->get();
+    	return view('Layouts.Admin')
+                ->with('admins',$admins);
     }
     public function noticeList(Request $request)
     {
     	$notices=Notice::all();
+        $admins=Admin::where('id',$request->session()->get('loggedAdmin'))->get();
     	return view('Admin.noticelist')
-    			->with('notices',$notices);
+    			->with('admins',$admins)
+                ->with('notices',$notices);
     }
     public function noticeForm(Request $request)
     {
     	$notices=Notice::all();
+        $admins=Admin::where('id',$request->session()->get('loggedAdmin'))->get();
     	return view('Admin.addnotice')
-    		->with('notices',$notices);
+    		->with('admins',$admins)
+            ->with('notices',$notices);
     }
     public function addNotice(Request $request)
     {
-    	$request->validate([
+    	$rules=[
     		'noticetitle'=>'required',
     		'startdate'=>'required',
-    	]);
+            'image'=>'mimes:jpeg,png,jpg,gif,svg|max:5000',
+            'attachment'=>'mimes:pdf|max:5000',
+    	];
+        $mess=[
+            'noticetitle.required'=>'Notice Title is Required',
+            'startdate.required'=>'Notice Date Is Required',
+            'image.required'=>'Image Must be Jpeg,jpg,png,svg',
+            'attachment.required'=>'Attachment Must be Pdf',
+        ];
+        $request->validate($rules,$mess);
     	$notice= new Notice();
     	$notice->title=$request->noticetitle;
     	$notice->description=$request->noticedescription;
@@ -73,21 +88,23 @@ class AdminController extends Controller
     public function editNotice(Request $request,$id)
     {
     	$notices=Notice::where('id',$id)->get();
+        $admins=Admin::where('id',$request->session()->get('loggedAdmin'))->get();
     	return view('Admin.updatenotice')
-    			->with('notices',$notices);
+    			->with('admins',$admins)
+                ->with('notices',$notices);
     }
     public function updateNotice(Request $request,$id)
     {
     	$request->validate([
     		'noticetitle'=>'required',
-    		'startdate'=>'required',
-    		'expiredate'=>'required',
+            'startdate'=>'required',
+            'image'=>'mimes:jpeg,png,jpg,gif,svg|max:5000',
+            'attachment'=>'mimes:pdf|max:5000',
     	]);
     	$notice= Notice::find($request->id);
     	$notice->title=$request->noticetitle;
     	$notice->description=$request->noticedescription;
     	$notice->noticedate=$request->startdate;
-    	$notice->expiredate=$request->expiredate;
     	$date1=$request->expiredate;
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -124,15 +141,19 @@ class AdminController extends Controller
     public function allPostList(Request $request)
     {
         $posts=Post::orderby('id','DESC')->get();
+        $admins=Admin::where('id',$request->session()->get('loggedAdmin'))->get();
         return view('Admin.allpostlist')
+            ->with('admins',$admins)
             ->with('posts',$posts);
     }
     public function allPostAdd(Request $request)
     {
         $menus=Menu::all();
         $submenus=Submenu::all();
+        $admins=Admin::where('id',$request->session()->get('loggedAdmin'))->get();
         return view('Admin.create')
                 ->with('menus',$menus)
+                ->with('admins',$admins)
                 ->with('submenus',$submenus);
     }
     public function postSave(Request $request)
@@ -140,6 +161,9 @@ class AdminController extends Controller
         $request->validate([
             'menu'=>'required',
             'submenu'=>'required',
+            'attachment'=>'mimes:pdf|max:5000',
+            'image'=>'mimes:jpeg,png,jpg,gif,svg|max:5000',
+            'image1'=>'mimes:jpeg,png,jpg,gif,svg|max:5000',
         ]);
         $test=$request->submenname;
         $post= new Post();
@@ -184,8 +208,10 @@ class AdminController extends Controller
         $menus=Menu::all();
         $submenus=Submenu::all();
         $posts=Post::where('id',$id)->get();
+        $admins=Admin::where('id',$request->session()->get('loggedAdmin'))->get();
         return view('Admin.postupdate')
                 ->with('menus',$menus)
+                ->with('admins',$admins)
                 ->with('submenus',$submenus)
                 ->with('posts',$posts);
     }
@@ -248,15 +274,22 @@ class AdminController extends Controller
     public function imageList(Request $request)
     {
         $images=ImageSlider::all();
+        $admins=Admin::where('id',$request->session()->get('loggedAdmin'))->get();
         return view('Admin.imagelist')
+                ->with('admins',$admins)
                 ->with('images',$images);
     }
     public function imageForm(Request $request)
     {
-        return view('Admin.imageslider');
+        $admins=Admin::where('id',$request->session()->get('loggedAdmin'))->get();
+        return view('Admin.imageslider')
+                ->with('admins',$admins);
     }
     public function imageStore(Request $request)
     {
+        $request->validate([
+            'image.*'=>'required|mimes:jpeg,png,jpg,gif,svg|max:5000',
+        ]);
         if ($request->hasFile('image')) {
             $i=0;
             foreach($request->image as $file){
@@ -284,13 +317,16 @@ class AdminController extends Controller
     }
     public function addDesignation(Request $request)
     {
-        return view('Admin.designation');
+        $admins=Admin::where('id',$request->session()->get('loggedAdmin'))->get();
+        return view('Admin.designation')
+                ->with('admins',$admins);
     }
     public function storeDesignation(Request $request)
     {
         $request->validate([
             'heading'=>'required',
             'description'=>'required',
+            'image'=>'mimes:jpeg,png,jpg,gif,svg|max:5000',
         ]);
         $desig = new Designation();
         $desig->heading=$request->heading;
@@ -311,13 +347,17 @@ class AdminController extends Controller
     public function viewDesignation(Request $request)
     {
         $desgs=Designation::all();
+        $admins=Admin::where('id',$request->session()->get('loggedAdmin'))->get();
         return view('Admin.viewdesignation')
+                ->with('admins',$admins)
                 ->with('desgs',$desgs);
     }
     public function editDesignation(Request $request,$id)
     {
         $desgs=Designation::where('id',$id)->get();
+        $admins=Admin::where('id',$request->session()->get('loggedAdmin'))->get();
         return view('Admin.updatedesignation')
+                ->with('admins',$admins)
                 ->with('desgs',$desgs);
     }
     public function updateDesignation(Request $request,$id)
@@ -340,7 +380,9 @@ class AdminController extends Controller
     }
     public function addCategory(Request $request)
     {
-        return view('Admin.addpagecategory');
+        $admins=Admin::where('id',$request->session()->get('loggedAdmin'))->get();
+        return view('Admin.addpagecategory')
+                ->with('admins',$admins);
     }
     public function storeCategory(Request $request)
     {
@@ -366,13 +408,17 @@ class AdminController extends Controller
     public function otherPageList(Request $request)
     {
         $others=Otherpages::all();
+        $admins=Admin::where('id',$request->session()->get('loggedAdmin'))->get();
         return view('Admin.otherpagelist')
+                ->with('admins',$admins)
                 ->with('others',$others);
     }
     public function otherPageCategory(Request $request)
     {
         $menus=Pagecategory::all();
+        $admins=Admin::where('id',$request->session()->get('loggedAdmin'))->get();
         return view('Admin.otherpages')
+                ->with('admins',$admins)
                 ->with('menus',$menus);
     }
     public function storeOtherPageCategory(Request $request)
@@ -380,6 +426,8 @@ class AdminController extends Controller
         $request->validate([
             'page_category_id'=>'required',
             'title'=>'required',
+            'image'=>'mimes:jpeg,png,jpg,gif,svg|max:5000',
+            'image1'=>'mimes:jpeg,png,jpg,gif,svg|max:5000',
         ]);
         $other=new Otherpages();
         $other->page_category_id=$request->page_category_id;
@@ -410,8 +458,10 @@ class AdminController extends Controller
     public function editOtherPage(Request $request,$id)
     {
         $others=Otherpages::where('id',$id)->get();
+        $admins=Admin::where('id',$request->session()->get('loggedAdmin'))->get();
         $menus=Pagecategory::all();
         return view('Admin.updateotherpage')
+                ->with('admins',$admins)
                 ->with('others',$others)
                 ->with('menus',$menus);
 
@@ -459,7 +509,9 @@ class AdminController extends Controller
     }
     public function navMenu(Request $request)
     {
-        return view('Admin.navcategory');
+        $admins=Admin::where('id',$request->session()->get('loggedAdmin'))->get();
+        return view('Admin.navcategory')
+            ->with('admins',$admins);
     }
     public function storeNavMenu(Request $request)
     {
@@ -475,7 +527,9 @@ class AdminController extends Controller
     public function navSubMenu(Request $request)
     {
         $menus=Menu::all();
+        $admins=Admin::where('id',$request->session()->get('loggedAdmin'))->get();
         return view('Admin.navsubcategory')
+                ->with('admins',$admins)
                 ->with('menus',$menus);
     }
     public function StorenavSubMenu(Request $request)
@@ -490,8 +544,10 @@ class AdminController extends Controller
     public function courselist(Request $request)
     {
         $courses=Course::leftjoin('zp_sessions','zp_sessions.session_id','zp_course.year')->get();
+        $admins=Admin::where('id',$request->session()->get('loggedAdmin'))->get();
         $sessions=Session::orderby('session_id','desc')->get();
         return view('Admin.courselist')
+            ->with('admins',$admins)
             ->with('sessions',$sessions)
             ->with('courses',$courses);
     }
@@ -499,14 +555,18 @@ class AdminController extends Controller
     {
         $courses=Course::leftjoin('zp_sessions','zp_sessions.session_id','zp_course.year')->where('year',$request->status_year)->get();
         $sessions=Session::orderby('session_id','desc')->get();
+        $admins=Admin::where('id',$request->session()->get('loggedAdmin'))->get();
         return view('Admin.courselist')
+            ->with('admins',$admins)
             ->with('sessions',$sessions)
             ->with('courses',$courses);
     }
     public function courseAdd(Request $request)
     {
         $sessions=Session::orderby('session_id','desc')->get();
+        $admins=Admin::where('id',$request->session()->get('loggedAdmin'))->get();
         return view('Admin.courseadd')
+                ->with('admins',$admins)
                 ->with('sessions',$sessions);
     }
     public function storeCourseAdd(Request $request)
@@ -525,7 +585,9 @@ class AdminController extends Controller
     public function courseEdit(Request $request,$id)
     {
         $courses=Course::leftjoin('zp_sessions','zp_sessions.session_id','zp_course.year')->where('id',$id)->get();
+        $admins=Admin::where('id',$request->session()->get('loggedAdmin'))->get();
         return view('Admin.courseupdate')
+            ->with('admins',$admins)
             ->with('courses',$courses);
     }
     public function courseUpdate(Request $request,$id)
@@ -542,26 +604,21 @@ class AdminController extends Controller
     }
     public function courseDelete(Request $request)
     {
-        $selected=$request->selected;
-        if ($selected) {
-            foreach ($selected as $select) {
-                Course::where('id',$select)->delete();
-            }
-            $request->session()->flash('message','Data Delected Successfully');
-            return back();
-        }else{
-            $request->session()->flash('message','Sorry No checkbox Selected');
-            return back();
+        $ids=$request->ids;
+        if ($ids) {
+            Course::wherein('id',explode(",",$ids))->delete();
         }
     }
     public function sessionList(Request $request)
     {
         $sessions=Session::all();
-        return view('admin.sessionList',['sessions'=>$sessions]);
+        $admins=Admin::where('id',$request->session()->get('loggedAdmin'))->get();
+        return view('admin.sessionList',['sessions'=>$sessions,'admins'=>$admins]);
     }
     public function sessionAdd(Request $request)
     {
-        return view('Admin.sessionadd');
+        $admins=Admin::where('id',$request->session()->get('loggedAdmin'))->get();
+        return view('Admin.sessionadd',['admins'=>$admins]);
     }
     public function sessionStore(Request $request)
     {
@@ -576,30 +633,46 @@ class AdminController extends Controller
     }
     public function sessionEdit(Request $request,$id)
     {
-        
+        $sessions=Session::where('session_id','=',$id)->get();
+        $admins=Admin::where('id',$request->session()->get('loggedAdmin'))->get();
+        return view('Admin.updatesession')
+            ->with('admins',$admins)
+            ->with('sessions',$sessions);
     }
     public function sessionUpdate(Request $request,$id)
     {
-        
+        $request->validate([
+            'session_name'=>'required',
+        ]);
+        $sessions=Session::where('session_id','=',$id)->update([
+
+            'session_name'=>$request->session_name,
+        ]);
+        $request->session()->flash('message','Data Updated Inserted');
+        return redirect()->route('admin.sessionList');
     }
     public function studentCourseList(Request $request)
     {
         $students=Registration::leftjoin('zp_sessions','zp_sessions.session_id','zp_registration.session')->paginate(100);
+        $admins=Admin::where('id',$request->session()->get('loggedAdmin'))->get();
         $statuss=Status::all();
         $sessions=Session::first();
         $courses=Course::where('year',$sessions->session_id)->get();
         return view('Admin.studentformlist')
                 ->with('courses',$courses)
+                ->with('admins',$admins)
                 ->with('statuss',$statuss)
                 ->with('students',$students);
     }
     public function studentCourseView(Request $request,$id)
     {
-        $students=Registration::where('id',$id)->get();
+        $students=Registration::leftjoin('zp_sessions','zp_sessions.session_id','zp_registration.session')->where('id',$id)->get();
         $statuss=Status::all();
         $courses=Course::all();
+        $admins=Admin::where('id',$request->session()->get('loggedAdmin'))->get();
         return view('Admin.studentstatus')
             ->with('statuss',$statuss)
+            ->with('admins',$admins)
             ->with('courses',$courses)
             ->with('students',$students);
     }
@@ -617,7 +690,6 @@ class AdminController extends Controller
             'qualification'=>'required',
             'nid'=>'required',
             'birthdate'=>'required',
-            'session'=>'required',
             'status'=>'required',
         ]);
         $student=Registration::find($request->id);
@@ -639,7 +711,6 @@ class AdminController extends Controller
             $student->anotherappliedcourse=$request->anotherappliedcourse;
         }
         
-        $student->session=$request->session;
         $student->status=$request->status;
         $student->save();
         $request->session()->flash('message','Data Modified');
@@ -649,30 +720,42 @@ class AdminController extends Controller
     {
     	$students=Registration::where('status','Approved')->paginate(100);
     	$statuss=Status::all();
-        $courses=Course::all();
+        $admins=Admin::where('id',$request->session()->get('loggedAdmin'))->get();
+        $sessions=Session::first();
+        $courses=Course::where('year',$sessions->session_id)->get();
     	return view('Admin.studentformlist')
     			->with('statuss',$statuss)
                 ->with('courses',$courses)
+                ->with('admins',$admins)
+                ->with('sessions',$sessions)
     			->with('students',$students);
     }
     public function pending(Request $request)
     {
     	$students=Registration::where('status','Pending')->paginate(100);
     	$statuss=Status::all();
-        $courses=Course::all();
+        $admins=Admin::where('id',$request->session()->get('loggedAdmin'))->get();
+        $sessions=Session::first();
+        $courses=Course::where('year',$sessions->session_id)->get();
     	return view('Admin.studentformlist')
     			->with('statuss',$statuss)
+                ->with('admins',$admins)
                 ->with('courses',$courses)
+                ->with('sessions',$sessions)
     			->with('students',$students);
     }
     public function cancel(Request $request)
     {
     	$students=Registration::where('status','Cancel')->paginate(100);
     	$statuss=Status::all();
-        $courses=Course::all();
+        $admins=Admin::where('id',$request->session()->get('loggedAdmin'))->get();
+        $sessions=Session::first();
+        $courses=Course::where('year',$sessions->session_id)->get();
     	return view('Admin.studentformlist')
     			->with('statuss',$statuss)
+                ->with('admins',$admins)
                 ->with('courses',$courses)
+                ->with('sessions',$sessions)
     			->with('students',$students);
     }
     public function filter(Request $request)
@@ -712,10 +795,12 @@ class AdminController extends Controller
             $students=Registration::orderby('id','desc')->where('applicant_name','like','%'.$request->applicant_name.'%')->where('course_category_name','like','%'.$request->course.'%')->where('mobile','like','%'.$request->mobile.'%')->where('status','like','%'.$request->filter.'%')->paginate(100);
         }
         $statuss=Status::all();
-        $i=5;
-        $courses=Course::all();
+        $admins=Admin::where('id',$request->session()->get('loggedAdmin'))->get();
+        $sessions=Session::first();
+        $courses=Course::where('year',$sessions->session_id)->get();
         return view('Admin.studentformlist')
-                ->with('i',$i)
+                ->with('sessions',$sessions)
+                ->with('admins',$admins)
                 ->with('statuss',$statuss)
                 ->with('courses',$courses)
                 ->with('students',$students);
@@ -723,15 +808,22 @@ class AdminController extends Controller
     public function gallaryImage(Request $request)
     {
         $images=Gallary::all();
+        $admins=Admin::where('id',$request->session()->get('loggedAdmin'))->get();
         return view('Admin.gallarylist')
+            ->with('admins',$admins)
             ->with('images',$images);
     }
     public function addgallary(Request $request)
     {
-        return view('Admin.addgallary');
+        $admins=Admin::where('id',$request->session()->get('loggedAdmin'))->get();
+        return view('Admin.addgallary')
+                ->with('admins',$admins);
     }
     public function addGallarySave(Request $request)
     {
+        $request->validate([
+            'image.*'=>'required|mimes:jpeg,png,jpg,gif,svg|max:5000',
+        ]);
         if ($request->hasFile('image')) {
             $i=0;
             foreach($request->image as $file){
@@ -759,13 +851,17 @@ class AdminController extends Controller
     }
     public function adminList(Request $request)
     {
-        $admins=Admin::all();
+        $adminss=Admin::all();
+        $admins=Admin::where('id',$request->session()->get('loggedAdmin'))->get();
         return view('Admin.adminlist')
+            ->with('adminss',$adminss)
             ->with('admins',$admins);
     }
     public function addAdmin(Request $request)
     {
-        return view('Admin.addadmin');
+        $admins=Admin::where('id',$request->session()->get('loggedAdmin'))->get();
+        return view('Admin.addadmin')
+                ->with('admins',$admins);
     }
     public function adminStore(Request $request)
     {
@@ -790,9 +886,11 @@ class AdminController extends Controller
     }
     public function editAdmin(Request $request,$id)
     {
-        $admins=Admin::where('id',$id)->get();
+        $admins=Admin::where('id',$request->session()->get('loggedAdmin'))->get();
+        $adminss=Admin::where('id',$id)->get();
         return view('Admin.updateadmin')
-            ->with('admins',$admins);
+            ->with('admins',$admins)
+            ->with('adminss',$adminss);
     }
     public function adminUpdate(Request $request,$id)
     {

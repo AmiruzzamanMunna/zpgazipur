@@ -19,7 +19,7 @@
     <div class="container-fluid">
       <div class="pull-right">
         <button type="submit" href=""  form="form-user" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Save"><i class="fa fa-save"></i></button>
-        <a href="" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="Cancel"><i class="fa fa-reply"></i></a></div>
+        <a href="{{route('admin.adminList')}}" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="Cancel"><i class="fa fa-reply"></i></a></div>
       <h1>Admin Add</h1>
       <ul class="breadcrumb">
       </ul>
@@ -33,7 +33,7 @@
       <div class="panel-body">
         <form action="" method="post" enctype="multipart/form-data" id="form-user" class="form-horizontal">
           {{csrf_field()}}
-          @foreach($admins as $admin)
+          @foreach($adminss as $admin)
           <div class="form-group required has-error">
             <label class="col-sm-2 control-label" for="input-username">Name</label>
             <div class="col-sm-10">
@@ -81,7 +81,7 @@
         @if($errors->any())
           <ul>
             @foreach($errors->all() as $error)
-              <li>{{$error}}</li>
+              <li style="color: red;">{{$error}}</li>
             @endforeach
           </ul>
         @endif

@@ -1,0 +1,110 @@
+<?php $__env->startSection('title'); ?>
+	All Creating Form
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('script'); ?>
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>  
+  <script>
+    $(document).ready(function() {
+        $('.summernote').summernote({
+          height:400,
+        });
+    });
+</script>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('container'); ?>
+<div id="content">
+  <div class="page-header">
+    <div class="container-fluid">
+      <div class="pull-right">
+        <button type="submit" href=""  form="form-user" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Save"><i class="fa fa-save"></i></button>
+        <a href="<?php echo e(route('admin.allPostList')); ?>" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="Cancel"><i class="fa fa-reply"></i></a></div>
+      <h1>All Post Form</h1>
+      <ul class="breadcrumb">
+      </ul>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-pencil"></i> </h3>
+      </div>
+      <div class="panel-body">
+        <form action="" method="post" enctype="multipart/form-data" id="form-user" class="form-horizontal">
+          <?php echo e(csrf_field()); ?>
+
+          <div class="form-group required has-error">
+            <label class="col-sm-2 control-label" for="input-username">Menu</label>
+            <div class="form-group row">
+              <div class="col-md-8">
+                <select class="form-control" name="menu">
+                  <option>Select---</option>
+                  <?php $__currentLoopData = $menus; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $menu): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                  <option value="<?php echo e($menu->id); ?>"><?php echo e($menu->menu_title); ?></option>
+                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-group required has-error">
+            <label class="col-sm-2 control-label" for="input-username">Sub Menu</label>
+            <div class="form-group row">
+              <div class="col-md-8">
+                <select class="form-control" name="submenu">
+                  <option>Select---</option>
+                  <?php $__currentLoopData = $submenus; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $submenu): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                  <option value="<?php echo e($submenu->id); ?>"><?php echo e($submenu->submenu_name); ?></option>
+                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-group required has-error">
+            <label class="col-sm-2 control-label" for="input-username">Attachment Title</label>
+              <input type="text" name="attachment_title" id="input-username" class="col-md-8">
+              <div class="text-danger"></div>
+          </div>
+          <div class="form-group required has-error">
+            <label class="col-sm-2 control-label" for="input-username">Attachment</label>
+              <input type="file" name="attachment" >
+              <div class="text-danger"></div>
+          </div>
+          <div class="form-group required has-error">
+            <label class="col-sm-2 control-label" for="input-username">Image</label>
+              <input type="file" name="image" class="col-sm-1">
+              <label class="col-sm-1 control-label" for="input-username">Height</label>
+              <input type="text" name="length" class="col-md-2" placeholder="for image">
+              <label class="col-sm-1 control-label" for="input-username">Width</label>
+              <input type="text" name="width" class="col-md-2" placeholder="for image">
+              <div class="text-danger"></div>
+          </div>
+          <div class="form-group required has-error">
+            <label class="col-sm-2 control-label" for="input-username" id="description">Description</label><br><br><br>
+              <textarea class="summernote" rows="50" cols="50" name="description"></textarea>
+            	<div class="text-danger"></div>
+          </div>
+          <div class="form-group required has-error">
+            <label class="col-sm-2 control-label" for="input-username">Image 1</label>
+              <input type="file" name="image1">
+              <div class="text-danger"></div>
+          </div>
+      	</form>
+        <?php if($errors->any()): ?>
+          <ul>
+            <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <li><?php echo e($error); ?></li>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+          </ul>
+        <?php endif; ?>
+        <?php if(session('message')): ?>
+          <div class="alert alert-success col-5">
+            <?php echo e(session('message')); ?>
+
+          </div>
+        <?php endif; ?>
+  	  </div>  
+    </div>
+  </div>
+</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('Layouts.Admin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\Laravelzpgazipur\zpgazipur\resources\views/Admin/create.blade.php ENDPATH**/ ?>
